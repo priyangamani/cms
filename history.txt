@@ -1,0 +1,1000 @@
+  616  cd ../oct/public_html_oct/
+  617  ls
+  618  cd wp-content/plugins/
+  619  ls
+  620  cat index.php 
+  621  exit
+  622  cd /var/www/html
+  623  ssh travehw2@103.21.59.201
+  624  ls
+  625  cd travelshop/
+  626  clear
+  627  wp theme list
+  628  wp plugin list
+  629  wp theme activate alizee
+  630  wp theme activate accesspress-lite
+  631  cd ../
+  632  mv travelshop/ wordpress
+  633  clear
+  634  cd wordpress
+  635  wp theme activate alizee
+  636  scp -r travehw2@103.21.59.201
+  637  ssh travehw2@103.21.59.201
+  638  exit
+  639  cd ts/public_html/wp-content/
+  640  cd plugins/
+  641  ls
+  642  clear
+  643  ls
+  644  nano index.php 
+  645  scp -r index.php travehw2@103.21.59.201:/home/travehw2/public_html/wp-content/plugins
+  646  cd ../../adthowbahajjandumrah.com/
+  647  ls
+  648  scp -r index.php travehw2@103.21.59.201:/home/travehw2/public_html/adthowbahajjandumrah.com
+  649  cat index.
+  650  cat index.php 
+  651  scp -r index.php travehw2@103.21.59.201:/home/travehw2/public_html/adthowbahajjandumrah.com
+  652  scp -r wp-config-sample.php wp-config.php   travehw2@103.21.59.201:/home/travehw2/public_html/adthowbahajjandumrah.com
+  653  cd ../
+  654  cd wordpress/
+  655  wp theme list
+  656  cd ../
+  657  clear
+  658  ls
+  659  mv wordpress wordpress_moon
+  660  unzip wordpress-4.8.2.zip alizee
+  661  unzip wordpress-4.8.2.zip
+  662  mv wordpress alizee
+  663  sudo chmod -R 777 alizee
+  664  clear
+  665  ls
+  666  cd alizee/
+  667  ls
+  668  cd ../
+  669  mysql -u root -p
+  670  sudo chmod -R 777 alizee
+  671  clear
+  672  pwd
+  673  ls
+  674  cd ts
+  675  ls
+  676  cd public_html/
+  677  ls
+  678  clear
+  679  ls
+  680  cd ../
+  681  cp -rf public_html/ ts_public_html
+  682  cd ts_public_html/
+  683  ls
+  684  rm -rf adthowbahajjandumrah.com/
+  685  rm travelshoptour.net/
+  686  rm -rf travelshoptour.net/ visa/ wp.zip tamilnadu/
+  687  ls
+  688  rm index_1.html 
+  689  rm index_1.php 
+  690  cd database/
+  691  ls
+  692  cd ../
+  693  clear
+  694  ls
+  695  cd ../
+  696  date 
+  697  cd data
+  698  cd ts_public_html/database/
+  699  ll
+  700  cd ../
+  701  clear
+  702  ls
+  703  cd ts
+  704  ls
+  705  cd ../
+  706  rm -rf ts
+  707  cd database/
+  708  ls
+  709  mysql -u root -p
+  710  cd ../
+  711  mv ts_public_html/ travelshop
+  712  cd ../
+  713  cd ts
+  714  mv travelshop/ ../
+  715  cd ../
+  716  sudo chmod -R 777 travelshop/
+  717  clear
+  718  cd ts
+  719  ls
+  720  mkdir oct_30_bk
+  721  cd oct_30_bk/
+  722  ckear
+  723  cleaar
+  724  clear
+  725  scp -r travehw2@103.21.59.201:/home/travehw2/public_html/public_html_nov.zip .
+  726  exit
+  727  ssh travehw2@103.21.59.201
+  728  exit
+  729  ssh travehw2@103.21.59.201
+  730  pwd
+  731  ssh travehw2@103.21.59.201
+  732  exit
+  733  ssh root@194.135.87.10
+  734  ping 194.135.87.10
+  735  exit
+  736  cd /var/www/html/photography/
+  737  sudo chmod -R 777 *
+  738  wp theme list
+  739  wp plugin list
+  740  ifconfig
+  741  wp version
+  742  wp help
+  743  wp --ver
+  744  cd ../
+  745  clear
+  746  nano phpinfo.php
+  747  cd /etc/apache2/
+  748  nano apache2.conf 
+  749  sudo nano apache2.conf 
+  750  service apache2 restart
+  751  sudoservice apache2 restart
+  752  sudo service apache2 restart
+  753  sudo a2enmod rewrite
+  754  sudo service apache2 restart
+  755  pw
+  756  pwd
+  757  clear
+  758  exit
+  759  cd /var/www/html
+  760  ssh root@194.135.87.10
+  761  ssh travehw2@103.21.59.201
+  762  exit
+  763  cd /var/www/html/wordpress_moon/wp-content/plugins/advanced-custom-fields-pro
+  764  grep -r "location_dot"
+  765  ls
+  766  cd ../
+  767  grep -r "location_dot"
+  768  exit
+  769  cd /var/www/thml
+  770  cd /var/www/html
+  771  clear
+  772  pwd
+  773  ls
+  774  cd wordpress_moon/
+  775  wp theme list
+  776  wp plugin list
+  777  cd ../wordpress
+  778  cd ../
+  779  clear
+  780  ls
+  781  cd photography
+  782  wp theme list
+  783  wp plugin list
+  784  wp version
+  785  wp --\ver
+  786  wp --ver
+  787  wp v
+  788  cd wp-content/plugins/
+  789  ls
+  790  cd advanced-custom-fields-pro/
+  791  ls
+  792  grep -r "location_dot"
+  793  cd ../../
+  794  grep -r "location_dot"
+  795  wp theme list
+  796  wp plugin list
+  797  pwd
+  798  cd
+  799  cd Downloads/
+  800  l;s
+  801  clear
+  802  ls
+  803  mkdir avada
+  804  mv 5.2.* avada/
+  805  mv Avada.zip avada/
+  806  cd avada/
+  807  ls
+  808  unzip *
+  809  ls
+  810  unzip 5.2.1_premium_plugin.zip 
+  811  ls
+  812  cd LayerSlider/
+  813  ls
+  814  cd ../
+  815  mkdir 5.2.1_premium_plugin
+  816  mv 5.2.1_premium_plugin.zip 5.2.1_premium_plugin
+  817  mv LayerSlider/ revslider/ 5.2.1_premium_plugin/
+  818  lss
+  819  clear
+  820  ls
+  821  mkdir 5.2.2_full
+  822  mv 5.2.2_full.zip 5.2.2_full
+  823  cd 5.2.2_full
+  824  ls
+  825  unzip 5.2.2_full.zip 
+  826  ls
+  827  cd ../
+  828  clear
+  829  ls
+  830  mkdir Avada
+  831  mv Avada.zip Avada
+  832  cd Avada/
+  833  unzip Avada.zip 
+  834  ls
+  835  cd Avada/
+  836  ;s
+  837  clear
+  838  ls
+  839  cd ../
+  840  cp -rf Avada /var/www/html/avada
+  841  cd /var/www/html
+  842  cd avada/
+  843  ls
+  844  clear
+  845  ls
+  846  nano 0\ -\ READ\ ME\ FIRST.rtf 
+  847  du -sh
+  848  cd ../
+  849  cp -rf avada/ photography/wp-content/plugins/
+  850  cd photography/
+  851  wp theme list
+  852  wp plugin list
+  853  cd wp-content/plugins/
+  854  mv avada/ ../themes/
+  855  cd ../
+  856  clear
+  857  wp theme list
+  858  wp theme activate avada
+  859  cd themes/avada/
+  860  ls
+  861  nan header.php 
+  862  nano header.php 
+  863  cd /var/www/html/photography/
+  864  clear
+  865  pwd
+  866  ls
+  867  wp theme list
+  868  wp theme activate moon
+  869  wp theme list
+  870  wp plugin list
+  871  wp plugin deactivate advanced-responsive-video-embedder
+  872  wp plugin deactivate birchschedule
+  873  wp plugin activate birchschedule
+  874  wp plugin activate advanced-responsive-video-embedder
+  875  wp plugin deactivate birchschedule
+  876  cd wp-content/plugins/
+  877  grep -r "select2-chosen"
+  878  ;s
+  879  ls
+  880  cd birchschedule/
+  881  grep -r "select2-chosen"
+  882  grep -r "select2-arrow"
+  883  grep -r "select2-offscreen"
+  884  ls
+  885  grep -r "select2-default"
+  886  grep -r "select2-chosen-1"
+  887  grep -r "select2-choice"
+  888  cd /var/www/html/photography/
+  889  clear
+  890  wp theme list
+  891  wp theme actiavte avada
+  892  wp theme activate avada
+  893  cd /var/www/html
+  894  cd photography/
+  895  sudo chmod -R 777 *
+  896  wp theme list
+  897  wp theme actiate main-file/tasveer
+  898  wp theme activate main-file/tasveer
+  899  wp theme list
+  900  wp plugin list
+  901  exit
+  902  mysql -u root -p
+  903  cd /var/www/html/vportal/
+  904  php artisan make:model User
+  905  php artisan make:model tamilvanan
+  906  cd /var/www/html/mzapp
+  907  cd /var/www/html/
+  908  cler
+  909  clear
+  910  cd photography/
+  911  clear
+  912  wp theme list
+  913  wp plugin list
+  914  wp plugin deactivate advanced-custom-fields-pro
+  915  cd ../wp
+  916  clear
+  917  wp theme list
+  918  cd ../
+  919  sudo chmod -R 777 wpo
+  920  sudo chmod -R 777 wp
+  921  cd wp
+  922  wp theme list
+  923  wp theme activate main-file/tasveer
+  924  cd ../
+  925  sudo chmod -R 777 wp
+  926  cd wp
+  927  wp plugin list
+  928  wp plugin activate duplicate-post
+  929  exit
+  930  cd /var/www/html
+  931  mysqldump -u root -p wp_20_11_2017 > wp_20_11_2017.sql
+  932  mv wp_20_11_2017.sql wp/database/
+  933  zip -r wp_20_11_17.zip wp
+  934  cp -rf wp_20_11_17.zip /media/tam/C068-DDA5/
+  935  exit
+  936  zip
+  937  clear
+  938  top
+  939  cd /var/www/html/photography/
+  940  wp theme acticate moon
+  941  wp theme activate moon
+  942  wp theme list
+  943  pwd
+  944  ;s
+  945  ls
+  946  nano wp-config.php 
+  947  wp plugin list
+  948  wp plugin deactivate advanced-custom-fields
+  949  wp plugin activate advanced-custom-fields-pro
+  950  pwd
+  951  cd /etc/apache2/
+  952  ls
+  953  cd ../php5/
+  954  ls
+  955  cd apache2/
+  956  ls
+  957  sudo nano php.ini
+  958  sudo service apache2 restart
+  959  cd /var/www/html/wp/
+  960  nano wp-config.php 
+  961  cd database/
+  962  mysqdump -u root -p wp_20_11_2017 > wp_20_11_2017.lsq
+  963  mysqdump -u root -p wp_20_11_2017 > wp_20_11_2017.sql
+  964  mysqldump -u root -p wp_20_11_2017 > wp_20_11_2017.sql
+  965  ls
+  966  cd ../../
+  967  sudo apt-get install nodejs 
+  968  sudo apt-get install npm
+  969  node -v
+  970  nodejs -v
+  971  npm -v
+  972  nodejs -v
+  973  sudo npm install -g generator-angular
+  974  java -version
+  975  sudo apt-get update
+  976  sudo add-apt-repository ppa:webupd8team/java
+  977  sudo apt-get update
+  978  sudo apt-get install oracle-java8-installer
+  979  java
+  980  java -v
+  981  java -verion
+  982  sudo nano /etc/environment
+  983  source /etc/environment
+  984  echo $JAVA_HOME
+  985  java -v
+  986  sudo update-alternatives --config java
+  987  java -v
+  988  java --version
+  989  sudo apt-get install default-jdk
+  990  java --version
+  991  java -v
+  992  java
+  993  java -version
+  994  pwd
+  995  curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.0.0.tar.gz
+  996  cd Downloads/
+  997  tar -xvf elasticsearch-6.0.0.tar.gz
+  998  cd elasticsearch-6.0.0/bin
+  999  ./elasticsearch
+ 1000  free
+ 1001  top
+ 1002  free -m
+ 1003  top
+ 1004  node
+ 1005  nodejs -v
+ 1006  npm
+ 1007  curl http://localhost:9200
+ 1008  ./elasticsearch
+ 1009  service apache2 stop
+ 1010  service mysql stop
+ 1011  service mysqld stop
+ 1012  mysql
+ 1013  ./elasticsearch
+ 1014  free
+ 1015  service apache2 start
+ 1016  service mysql stop
+ 1017  service mysqld stop
+ 1018  service Mysql stop
+ 1019  exit
+ 1020  sudo chmod -R 777 *
+ 1021  composer
+ 1022  cd ../q/quickstart/
+ 1023  php artisan migrate
+ 1024  sudo chmod -R 777 *
+ 1025  php artisan migrate
+ 1026  ls
+ 1027  cd ../../../
+ 1028  cd html/laravel/
+ 1029  cd vendor/
+ 1030  ;s
+ 1031  ls
+ 1032  nano autoload.php 
+ 1033  cd ../../
+ 1034  cd q/quickstart/
+ 1035  ls
+ 1036  php artisan activate
+ 1037  php artisan
+ 1038  php artisan up
+ 1039  ls
+ 1040  exit
+ 1041  composer create-project laravel/laravel5.2 quickstart --prefer-dist
+ 1042  composer create-project laravel/laravel quickstart --prefer-dist
+ 1043  ls
+ 1044  cd ../
+ 1045  cd quickstart
+ 1046  ls
+ 1047  cd ../
+ 1048  mkdir q
+ 1049  cd q
+ 1050  git clone https://github.com/laravel/quickstart-intermediate quickstart
+ 1051  ls
+ 1052  cd quickstart/
+ 1053  ls
+ 1054  cd app/Http/
+ 1055  ls
+ 1056  nano routes.php 
+ 1057  php artisan make:model new
+ 1058  cd ../../
+ 1059  php artisan make:model new
+ 1060  cd ../../quickstart
+ 1061  php artisan make:model new
+ 1062  cd app/Http/
+ 1063  ls
+ 1064  exit
+ 1065  cd /var/www/html
+ 1066  https://mztamil@bitbucket.org/sripathyv/employee_portal.git
+ 1067  git clone https://mztamil@bitbucket.org/sripathyv/employee_portal.git
+ 1068  git clone https://mztamil@bitbucket.org/sripathyv/employee_portal.git .
+ 1069  git clone https://mztamil@bitbucket.org/sripathyv/employee_portal.git
+ 1070  cd laravel/
+ 1071  php artisan start
+ 1072  php artisan
+ 1073  php artisan up
+ 1074  php artisan restart
+ 1075  php artisan serve 
+ 1076  service apache2 stop
+ 1077  top
+ 1078  free
+ 1079  top
+ 1080  sudo poweroff
+ 1081  cd /var/www/html
+ 1082  ping travelshoptour.com
+ 1083  ssh travehw2@103.21.59.201
+ 1084  exiut
+ 1085  exit
+ 1086  cd Downloads/
+ 1087  cd joomla/
+ 1088  ls
+ 1089  unzip business.7z
+ 1090  sudo apt-get install p7zip-full
+ 1091  7z x -so business.7z 
+ 1092  ls
+ 1093  exit
+ 1094  cd
+ 1095  cd Downloads/
+ 1096  l;s
+ 1097  clear
+ 1098  ls
+ 1099  cd joomla/
+ 1100  l;s
+ 1101  clear
+ 1102  ls
+ 1103  7z x -so business.7z 
+ 1104  exit
+ 1105  php artisan migrate
+ 1106  exit
+ 1107  cd /var/www/html/laravel_excel/
+ 1108  clear
+ 1109  php artisan serv
+ 1110  cd ../laravel
+ 1111  php artisan serv
+ 1112  php artisan make:auth
+ 1113  cd /var/www/html
+ 1114  cd business/
+ 1115  mysql -u root -p
+ 1116  cd ../
+ 1117  sudo chmod -R 777 joomla/
+ 1118  sudo chmod -R 777 business/c
+ 1119  clear
+ 1120  pwd
+ 1121  cd /var/log/
+ 1122  clear
+ 1123  \ls
+ 1124  clear
+ 1125  ls
+ 1126  cd apache2/
+ 1127  clear
+ 1128  lks
+ 1129  clear
+ 1130  ls
+ 1131  tail -f error.log
+ 1132  exit
+ 1133  which sendmail
+ 1134  where 
+ 1135  where sendmail
+ 1136  who sendmail
+ 1137  which sendmail
+ 1138  which php
+ 1139  which sendmail
+ 1140  sendmail
+ 1141  sudo apt-get install sendmail-bin
+ 1142  which sendmail
+ 1143  exit
+ 1144  cd
+ 1145  cd Desktop/fresheris/elena/
+ 1146  ls
+ 1147  cd bk_sql/
+ 1148  clear
+ 1149  ls
+ 1150  vi justsolutions_eaphotos_bk_22_nov_2017.sql 
+ 1151  nano justsolutions_eaphotos_bk_22_nov_2017.sql 
+ 1152  vi justsolutions_eaphotos_bk_22_nov_2017.sql 
+ 1153  exit
+ 1154  cd /var/www/html/joomla/
+ 1155  sudo chmod -R 777 *
+ 1156  cd Downloads/
+ 1157  sudo dpkg -i teamviewer_13.0.5693_i386.deb 
+ 1158  sudo apt-get install -f
+ 1159  sudo apt install teamviewer_13.0.5693_i386.deb
+ 1160  sudo dpkg -i teamviewer_13.0.5693_i386.deb 
+ 1161  mv teamviewer_12.0.90041_i386.deb ../Documents/
+ 1162  cd ../Documents/
+ 1163  sudo dpkg -i teamviewer_12.0.90041_i386.deb 
+ 1164  sudo apt-get install teamviewer_12.0.90041_i386.deb 
+ 1165  cd ../Downloads/
+ 1166  sudo apt-get install teamviewer_12.0.90041_i386.deb
+ 1167  sudo apt-get install ./teamviewer_i386.deb
+ 1168  ll
+ 1169  pwd
+ 1170  clear
+ 1171  cd Downloads/
+ 1172  ls
+ 1173  clear
+ 1174  su
+ 1175  sudo passwd
+ 1176  su
+ 1177  exit
+ 1178  sudo poweroff
+ 1179  cd /var/www/html/joomla/database/
+ 1180  mysqldump -u root -p joomla_09_dec_2017 > joomla_09_dec_2017.sql
+ 1181  ll
+ 1182  exit
+ 1183  cd /var/www/html/business/database/
+ 1184  mysqldump -u root -p joomla_08_dec_2017 > joomla_08_dec_2017.sql
+ 1185  ll
+ 1186  cd ../../
+ 1187  cp -rf business joomla_business
+ 1188  cd joomla_business/
+ 1189  ls
+ 1190  du -sh
+ 1191  rm DATABASE.sql.zip 
+ 1192  rm justsolutions.sql 
+ 1193  clear
+ 1194  ls
+ 1195  du -sh
+ 1196  cd logs/
+ 1197  ls
+ 1198  ll
+ 1199  cd ../
+ 1200  clear
+ 1201  ll
+ 1202  cd installation1/
+ 1203  ls
+ 1204  cd ../
+ 1205  clear
+ 1206  cd ../
+ 1207  zip -r joomla_business.zip joomla_business/
+ 1208  du -sh joomla_business.zip 
+ 1209  exit
+ 1210  cd /var/www/html
+ 1211  zip -r joomla_dec31.zip joomla/
+ 1212  ll
+ 1213  cd /var/log/
+ 1214  cd apache2/
+ 1215  clear
+ 1216  ls
+ 1217  tail -f error.log
+ 1218  clear
+ 1219  tail -f error.log
+ 1220  exit
+ 1221  scp -r root@allianceinsurance.net.in:/var/www/html/mzapp_qms/database/mzapp_qms_07_01_2017.zip .
+ 1222  unzip mzapp_qms_07_01_2017.zip 
+ 1223  mysql -u root -p
+ 1224  sudo chmod -R 777 mzapp
+ 1225  cd mzapp
+ 1226  git pull
+ 1227  ls -a
+ 1228  exit
+ 1229  cd /var/www/html
+ 1230  clear
+ 1231  ssh root@allianceinsurance.net.in
+ 1232  exit
+ 1233  free
+ 1234  exit
+ 1235  cd /var/www/ht
+ 1236  cd /var/www/html/
+ 1237  clear
+ 1238  sudo chmod -R 777 veera
+ 1239  mv veera wp_tasver
+ 1240  cd wp_tasver/
+ 1241  nano wp-config.php
+ 1242  cd ../
+ 1243  sudo chmod -R 777 veera.zip 
+ 1244  clear
+ 1245  ls
+ 1246  cd wp
+ 1247  wp themes list
+ 1248  wp theme list
+ 1249  cd ../wordpress
+ 1250  wp theme list
+ 1251  cd ../photography/
+ 1252  wp theme list
+ 1253  wp core --version
+ 1254  wp core -version
+ 1255  wp core version
+ 1256  clear
+ 1257  ls
+ 1258  cd ../wordpress
+ 1259  wp core version
+ 1260  cd ../wp
+ 1261  wp core version
+ 1262  cd ../
+ 1263  clear
+ 1264  unzip veera.zip 
+ 1265  clear
+ 1266  ls
+ 1267  mkdir coollab
+ 1268  mv veera.zip coollab/
+ 1269  ls
+ 1270  cd coollab/
+ 1271  clear
+ 1272  unzip veera.zip 
+ 1273  clear
+ 1274  ls
+ 1275  mv wordpress/ envision
+ 1276  mv envision/ ../
+ 1277  cd ../
+ 1278  clear
+ 1279  ls
+ 1280  rm coollab/
+ 1281  rm -rf  coollab/
+ 1282  sudo chmod -R 777 envision/
+ 1283  ssh envision@142.4.0.228
+ 1284  exit
+ 1285  cd /var/www/html/wp
+ 1286  wp core update
+ 1287  wp core version
+ 1288  exit
+ 1289  ssh envision@142.4.0.228
+ 1290  cd
+ 1291  cd Downloads/
+ 1292  clear
+ 1293  ls
+ 1294  mysql -u root -p
+ 1295  cd /var/www/html
+ 1296  clear
+ 1297  sudo chmod -R 777 envision_pro/
+ 1298  cd envision_pro/database/
+ 1299  ls
+ 1300  mysql -u root -p
+ 1301  cd ../../
+ 1302  ls
+ 1303  clear
+ 1304  pwd
+ 1305  exit
+ 1306  ssh root@allianceinsurance.net.in
+ 1307  exit
+ 1308  cd /var/www/html/wordpress
+ 1309  wp theme list
+ 1310  cd ..
+ 1311  clear
+ 1312  ls
+ 1313  clear
+ 1314  ls
+ 1315  mv mzapp mzapp_dwl
+ 1316  git clone https://mztamil@bitbucket.org/sripathyv/mzapp.git
+ 1317  mv mzapp_dwl/ mzapp
+ 1318  clear
+ 1319  exit
+ 1320  cd Downloads/
+ 1321  sudo wget http://mbadiscussions.com/attachments/mba-discussions-3/9812d1356963306-anna-university-mba-entrance-model-question-paper-syllabus-anna-university-01.txt
+ 1322  exit
+ 1323  ssh envision@96.125.165.51
+ 1324  ping elenaphoto.ca
+ 1325  ping http://eaphoto.lt/
+ 1326  ping eaphoto.lt
+ 1327  ping elenaphoto.ca
+ 1328  clear
+ 1329  ls
+ 1330  cd /var/www/html
+ 1331  clear
+ 1332  ls
+ 1333  mysql --version
+ 1334  top
+ 1335  kil 8157
+ 1336  kill 8157
+ 1337  clear
+ 1338  top
+ 1339  kill 8622
+ 1340  df -h
+ 1341  exit
+ 1342  cd /var/www/html
+ 1343  ;s
+ 1344  clear
+ 1345  ls
+ 1346  sudo apt-get install freetds-common freetds-bin unixodbc php5-sybase
+ 1347  sudo apt-get install libsybdb5
+ 1348  sudo apt-get -f install libsybdb5
+ 1349  sudo apt-get install php5-sybase php5-odbc freetds-common
+ 1350  exit
+ 1351  top
+ 1352  kill 6955
+ 1353  top
+ 1354  kill 3650
+ 1355  exit
+ 1356  wp theme list
+ 1357  cd /var/www/html/adthowba_pro
+ 1358  clear
+ 1359  wp theme list
+ 1360  wifi setup death_clutch
+ 1361  cd ../wordpress/database/
+ 1362  ls
+ 1363  mysqldump -u root -p
+ 1364  mysqldump -u root -p travelshop_wordpress_old_30_10_2017 > travelshop_wordpress_old_30_10_2017.sql
+ 1365  ls
+ 1366  ll
+ 1367  cd ../
+ 1368  clear
+ 1369  wp theme list
+ 1370  cd ../
+ 1371  cp -rf wordpress travelshop
+ 1372  cd travelshop/
+ 1373  cd database/
+ 1374  clear
+ 1375  ls
+ 1376  mysql -u root -p
+ 1377  cd ../
+ 1378  clear
+ 1379  wp theme list
+ 1380  wp theme activate accesspress-lite
+ 1381  cd /var/www/html/
+ 1382  clear
+ 1383  cp -rf wordpress adthowba_19
+ 1384  cd adthowba_19/
+ 1385  clear
+ 1386  ls
+ 1387  rm googlee0d703cd1e07c757.html 
+ 1388  cd database/
+ 1389  ls
+ 1390  rm -rf *
+ 1391  cd ../
+ 1392  wp themes list
+ 1393  wp theme list
+ 1394  wp theme remove accesspress-lite
+ 1395  exit
+ 1396  cd /var/www/html
+ 1397  cd adthowba_19/
+ 1398  du -sh
+ 1399  cd wp-content/themes/
+ 1400  ls
+ 1401  rm alizee.1.04.zip 
+ 1402  rm -rf accesspress-lite/
+ 1403  cd ../plugins/
+ 1404  ls
+ 1405  rm feed-them-social
+ 1406  rm feed-them-social.zip 
+ 1407  clear
+ 1408  ls
+ 1409  wp plugin list
+ 1410  wp plugin remove change-woocommerce-add-to-cart-button-text
+ 1411  wp plugin help
+ 1412  wp help
+ 1413  wp plugin list
+ 1414  ls
+ 1415  wp plugin list
+ 1416  wp plugin active wordpress-seo
+ 1417  cd ../
+ 1418  clear
+ 1419  ls
+ 1420  cd uploads/
+ 1421  ls
+ 1422  rm woocommerce_uploads/
+ 1423  rm -rf woocommerce_uploads/
+ 1424  rm -rf 2016
+ 1425  cd ../../
+ 1426  clear
+ 1427  du -sh
+ 1428  ls
+ 1429  cd wp-content/
+ 1430  mysqldump -u root -p travelshop_wordpress_old_30_10_2017 > adthowba_19_02_2018.sql
+ 1431  cd ../
+ 1432  clear
+ 1433  du -sh
+ 1434  cd ../
+ 1435  zip -r adthowba_19.zip adthowba_19
+ 1436  du -sh adthowba_19.zip 
+ 1437  exit
+ 1438  cd /var/www/html
+ 1439  sudo chmod -R 777 amberrose
+ 1440  cd amberrose
+ 1441  clear
+ 1442  grep -r "jquery.colorbox-min.js"
+ 1443  grep -r "BASE_PATH"
+ 1444  grep -r "define('BASE_PATH'"
+ 1445  clear
+ 1446  pwd
+ 1447  cd app
+ 1448  cd View/
+ 1449  cd Layouts/
+ 1450  ls
+ 1451  grep -r "bootstrap.css"
+ 1452  grep -r "viewProduct"
+ 1453  cd ../../
+ 1454  grep -r "viewProduct"
+ 1455  cd /var/www/html
+ 1456  sudo chmod -R 777 jupiter/
+ 1457  free
+ 1458  df -h
+ 1459  cd /etc/php5/
+ 1460  ls
+ 1461  cd apache2/
+ 1462  ls
+ 1463  sudo nano php.ini 
+ 1464  exit
+ 1465  cd /var/www/html/wp
+ 1466  wp themes list
+ 1467  ;s\
+ 1468  clear
+ 1469  ls
+ 1470  wp themes list
+ 1471  wp theme list
+ 1472  ping google.co.in
+ 1473  exit
+ 1474  cd /var/www/html/flickr/
+ 1475  php reqRes.php 
+ 1476  cd ../wp~
+ 1477  cd ../wp~\
+ 1478  cd ../wp
+ 1479  cd themes
+ 1480  cd wp-content/themes/
+ 1481  ls
+ 1482  cd main-file/
+ 1483  cd tasveer
+ 1484  clear
+ 1485  ls
+ 1486  php wpSave.php 
+ 1487  clear
+ 1488  cd /var/log/
+ 1489  ls
+ 1490  cd apache2/
+ 1491  clear
+ 1492  ls
+ 1493  tail -f error.log
+ 1494  tail -f access.log
+ 1495  ssh roo@allianceinsurance.co.in
+ 1496  ssh root@allianceinsurance.co.in
+ 1497  exit
+ 1498  ping elenaphoto.ca
+ 1499  ping http://elenaphoto.ca
+ 1500  ping elenaphoto.ca
+ 1501  cd Desktop/
+ 1502  clear
+ 1503  wget http://elenaphoto.ca/wp-content/themes/main-file/elena/style.css
+ 1504  wget http://elenaphoto.ca/wp-content/themes/main-file/elena/style_org.css .
+ 1505  cd ../Documents/
+ 1506  wget http://194.135.87.10/wp-content/themes/main-file/elena/style.css
+ 1507  wget http://194.135.87.10/wp-content/themes/main-file/elena/style_org.css
+ 1508  wget http://194.135.87.10/wp-content/themes/main-file/elena/style.css
+ 1509  wget http://194.135.87.10/wp-content/themes/main-file/elena/style_org.css
+ 1510  wget http://elenaphoto.ca/wp-content/themes/main-file/elena/style_org.css .
+ 1511  top
+ 1512  kill 6209
+ 1513  cd ../Downloads/
+ 1514  clea
+ 1515  clear
+ 1516  wget http://elenaphoto.ca/wp-content/themes/main-file/elena/style.css .
+ 1517  top
+ 1518  kill 9683
+ 1519  cd /var/www/html/
+ 1520  sudo chmod -R 777 wp_custom/
+ 1521  wp themes list
+ 1522  wp theme list
+ 1523  cd wp_custom/
+ 1524  clear
+ 1525  cd wp_custom/
+ 1526  wp theme list
+ 1527  wp plugin list
+ 1528  wp plugin activate custom plugin
+ 1529  wp plugin activate custom\ plugin
+ 1530  wp plugin activate hello
+ 1531  wp plugin list
+ 1532  wp plugin activate flickr_sync
+ 1533  wp plugin deactivate custom\ plugin
+ 1534  node -v
+ 1535  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+ 1536  sudo apt-get install -y nodejs
+ 1537  sudo apt-get -f install -y nodejs
+ 1538  sudo apt-get -f install nodejs
+ 1539  sudo apt-get install nodejs
+ 1540  cd Downloads/
+ 1541  ls
+ 1542  cd node-v8.10.0-linux-x86/
+ 1543  ls
+ 1544  clear
+ 1545  ls
+ 1546  cd bin/
+ 1547  l
+ 1548  ls
+ 1549  node -v
+ 1550  cd nod
+ 1551  cd node
+ 1552  nppm
+ 1553  clear
+ 1554  npm
+ 1555  node
+ 1556  ls
+ 1557  cd node
+ 1558  cd npm
+ 1559  ls
+ 1560  clear
+ 1561  sudo apt-get install -y nodejs
+ 1562  sudo apt-get install -y nodejs-dev
+ 1563  clear
+ 1564  sudo apt-get install -y nodejs-dev
+ 1565  sudo apt-get install -y nodejs
+ 1566  node -v
+ 1567  npm -v
+ 1568  cd
+ 1569  sudo npm install @angular/cli -g
+ 1570  curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+ 1571  exit
+ 1572  sudo apt-get install -y nodejs
+ 1573  node -v
+ 1574  npm -v
+ 1575  exit
+ 1576  ng generate component home
+ 1577  ng g c about
+ 1578  npm install @angular/cli -g
+ 1579  sudo npm install @angular/cli -g
+ 1580  ng -v
+ 1581  pwd
+ 1582  mkdir code
+ 1583  cd code
+ 1584  ng new ng5 --style=scss --routing
+ 1585  cd ng5/
+ 1586  node serv
+ 1587  ng serv
+ 1588  ng serve
+ 1589  cd /var/www/html/photography/
+ 1590  wp theme list
+ 1591  wp theme activate main-file/tasveer
+ 1592  wp theme list
+ 1593  wp theme activate elena-child
+ 1594  cd /var/www/html
+ 1595  sudo chmod -R 777 elena
+ 1596  sudo chmod -R 777 tasver/
+ 1597  cd /var/www/html
+ 1598  git clone  https://git.heroku.com/certifymy-sales-portal.git
+ 1599  mkdir heroku
+ 1600  heroku login
+ 1601  sudo apt-get install heroku
+ 1602  gem install heroku
+ 1603  yum install heroku
+ 1604  composer
+ 1605  sudo apt-get install heroku
+ 1606  heroku login
+ 1607  cd heroku/
+ 1608  ls
+ 1609  cd ../
+ 1610  git clone git@heroku.com:certifymy-sales-portal.git heroku
+ 1611  git clone git@heroku.com:certifymy-sales-portals.git heroku
+ 1612  git clone https://git.heroku.com/certifymy-sales-portal.git heroku
+ 1613  cd heroku
+ 1614  php artisan start
+ 1615  history > history.txt
