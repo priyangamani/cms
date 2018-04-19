@@ -110,7 +110,7 @@
                           <td class="mailbox-star"><center>{{$appform->status->status}}</center></td>
                           <td class="mailbox-star"><center>{{$appform->thumbprints->status}}</center></td>
                           <td class="mailbox-star"><center>{{$appform->eform_id}}</center></td>
-                          <td class="mailbox-star"><center>{{$appform->finals->status}}</center></td>
+                          <td class="mailbox-star"><center>{{isset($appform->finals->status) ? $appform->finals->status : ''}}</center></td>
                            
                          </div>
                        </center>
