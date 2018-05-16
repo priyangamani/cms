@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends(($admins->user_id == 0)?'layout.master':'layout.masteradmin');
 @section('style')
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
 @endsection

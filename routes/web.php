@@ -169,8 +169,8 @@ Route::delete('/supervisor/{user_id}',['as'=>'deleteSupervisor','uses'=>'Supervi
 
 // ------------------------------------------- status ---------------------------------------------
 
-Route::post('/status', ['as'=>'createStatus', 'uses'=>'StatusController@createStatus']);
-Route::get('/status',['as'=>'status','uses'=>'StatusController@getStatus']);
+Route::post('/status/{user_id?}', ['as'=>'createStatus', 'uses'=>'StatusController@createStatus']);
+Route::get('/status/{user_id?}',['as'=>'status','uses'=>'StatusController@getStatus']);
 Route::get('/editStatus/{status_id}',['as'=>'editStatus','uses'=>'StatusController@editStatus']);
 Route::post('/updateStatus',['as'=>'updateStatus','uses'=>'StatusController@updateStatus']);
 Route::delete('/status/{status_id}',['as'=>'deleteStatus','uses'=>'StatusController@deleteStatus']);

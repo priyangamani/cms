@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Redirect;
 use Session;
+use App\User;
 use App\Status;
 use Auth;
 
@@ -29,10 +30,18 @@ class StatusController extends Controller
         }
     }
 
-    public function getStatus()
+    public function getStatus($user_id='',Request $request)
     {
     	$status = Status::all();
-	    return view('status.status',compact('status'));
+    	//$role = Auth::user()->roles()->get();
+    	if($user_id && $user_id != '') {
+			$admins = User::where('user_id', $user_id)->first();
+			//print_r($admins);
+		} else {
+			$array['user_id'] = 0;
+			$admins = (object)$array;
+		}
+		return view('status.status',compact('status','role','admins'));
     }
 
     public function editStatus($status_id, Request $request)

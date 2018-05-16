@@ -103,7 +103,7 @@ class UserMiddleware
         }
 
         if($request->is('status')){    
-            if (!Auth::user()->hasRole('Manager')) {     
+            if (!Auth::user()->hasRole('Manager') && !Auth::user()->hasRole('Admin')) {
                 Alert::warning('This User Has No Access', 'WARNING');
                 return redirect()->back();
             }else{

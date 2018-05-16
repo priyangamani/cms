@@ -36,14 +36,16 @@
       <ul class="sidebar-menu " data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
 
-        <li> <a href="{{route('admindashboard',['user_id'=>$admins->user_id])}}"><i class="fa fa-tachometer"></i>
+        <li> <a href="{{route('admindashboard',['user_id'=>(isset($admins->user_id)?$admins->user_id:0)])}}"><i class="fa fa-tachometer"></i>
           <span class="hide-menu">Dashboard</span></a>
         </li>
 
-        <li> <a href="{{route('adminappformdetails',['user_id'=>$admins->user_id])}}"><i class="fa fa-wpforms"></i>
+        <li> <a href="{{route('adminappformdetails',['user_id'=>(isset($admins->user_id)?$admins->user_id:0)])}}"><i class="fa fa-wpforms"></i>
           <span class="hide-menu">App-Form</span></a>
         </li>
-
+        <li> <a href="{{route('status',['user_id'=>(isset($admins->user_id)?$admins->user_id:0)])}}"><i class="fa fa-comments"></i>
+          <span class="hide-menu">Processing Status</span></a>
+        </li>
         <li class=" hide-menu treeview">
           <a href="#">
             <i class="fa fa-tree"></i>
@@ -54,11 +56,11 @@
           </a>
           <ul class="treeview-menu">
             
-            <li> <a href="{{route('adminappforms',['user_id'=>$admins->user_id])}}"><i class="fa fa-cart-plus"></i>
+            <li> <a href="{{route('adminappforms',['user_id'=>(isset($admins->user_id)?$admins->user_id:0)])}}"><i class="fa fa-cart-plus"></i>
               <span class="hide-menu">Order Overview</span></a>
             </li>
 
-            <li> <a href="{{route('pendingapproval',['user_id'=>$admins->user_id])}}"><i class="fa fa-check"></i>
+            <li> <a href="{{route('pendingapproval',['user_id'=>(isset($admins->user_id)?$admins->user_id:0)])}}"><i class="fa fa-check"></i>
               <span class="hide-menu">Pending Approval</span></a>
             </li>
 
