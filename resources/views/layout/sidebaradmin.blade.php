@@ -43,9 +43,11 @@
         <li> <a href="{{route('adminappformdetails',['user_id'=>(isset($admins->user_id)?$admins->user_id:0)])}}"><i class="fa fa-wpforms"></i>
           <span class="hide-menu">App-Form</span></a>
         </li>
+<!--
         <li> <a href="{{route('status',['user_id'=>(isset($admins->user_id)?$admins->user_id:0)])}}"><i class="fa fa-comments"></i>
           <span class="hide-menu">Processing Status</span></a>
         </li>
+-->
         <li class=" hide-menu treeview">
           <a href="#">
             <i class="fa fa-tree"></i>

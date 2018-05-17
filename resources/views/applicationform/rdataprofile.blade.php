@@ -14,6 +14,34 @@
   </ol>
 </section>
 
+<div class="modal modal-info fade" id="add-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add Status</h4>
+      </div>
+      <div class="modal-body">
+        <!-- Custom Tabs (Pulled to the right) -->
+        <form action="#" method="POST" id="frm-status-create">
+          {!! csrf_field() !!}
+          <div class="row">
+            <div class="form-group">
+              <label for="status" class="col-sm-3 control-label">Status: </label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="status" id="status">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <!-- test -->
 <div class="row">
   <div class="col-xs-12">
@@ -198,7 +226,7 @@
                           </div>                          
                           
                           <div class="form-group">
-                            <label for="process_status" class="col-sm-3 control-label">Processing Status: </label>
+                            <label for="process_status" class="col-sm-3 control-label"><a href="#" data-toggle="modal" data-target="#add-status">Processing Status: </a></label>
                             <div class="col-sm-9">
                               <select class="form-control" name="process_status" id="process_status" data-placeholder="Select">
                                 @foreach($status as $status)
@@ -277,6 +305,36 @@ $('#frm-profile-edit').on('submit',function(e){
       cache: false,
       contentType: false,
       processData: false
+    });
+  });
+
+  $(document).ready(function(){
+    $('#frm-status-create').on('submit',function(e)
+    {
+      e.preventDefault();
+      console.log('pressed');
+      var data = $(this).serialize();
+      console.log(data);
+      var formData = new FormData($(this)[0]);
+
+      $.ajax({
+        url:"{{route('createStatus')}}", 
+        type: "POST",
+        data: formData,
+        async: false,
+        success: function(response)
+        {
+          console.log(response);
+          $("[data-dismiss = modal]").trigger({type: "click"});
+          swal('SUCCESS', 'Status Added', 'success').then(function() {
+           window.location.reload();
+         });       
+
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+      });
     });
   });
 

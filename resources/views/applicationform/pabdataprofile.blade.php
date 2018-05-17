@@ -191,7 +191,7 @@
                           
                           
                           <div class="form-group">
-                            <label for="process_status" class="col-sm-3 control-label">Processing Status: </label>
+                            <label for="process_status" class="col-sm-3 control-label"><a href="#" data-toggle="modal" data-target="#add-status">Processing Status: </a></label>
                             <div class="col-sm-9">
                               <select class="form-control" name="process_status" id="process_status" data-placeholder="Select">
                                 @foreach($status as $status)
@@ -285,6 +285,37 @@ $('#frm-profile-edit').on('submit',function(e){
       processData: false
     });
   });
+
+  $(document).ready(function(){
+    $('#frm-status-create').on('submit',function(e)
+    {
+      e.preventDefault();
+      console.log('pressed');
+      var data = $(this).serialize();
+      console.log(data);
+      var formData = new FormData($(this)[0]);
+
+      $.ajax({
+        url:"{{route('createStatus')}}", 
+        type: "POST",
+        data: formData,
+        async: false,
+        success: function(response)
+        {
+          console.log(response);
+          $("[data-dismiss = modal]").trigger({type: "click"});
+          swal('SUCCESS', 'Status Added', 'success').then(function() {
+           window.location.reload();
+         });       
+
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+      });
+    });
+  });
+
 
 </script>
 @endsection
