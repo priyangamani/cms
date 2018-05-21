@@ -153,6 +153,11 @@ $(document).ready(function(){
     $('#appform-table').DataTable(
     {
         dom: 'lfrtBp',
+        aaSorting: [ [5,'desc'] ],
+		aoColumnDefs: [ {
+			bSortable: false,
+			aTargets: [ 0 ]
+		} ],
         buttons: [{
           extend: 'excel',
           text: 'Export as Excel',

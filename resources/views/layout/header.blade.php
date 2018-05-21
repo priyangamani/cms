@@ -36,9 +36,10 @@
 
               <li class="user-header">
                 {{ HTML::image('img/test.jpg', 'User Image',  array('class' => 'img-circle')) }}
-                
-                
-                <p>{{Auth::user()->roles()->pluck('name')->implode(' ')}}
+                <p>
+					<a href="{{route('editUser', ['user_id'=> Auth::user()->user_id])}}" style="color:#fff">
+						{{Auth::user()->roles()->pluck('name')->implode(' ')}}
+					</a>
                   <br>
                   <small>Member since {{Auth::user()->created_at}}</small></p>
                 </li>
