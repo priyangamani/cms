@@ -72,7 +72,8 @@
                   <thead>
 
                     <tr class="info bg-blue">
-                      <th><input type="checkbox"></th>
+                      <!-- <th><input type="checkbox"></th> -->
+                      <th></th>
                       <th class="mailbox-subject"><center>Branch ID</center></th>
                       <th class="mailbox-subject"><center>Branch Name</center></th>
                       <th class="mailbox-subject"><center>Operation</center></th>
@@ -122,13 +123,19 @@
 
 <script>
   $(document).ready(function(){
-    $('#branch-table').DataTable();
+    $('#branch-table').DataTable( {
+		aoColumnDefs: [ {
+				bSortable: false,
+				aTargets: [ 0 ]
+			} ]
+		}
+    );
     $('#frm-branch-create').on('submit',function(e)
     {
       e.preventDefault();
-      console.log('pressed');
+      //console.log('pressed');
       var data = $(this).serialize();
-      console.log(data);
+      //console.log(data);
       var formData = new FormData($(this)[0]);
 
       $.ajax({
@@ -138,7 +145,7 @@
         async: false,
         success: function(response)
         {
-          console.log(response);
+          //console.log(response);
           $("[data-dismiss = modal]").trigger({type: "click"});
           swal('SUCCESS', 'Branch Added', 'success').then(function() {
            window.location.reload();

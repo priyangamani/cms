@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('style')
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+<!-- <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css"> -->
 @endsection
 @section('content')
 
@@ -115,8 +115,9 @@
 @endsection
 
 @section('script')
+<!--
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-
+-->
 <script>
   $(document).ready(function(){
     $('#status-table').DataTable();

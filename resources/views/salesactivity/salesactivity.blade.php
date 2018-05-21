@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('style')
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+<!-- <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css"> -->
 @endsection
 @section('content')
 
@@ -119,17 +119,24 @@
 @endsection
 
 @section('script')
+<!--
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-
+-->
 <script>
   $(document).ready(function(){
-    $('#activity-table').DataTable();
+    $('#activity-table').DataTable( {
+			aoColumnDefs: [ {
+				bSortable: false,
+				aTargets: [ 0 ]
+			} ]
+		}
+    );
     $('#frm-activity-create').on('submit',function(e)
     {
       e.preventDefault();
-      console.log('pressed');
+      //console.log('pressed');
       var data = $(this).serialize();
-      console.log(data);
+      //console.log(data);
       var formData = new FormData($(this)[0]);
 
       $.ajax({
@@ -139,7 +146,7 @@
         async: false,
         success: function(response)
         {
-          console.log(response);
+          //console.log(response);
           $("[data-dismiss = modal]").trigger({type: "click"});
           swal('SUCCESS', 'Sales Activity Added', 'success').then(function() {
            window.location.reload();

@@ -57,9 +57,14 @@
         </li>
 
         <li> <a href="{{route('intpackage')}}"><i class="fa fa-cube"></i>
-          <span class="hide-menu">Internet Package</span></a>
+          <!-- <span class="hide-menu">Internet Package</span></a> -->
+          <span class="hide-menu">Product Management</span></a>
         </li>
 
+        <li> <a href="{{route('user')}}"><i class="fa fa-user-plus"></i>
+          <span class="hide-menu">User Management</span></a>
+        </li>
+<!--
         <li class=" hide-menu treeview">
           <a href="#">
             <i class="fa fa-user-circle"></i>
@@ -91,7 +96,7 @@
 
           </ul>
         </li> 
-
+-->
 
         <li> <a href="{{route('state')}}"><i class="fa fa-flag-checkered"></i>
           <span class="hide-menu">State Management</span></a>

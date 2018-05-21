@@ -167,7 +167,7 @@
                 <div class="table-responsive mailbox-messages">
                   <table class="table table-bordered" id="user-table">
                     <thead>
-                      <tr class="info bg-black">
+                      <tr class="info bg-blue">
                         <th class="mailbox-star"><center>State</center></th>
                         <th class="mailbox-star"><center>Branch</center></th>
                         <th class="mailbox-star"><center>User Type</center></th>

@@ -5,12 +5,12 @@
 
 <section class="content-header">
   <h1>
-    INTERNET PACKAGE
+    PRODUCT MANAGEMENT
     <small>Control Panel</small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Internet Package</li>
+    <li class="active">Product Management</li>
   </ol>
 </section>
 
@@ -30,20 +30,20 @@
             <!-- /.box-header -->
             <div class="modal-body">
               <!-- Custom Tabs (Pulled to the right) -->
-              <form action="#" method="POST" id="frm-package-edit" enctype ="multipart/form-data">
+              <form action="#" method="POST" class="form-horizontal" id="frm-package-edit" enctype ="multipart/form-data">
                 {!! csrf_field() !!}
                 <div class="row">
 
                         <div class="form-group">
-              <label for="internet_package" class="col-sm-3 control-label">Package Name: </label>
-              <div class="col-sm-9">
+              <label for="internet_package" class="col-md-3 col-sm-3 control-label">Product Name</label>
+              <div class="col-md-9 col-sm-9">
                 <input type="text" class="form-control" name="internet_package" id="internet_package" value="{{$packages->internet_package}}">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="package_type" class="col-sm-3 control-label">Package Type: </label>
-              <div class="col-sm-9">
+              <label for="package_type" class="col-md-3 col-sm-3 control-label">Product Type</label>
+              <div class="col-md-9 col-sm-9">
                 <select class="form-control" name="package_type" id="package_type" data-placeholder="Select">
                   @foreach($packtypes as $packtype)
                   <option value="{{$packtype->packtype_id}}" @if($packtype->packtype_id == $packages->package_type) selected @endif>{{$packtype->type}}</option>
@@ -55,7 +55,7 @@
                 </div>
                 <input type="hidden" name="intpackage_id" value="{{$packages->intpackage_id}}">
                 <div class="box-footer">
-                  <button type="submit" class="btn btn-primary">Save Change</button>
+                  <button type="submit" class="btn btn-primary">Save Changes</button>
                 </div>
               </form>
             </div>

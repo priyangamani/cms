@@ -30,20 +30,20 @@
             <div class="modal-body">
               <!-- Custom Tabs (Pulled to the right) -->
 
-              <form action="#" method="POST" id="frm-user-edit" enctype ="multipart/form-data">
+              <form action="#" method="POST" id="frm-user-edit" class="form-horizontal" enctype ="multipart/form-data">
                 {!! csrf_field() !!}
                 <div class="row">
 
                   <div class="form-group">
-                    <label for="role" class="col-sm-3 control-label">User Type: </label>
-                    <div class="col-sm-9">
+                    <label for="role" class="col-sm-3 cold-md-3 col-lg-3 control-label">User Type</label>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
                       <input type="text" class="form-control" name="role" id="role" value="{{$users->roles()->pluck('name')->implode(' ') }}" disabled>
                     </div>
                   </div>
 
                   <div class="form-group">
-              <label for="state" class="col-sm-3 control-label">State: </label>
-              <div class="col-sm-9">
+              <label for="state" class="col-sm-3 cold-md-3 col-lg-3 control-label">State</label>
+              <div class="col-sm-9 col-md-9 col-lg-9">
               <select class="form-control" name="state" id="state" data-placeholder="Select">
                   @foreach($states as $state)
                   <option value="{{$state->state_id}}" @if($state->state_id == $users->state) selected @endif>{{$state->state_name}}</option>
@@ -53,8 +53,8 @@
             </div>
 
             <div class="form-group">
-              <label for="branch" class="col-sm-3 control-label">Branch: </label>
-              <div class="col-sm-9">
+              <label for="branch" class="col-sm-3 cold-md-3 col-lg-3 control-label">Branch</label>
+              <div class="col-sm-9 col-md-9 col-lg-9">
               <select class="form-control" name="branch" id="branch" data-placeholder="Select">
                   @foreach($branches as $branch)
                   <option value="{{$branch->branch_id}}" @if($branch->branch_id == $users->branch) selected @endif>{{$branch->branch_name}}</option>
@@ -64,57 +64,57 @@
             </div>
 
                   <div class="form-group">
-                    <label for="supervisor" class="col-sm-3 control-label">Supervisor: </label>
-                    <div class="col-sm-9">
+                    <label for="supervisor" class="col-sm-3 cold-md-3 col-lg-3 control-label">Supervisor</label>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
                       <input type="text" class="form-control" name="supervisor" id="supervisor" value="{{$users->supervisor}}">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="altuser_id" class="col-sm-3 control-label">User ID: </label>
-                    <div class="col-sm-9">
+                    <label for="altuser_id" class="col-sm-3 cold-md-3 col-lg-3 control-label">User ID</label>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
                       <input type="text" class="form-control" name="altuser_id" id="altuser_id" value="{{$users->altuser_id}}" disabled>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="name" class="col-sm-3 control-label">Name: </label>
-                    <div class="col-sm-9">
+                    <label for="name" class="col-sm-3 cold-md-3 col-lg-3 control-label">Name</label>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
                       <input type="text" class="form-control" name="name" id="name" value="{{$users->name}}">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="ic_number" class="col-sm-3 control-label">Mykad: </label>
-                    <div class="col-sm-9">
+                    <label for="ic_number" class="col-sm-3 cold-md-3 col-lg-3 control-label">Mykad</label>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
                       <input type="text" class="form-control" name="ic_number" id="ic_number" value="{{$users->ic_number}}" disabled>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="email" class="col-sm-3 control-label">Email: </label>
-                    <div class="col-sm-9">
+                    <label for="email" class="col-sm-3 cold-md-3 col-lg-3 control-label">Email</label>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
                       <input type="text" class="form-control" name="email" id="email" value="{{$users->email}}">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="phonenumber" class="col-sm-3 control-label">Phone Number: </label>
-                    <div class="col-sm-9">
+                    <label for="phonenumber" class="col-sm-3 cold-md-3 col-lg-3 control-label">Phone Number</label>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
                       <input type="text" class="form-control" name="phonenumber" id="phonenumber" value="{{$users->phonenumber}}">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="address" class="col-sm-3 control-label">Address: </label>
-                    <div class="col-sm-9">
+                    <label for="address" class="col-sm-3 cold-md-3 col-lg-3 control-label">Address</label>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
                     <textarea class="form-control" name="address" id="address">{{$users->address}}</textarea>
                     </div>
                   </div> 
 
                   <div class="form-group">
-              <label for="active" class="col-sm-3 control-label">Active: </label>
-              <div class="col-sm-9">
+              <label for="active" class="col-sm-3 cold-md-3 col-lg-3 control-label">Active</label>
+              <div class="col-sm-9 col-md-9 col-lg-9">
               <select class="form-control" name="active" id="active" data-placeholder="Select">
                   @foreach($actives as $active)
                   <option value="{{$active->active_id}}" @if($active->active_id == $users->active) selected @endif>{{$active->status}}</option>

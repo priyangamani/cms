@@ -19,7 +19,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Ionicons -->
   {!!Html::style('css/ionicons.min.css')!!}
   <!-- datatables -->
-  {!!Html::style('css/dataTables.bootstrap.min.css')!!}
+  {!!Html::style('css/jquery.dataTables.css')!!}
+  <!-- {!!Html::style('css/dataTables.bootstrap.min.css')!!} -->
 
   {!!Html::style('sweetalert2/dist/sweetalert2.min.css')!!}
 
@@ -177,9 +178,10 @@ desired effect
 {!!Html::script('js/app.min.js')!!}
 <!-- datatable -->
 {!!Html::script('js/jquery.dataTables.min.js')!!}
-
+{!!Html::script('js/ckeditor.js')!!}
+<!--
 {!!Html::script('js/dataTables.bootstrap.min.js')!!}
-
+-->
 {!!Html::script('sweetalert2/dist/sweetalert2.min.js')!!}
 
 @include('sweet::alert')

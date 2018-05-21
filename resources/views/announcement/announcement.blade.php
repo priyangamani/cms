@@ -1,6 +1,8 @@
 @extends('layout.master')
 @section('style')
+<!--
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+-->
 @endsection
 @section('content')
 
@@ -86,7 +88,8 @@
                   <thead>
 
                     <tr class="info bg-blue">
-                      <th><input type="checkbox"></th>
+                      <!-- <th><input type="checkbox"></th> -->
+                      <th></th>
                       <th class="mailbox-subject"><center>Announcement Title</center></th>
                       <th class="mailbox-subject"><center>Announcement Image</center></th>
                       <th class="mailbox-subject"><center>Operation</center></th>
@@ -132,19 +135,26 @@
 @endsection
 
 @section('script')
+<!--
 <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-
+-->
 <script>
   $(document).ready(function(){
     CKEDITOR.replace('ann_content');
-    $('#ann-table').DataTable();
+    $('#ann-table').DataTable( {
+			aoColumnDefs: [ {
+				bSortable: false,
+				aTargets: [ 0 ]
+			} ]
+		}
+    );
     $('#frm-ann-create').on('submit',function(e)
     {
       e.preventDefault();
-      console.log('pressed');
+      //console.log('pressed');
       var data = $(this).serialize();
-      console.log(data);
+      //console.log(data);
       var formData = new FormData($(this)[0]);
       formData.append('ann_content', CKEDITOR.instances.ann_content.getData());
 
@@ -155,7 +165,7 @@
         async: false,
         success: function(response)
         {
-          console.log(response);
+          //console.log(response);
           $("[data-dismiss = modal]").trigger({type: "click"});
           swal('SUCCESS', 'Announcement Added', 'success').then(function() {
            window.location.reload();

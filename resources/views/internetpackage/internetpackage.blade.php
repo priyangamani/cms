@@ -1,18 +1,18 @@
 @extends('layout.master')
 @section('style')
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+<!-- <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css"> -->
 @endsection
 @section('content')
 
 <section class="content-header">
   <h1>
-    INTERNET PACKAGE
+    PRODUCT MANAGEMENT
     <small>Control panel</small>
   </h1>
 
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-    <li class="active">Internet Package</li>
+    <li class="active">Product Management</li>
   </ol>
 </section>
 
@@ -21,7 +21,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Add Internet Package</h4>
+        <h4 class="modal-title">Add Product</h4>
 
       </div>
       <div class="modal-body">
@@ -31,14 +31,14 @@
           <div class="row">
 
             <div class="form-group">
-              <label for="internet_package" class="col-sm-3 control-label">Package Name: </label>
+              <label for="internet_package" class="col-sm-3 control-label">Product Name: </label>
               <div class="col-sm-9">
                 <input type="text" class="form-control" name="internet_package" id="internet_package">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="package_type" class="col-sm-3 control-label">Package Type: </label>
+              <label for="package_type" class="col-sm-3 control-label">Product Type: </label>
               <div class="col-sm-9">
               <select class="form-control" name="package_type" id="package_type" data-placeholder="Select">
                   @foreach($packtypes as $packtype)
@@ -65,7 +65,7 @@
       <ul class="nav nav-tabs ">
         <li class="active"><a href="#tab_1" data-toggle="tab">Active</a></li>
         <li class="pull-right"> 
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#add-package">Add Internet Package</button>
+          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#add-package">Add Product</button>
         </li>
       </ul>
       <div class="tab-content">
@@ -83,11 +83,12 @@
                   <thead>
 
                     <tr class="info bg-blue">
-                      <th><input type="checkbox"></th>
-                      <th class="mailbox-subject"><center>INTERNET PACKAGE ID</center></th>
-                      <th class="mailbox-subject"><center>PACKAGE NAME</center></th>
-                      <th class="mailbox-subject"><center>PACKAGE TYPE</center></th>
-                      <th class="mailbox-subject"><center>OPERATION</center></th>
+                      <!-- <th><input type="checkbox"></th> -->
+                      <th></th>
+                      <th class="mailbox-subject"><center>Product Id</center></th>
+                      <th class="mailbox-subject"><center>Product Name</center></th>
+                      <th class="mailbox-subject"><center>Product Type</center></th>
+                      <th class="mailbox-subject"><center>Operation</center></th>
                     </tr>
                   </thead>
 
@@ -97,7 +98,12 @@
                       <td><input type="checkbox"></td>
                       <td class="mailbox-subject"><center>{{$package->intpackage_id}}</center></td>
                       <td class="mailbox-subject"><center>{{$package->internet_package}}</center></td>
-                      <td class="mailbox-subject"><center>{{$package->package_type}}</center></td>
+					  @foreach($packtypes as $packtype)
+						@if($packtype->packtype_id == $package->package_type)
+							<td class="mailbox-subject"><center>{{$packtype->type}}</center></td>
+							<!--<option value="{{$packtype->packtype_id}}">{{$packtype->type}}</option>-->
+						@endif
+					  @endforeach
                       <td class="mailbox-subject"><center><div class="btn-group">
                         <a class="button btn btn-success btn-sm" href="{{route('editIntPackage', ['intpackage_id'=> $package->intpackage_id])}}"><i class="fa fa-edit"></i> Edit</a>
                         {{ Form::open(array('url' => 'internetpackage/' . $package->intpackage_id, 'class' => 'pull-right')) }}
@@ -131,11 +137,18 @@
 @endsection
 
 @section('script')
+<!--
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-
+-->
 <script>
   $(document).ready(function(){
-    $('#package-table').DataTable();
+    $('#package-table').DataTable( {
+		aoColumnDefs: [ {
+				bSortable: false,
+				aTargets: [ 0 ]
+			} ]
+		}
+    );
     $('#frm-package-create').on('submit',function(e)
     {
       e.preventDefault();
@@ -153,7 +166,7 @@
         {
           console.log(response);
           $("[data-dismiss = modal]").trigger({type: "click"});
-          swal('SUCCESS', 'Internet Package Added', 'success').then(function() {
+          swal('SUCCESS', 'Product Added', 'success').then(function() {
            window.location.reload();
          });
         },

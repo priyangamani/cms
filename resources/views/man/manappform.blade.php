@@ -165,9 +165,9 @@ $(document).ready(function(){
     $('#frm-appform-create').on('submit',function(e)
     {
         e.preventDefault();
-        console.log('pressed');
+        //console.log('pressed');
         var data = $(this).serialize();
-        console.log(data);
+        //console.log(data);
         var formData = new FormData($(this)[0]);
 
         $.ajax(
@@ -178,7 +178,7 @@ $(document).ready(function(){
             async: false,
             success: function(response)
             {
-                console.log(response);
+                //console.log(response);
                  $("[data-dismiss = modal]").trigger({type: "click"});
             },
                cache: false,
