@@ -177,7 +177,7 @@ $(document).ready(function(){
     var table = $('#appform-table').DataTable(
     {
         dom: 'lfrtBp',
-        aaSorting: [ [5,'desc'] ],
+        aaSorting: [ [6,'desc'] ],
 		aoColumnDefs: [ {
 			bSortable: false,
 			aTargets: [ 0,8 ]
