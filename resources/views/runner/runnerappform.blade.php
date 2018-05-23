@@ -82,7 +82,20 @@
                             <th class="mailbox-name"><center>E-Form Status</center></th>
                           </tr>
                         </thead>
-
+                        <thead id="searchHead">
+                          <tr class="info">
+                            <th class=""></th>
+                            <th class="">Agent ID</th>
+                            <th>Customer Name</th>
+                            <th class="">Customer ID</th>
+                            <th class="">Order No</th>
+                            <th class=""></th>
+                            <th class=""></th>
+                            <th class=""></th>
+                            <th class=""></th>
+                            <th class=""></th>
+                          </tr>
+                        </thead>
                         <tbody>        
                          @foreach($appformdetails as $appform)
                          <tr class="info">
@@ -102,7 +115,15 @@
                           
                           <td class="mailbox-star"><center><a href="{{route('runnerdataprofile',['user_id'=> $runners->user_id, 'appform_id'=> $appform->appform_id])}}">{{$appform->appform_id}}</a></center></td>
                           <td class="mailbox-star"><center>{{$appform->docsups->docsup}}</center></td>
-                          <td class="mailbox-star"><center>{{$appform->thumbprints->status}}</center></td>
+                          <td class="mailbox-star">
+							<center>
+							  @if($appform->thumbprints->status == 'No')
+								<p style="display:none">0</p><i class="glyphicon glyphicon-remove"></i>
+								@elseif($appform->thumbprints->status == 'Yes')
+								<p style="display:none">1</p><i class="glyphicon glyphicon-ok"></i>
+								@endif
+							</center>
+						  </td>
                           <td class="mailbox-star"><center>{{$appform->jobstatus->jobstat}}</center></td>
                           <td class="mailbox-star"><center>{{$appform->eform_id}}</center></td>
                           <td class="mailbox-star"><center>{{$appform->runnerefs->status}}</center></td>
@@ -145,9 +166,15 @@
 
 <script>
 $(document).ready(function(){
-    $('#appform-table').DataTable(
-    // {
-    //     dom: 'lfrtBp',
+    var table = $('#appform-table').DataTable(
+	{
+        //dom: 'lfrtBp',
+        aaSorting: [ [5,'desc'] ],
+		aoColumnDefs: [ {
+			bSortable: false,
+			aTargets: [ 0,8 ]
+		} ],
+
     //     buttons: [{
     //       extend: 'excel',
     //       text: 'Export as Excel',
@@ -155,7 +182,7 @@ $(document).ready(function(){
     //         columns: [1,2,3,4,5,6,7]
     //       }
     //     }]
-    // }
+    }
     );
     $('#frm-appform-create').on('submit',function(e)
     {
@@ -181,6 +208,25 @@ $(document).ready(function(){
                processData: false,
         });
     });
+    // Setup - add a text input to each footer cell
+    $('#searchHead th').each( function () {
+        var title = $(this).text();
+        if(title != '')
+			$(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+    } );
+    // Apply the search
+    var i=0;
+    table.columns().every( function () {
+        var that = this;
+        var searchHead = jQuery('#searchHead tr th')[i];
+        i++;
+        $( 'input', searchHead ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that.search( this.value ).draw();
+            }
+        } );
+    } );
+
 });
 
 </script>

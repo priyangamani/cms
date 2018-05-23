@@ -73,16 +73,31 @@
                             <th class="mailbox-name"><center>Date</center></th>
                             <th class="mailbox-name"><center>Customer Name</center></th>
                             <th class="mailbox-name"><center>Segment</center></th>
-                            <th class="mailbox-name"><center>Internet Package</center></th>
-                            <th class="mailbox-name"><center>IC / Passport</center></th>
-                            <th class="mailbox-name"><center>Order Number</center></th>
+                            <th class="mailbox-name"><center>Product</center></th>
+                            <th class="mailbox-name"><center>Agent ID</center></th>
+                            <th class="mailbox-name"><center>Customer ID</center></th>
+                            <th class="mailbox-name"><center>Order No</center></th>
                             <th class="mailbox-name"><center>Processing Status</center></th>
                             <th class="mailbox-name"><center>Thumbprint Status</center></th>
-                            <th class="mailbox-name"><center>E-Form ID</center></th>
+                            <th class="mailbox-name"><center>eForm ID</center></th>
                             <th class="mailbox-name"><center>Approval Status</center></th>
                           </tr>
                         </thead>
-
+                        <thead id="searchHead">
+                          <tr class="info">
+                            <th class=""></th>
+                            <th>Customer Name</th>
+                            <th class=""></th>
+                            <th class=""></th>
+                            <th class="">Agent ID</th>
+                            <th class="">Customer ID</th>
+                            <th class="">Order No</th>
+                            <th class=""></th>
+                            <th class=""></th>
+                            <th class=""></th>
+                            <th class=""></th>
+                          </tr>
+                        </thead>
                         <tbody>        
                          @foreach($appformdetails as $appform)
                          <tr class="info">
@@ -90,7 +105,7 @@
                           <td class="mailbox-star"><center>{{$appform->applicant_name}}</center></td>
                           <td class="mailbox-star"><center>{{$appform->apptypes->type}}</center></td>
                           <td class="col-md-3"><center>{{$appform->packages->internet_package}}</center></td>
-
+						  <td class="mailbox-star"><center>{{$appform->user_id}}</center></td>
                           @if($appform->application_type == 1)
                           @if($appform->ic_passport_num == 1)
                           <td class="mailbox-star"><center>{{$appform->ic}}</center></td>
@@ -108,7 +123,15 @@
                           @endif
 
                           <td class="mailbox-star"><center>{{$appform->status->status}}</center></td>
-                          <td class="mailbox-star"><center>{{$appform->thumbprints->status}}</center></td>
+                          <td class="mailbox-star">
+							<center>
+							  @if($appform->thumbprints->status == 'No')
+								<p style="display:none">0</p><i class="glyphicon glyphicon-remove"></i>
+								@elseif($appform->thumbprints->status == 'Yes')
+								<p style="display:none">1</p><i class="glyphicon glyphicon-ok"></i>
+								@endif
+							</center>
+						  </td>
                           <td class="mailbox-star"><center>{{$appform->eform_id}}</center></td>
                           <td class="mailbox-star"><center>{{isset($appform->finals->status) ? $appform->finals->status : ''}}</center></td>
                            
@@ -150,19 +173,19 @@
 
 <script>
 $(document).ready(function(){
-    $('#appform-table').DataTable(
+    var table = $('#appform-table').DataTable(
     {
         dom: 'lfrtBp',
         aaSorting: [ [5,'desc'] ],
 		aoColumnDefs: [ {
 			bSortable: false,
-			aTargets: [ 0 ]
+			aTargets: [ 0,8 ]
 		} ],
         buttons: [{
           extend: 'excel',
           text: 'Export as Excel',
           exportOptions: {
-            columns: [0,1,2,3,4,5,6,7,8,9]
+            columns: [0,1,2,3,4,5,6,7,8,9,10]
           }
         }]
     }
@@ -191,6 +214,24 @@ $(document).ready(function(){
                processData: false,
         });
     });
+    // Setup - add a text input to each footer cell
+    $('#searchHead th').each( function () {
+        var title = $(this).text();
+        if(title != '')
+			$(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+    } );
+    // Apply the search
+    var i=0;
+    table.columns().every( function () {
+        var that = this;
+        var searchHead = jQuery('#searchHead tr th')[i];
+        i++;
+        $( 'input', searchHead ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that.search( this.value ).draw();
+            }
+        } );
+    } );
 });
 
 </script>
