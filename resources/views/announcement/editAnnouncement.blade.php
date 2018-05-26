@@ -58,7 +58,7 @@
                   <div class="form-group">
                     <label for="ann_content" class="col-lg-3 col-md-3 col-sm-3 control-label">When To Post  <span style="color:red">*</span></label>
                     <div class="col-lg-9 col-md-9 col-sm-9">
-                      <input type="date" class="form-control" required="true" name="when_to_post" id="when_to_post">
+                      <input type="date" class="form-control" required="true" name="when_to_post" id="when_to_post" value="{{date_format(date_create($announcements->when_to_post),'m/d/Y')}}">
                     </div>
                   </div>
 
@@ -68,7 +68,11 @@
 						<select class="form-control" required="true" name="post_to_which_group" id="post_to_which_group">
 							<option value="">Select</option>
 							@foreach($roles as $role)
-								<option value="{{$role->id}}">{{$role->name}}</option>
+								@if($role->id == $announcements->post_to_which_group)
+									<option selected value="{{$role->id}}">{{$role->name}}</option>
+								@else
+									<option value="{{$role->id}}">{{$role->name}}</option>
+								@endif
 							@endforeach
 						</select>
                     </div>
