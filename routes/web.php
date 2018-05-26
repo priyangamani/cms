@@ -13,19 +13,19 @@ use App\Appform;
 |
 */
 
+Route::get('/welcome', ['as'=>'welcome', 'uses'=>'AnnouncementController@welcomeDashboard']);
+/*
 Route::get('/welcome', ['as' => 'welcome','uses' => 
 	function () {
-
 		$totalapplicant = Appform::count();
 		$completeapplicant = Appform::where('admineformstatus', 31)->count();
 		$pending = Appform::where('admineformstatus', 1)->count();
 		$pendingapproval = Appform::where('admineformstatus', 21)->count();
 		$incompleteapplicant = $pending + $pendingapproval;
 		$pendingapplicant = Appform::where('admineformstatus', 41)->count();
-
 		return view('welcome', compact('totalapplicant','completeapplicant','incompleteapplicant','pendingapplicant'));
 	}]);
-
+*/
 // -------------------------------------------Forget Password---------------------------------------------
 
 Route::get('/forgot-password', ['as'=>'forgotPassword', 'uses'=>'LoginController@getForgotPassword']);
@@ -170,7 +170,10 @@ Route::delete('/supervisor/{user_id}',['as'=>'deleteSupervisor','uses'=>'Supervi
 // ------------------------------------------- status ---------------------------------------------
 
 Route::post('/status/{user_id?}', ['as'=>'createStatus', 'uses'=>'StatusController@createStatus']);
+//Route::get('/status',['as'=>'status','uses'=>'StatusController@getStatus']);
 Route::get('/status/{user_id?}',['as'=>'status','uses'=>'StatusController@getStatus']);
+//Route::get('/status/{user_id}',['as'=>'status','uses'=>'StatusController@getStatusForAdmin']);
+//Route::get('/getStatusForAdmin/{user_id}',['as'=>'getStatusForAdmin','uses'=>'StatusController@getStatusForAdmin']);
 Route::get('/editStatus/{status_id}',['as'=>'editStatus','uses'=>'StatusController@editStatus']);
 Route::post('/updateStatus',['as'=>'updateStatus','uses'=>'StatusController@updateStatus']);
 Route::delete('/status/{status_id}',['as'=>'deleteStatus','uses'=>'StatusController@deleteStatus']);

@@ -30,28 +30,47 @@
             <!-- /.box-header -->
             <div class="modal-body">
               <!-- Custom Tabs (Pulled to the right) -->
-              <form action="#" method="POST" id="frm-ann-edit" enctype ="multipart/form-data">
+              <form action="#" method="POST" id="frm-ann-edit" enctype ="multipart/form-data" class="form-horizontal">
                 {!! csrf_field() !!}
                 <div class="row">
 
                   <div class="form-group">
-                    <label for="ann_title" class="col-sm-3 control-label">Title: </label>
-                    <div class="col-sm-9">
-                    <input type="text" class="form-control" name="ann_title" id="ann_title" value="{{$announcements->ann_title}}">
+                    <label for="ann_title" class="col-lg-3 col-md-3 col-sm-3 control-label">Title <span style="color:red">*</span></label>
+                    <div class="col-lg-9 col-md-9 col-sm-9">
+                    <input type="text" class="form-control" name="ann_title" id="ann_title" required value="{{$announcements->ann_title}}">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="ann_picture" class="col-sm-3 control-label">Image: </label>
-                    <div class="col-sm-9">
+                    <label for="ann_picture" class="col-lg-3 col-md-3 col-sm-3 control-label">Image </label>
+                    <div class="col-lg-9 col-md-9 col-sm-9">
                       <input type="file" class="form-control" name="ann_picture" id="ann_picture">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="ann_content" class="col-sm-3 control-label">Content: </label>
-                    <div class="col-sm-9">
+                    <label for="ann_content" class="col-lg-3 col-md-3 col-sm-3 control-label">Content </label>
+                    <div class="col-lg-9 col-md-9 col-sm-9">
                       <textarea class="form-control" name="ann_content" id="ann_content">{{$announcements->ann_content}}</textarea>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="ann_content" class="col-lg-3 col-md-3 col-sm-3 control-label">When To Post  <span style="color:red">*</span></label>
+                    <div class="col-lg-9 col-md-9 col-sm-9">
+                      <input type="date" class="form-control" required="true" name="when_to_post" id="when_to_post">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="ann_content" class="col-lg-3 col-md-3 col-sm-3 control-label">Post To Which Group  <span style="color:red">*</span></label>
+                    <div class="col-lg-9 col-md-9 col-sm-9">
+						<select class="form-control" required="true" name="post_to_which_group" id="post_to_which_group">
+							<option value="">Select</option>
+							@foreach($roles as $role)
+								<option value="{{$role->id}}">{{$role->name}}</option>
+							@endforeach
+						</select>
                     </div>
                   </div>
 
@@ -81,13 +100,13 @@
 
 <script>
   $('#frm-ann-edit').on('submit',function(e){
-    CKEDITOR.replace('ann_content');
+    //CKEDITOR.replace('ann_content');
     e.preventDefault();
-    console.log('pressed');
+    //console.log('pressed');
     var data = $(this).serialize();
-    console.log(data);
+    //console.log(data);
     var formData = new FormData($(this)[0]);
-      formData.append('ann_content', CKEDITOR.instances.ann_content.getData());
+    //formData.append('ann_content', CKEDITOR.instances.ann_content.getData());
 
     $.ajax({
       url:"{{route('updateAnnouncement')}}", 
@@ -95,7 +114,7 @@
       data: formData,
       async: false,
       success: function(response){
-        console.log(response);
+        //console.log(response);
         $("[data-dismiss = modal]").trigger({type: "click"});
         swal('SUCCESS', 'Announcement Updated', 'success').then(function() {
          window.location.replace("{{route('announcement')}}");
