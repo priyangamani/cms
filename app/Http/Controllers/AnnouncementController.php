@@ -27,8 +27,10 @@ class AnnouncementController extends Controller
             $announcements->ann_title = $request->ann_title;
             $announcements->ann_picture = $request->ann_picture;
             //move_uploaded_file($request->ann_picture,'images/');
-            move_uploaded_file($_FILES['file']['tmp_name'],'images/'.$_FILES['file']['name']);
-            $announcements->ann_picture = 'images/'.$_FILES['file']['name'];
+            if(isset($_FILES['file']) && count($_FILES['file']) > 0) {
+				move_uploaded_file($_FILES['file']['tmp_name'],'images/'.$_FILES['file']['name']);
+				$announcements->ann_picture = 'images/'.$_FILES['file']['name'];
+			}
             $announcements->ann_content = $request->ann_content;
             $announcements->when_to_post = $request->when_to_post;
             $announcements->post_to_which_group = $request->post_to_which_group;
@@ -56,8 +58,14 @@ class AnnouncementController extends Controller
         if($request->ajax()){
             $announcements = Announcement::where('ann_id', $request->ann_id)->first();
             $announcements->ann_title = $request->ann_title;
-            if($request->ann_picture && $request->ann_picture != '')
+            /*
+             if($request->ann_picture && $request->ann_picture != '')
 				$announcements->ann_picture = $request->ann_picture;
+			*/
+            if(isset($_FILES['file']) && count($_FILES['file']) > 0) {
+				move_uploaded_file($_FILES['file']['tmp_name'],'images/'.$_FILES['file']['name']);
+				$announcements->ann_picture = 'images/'.$_FILES['file']['name'];
+			}
             $announcements->ann_content = $request->ann_content;
             $announcements->when_to_post = $request->when_to_post;
             $announcements->post_to_which_group = $request->post_to_which_group;
