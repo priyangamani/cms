@@ -130,7 +130,7 @@
                           </dl>
 
                           <dl class="dl-horizontal form-group">
-                            <dt>Date Of Birth :</dt>
+                            <dt>DOB :</dt>
                             <dd>{{$appforms->date_of_birth}}</dd>
                           </dl>
 

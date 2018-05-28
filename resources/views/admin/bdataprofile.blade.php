@@ -93,6 +93,40 @@
                           <!-- SECTION 2 --><h4><u><b>BUSINESS APPLICANT INFORMATION</b></u></h4><br>
 
                           <dl class="dl-horizontal form-group">
+                            <dt>Business Type :</dt>
+                            @if($appforms->ic_passport_num == 1)
+								<dd>Local</dd>
+                            @elseif($appforms->ic_passport_num == 11)
+								<dd>Foreign</dd>
+                            @endif
+                          </dl>
+                          @if($appforms->ic_passport_num == 1)
+							  <dl class="dl-horizontal form-group">
+								<dt>Director NRIC :</dt>
+								<dd>{{$appforms->ic}}</dd>
+							  </dl>
+                          @elseif($appforms->ic_passport_num == 11)
+							  <dl class="dl-horizontal form-group">
+								<dt>Passport Number :</dt>
+								<dd>{{$appforms->passport}}</dd>
+							  </dl>
+
+							  <dl class="dl-horizontal form-group">
+								<dt>Nationality :</dt>
+								<dd>{{$appforms->nationality}}</dd>
+							  </dl>
+
+							  <dl class="dl-horizontal form-group">
+								<dt>DOB :</dt>
+								<dd>{{$appforms->date_of_birth}}</dd>
+							  </dl>
+
+							  <dl class="dl-horizontal form-group">
+								<dt>Passport Exp Date :</dt>
+								<dd>{{$appforms->passport_exp_date}}</dd>
+							  </dl>
+                          @endif
+                          <dl class="dl-horizontal form-group">
                             <dt>Existing Service :</dt>
                             <dd>{{$appforms->exservs->exservice}}</dd>
                           </dl>
@@ -122,11 +156,6 @@
                           <dl class="dl-horizontal form-group">
                             <dt>Director Name :</dt>
                             <dd>{{$appforms->applicant_name}}</dd>
-                          </dl>
-
-                          <dl class="dl-horizontal form-group">
-                            <dt>Director NRIC :</dt>
-                            <dd>{{$appforms->ic}}</dd>
                           </dl>
 
                           <dl class="dl-horizontal form-group">

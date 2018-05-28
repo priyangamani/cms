@@ -309,7 +309,10 @@ class AppformController extends Controller
             $appformdetails->streamyx_tel_no= $request->streamyx_tel_no;
             $appformdetails->streamyx_package= $request->streamyx_package;
             $appformdetails->applicant_name= $request->applicant_name;
-            $appformdetails->ic_passport_num= $request->ic_passport_num;
+            if(isset($request->business_type) && $request->business_type != '')
+				$appformdetails->ic_passport_num= $request->business_type;
+            else
+				$appformdetails->ic_passport_num= $request->ic_passport_num;
             $appformdetails->ic= $request->ic;
             $appformdetails->passport= $request->passport;
             $appformdetails->nationality= $request->nationality;
@@ -423,7 +426,7 @@ class AppformController extends Controller
         $runnerefs = RunnerEformStatus::all();
 
         if($appforms->application_type == 1)
-        return view('admin.rdataprofile', compact('appforms','agents','admins','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','runners','status','jobstatus','agentefs','adminefs','runnerefs'));
+			return view('admin.rdataprofile', compact('appforms','agents','admins','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','runners','status','jobstatus','agentefs','adminefs','runnerefs'));
         else{
             return view('admin.bdataprofile', compact('appforms','agents','admins','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','runners','status','jobstatus','agentefs','adminefs','runnerefs'));
         }
