@@ -163,7 +163,7 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="date_of_birth" class="col-sm-3 control-label">Date Of Birth: </label>
+                          <label for="date_of_birth" class="col-sm-3 control-label">DOB: </label>
                           <div class="col-sm-9">
                             <input type="date" class="form-control" name="date_of_birth" id="date_of_birth" value="{{$appforms->date_of_birth}}" disabled>
                           </div>

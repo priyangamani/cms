@@ -106,6 +106,57 @@
                         </div>
 
                         <!-- SECTION 2 --><h4><u><center><b>BUSINESS</b></center></u></h4><br>
+
+                        @if($appforms->ic_passport_num == 1)
+                        <div class="form-group">
+                          <label for="ic" class="col-sm-3 control-label">Business Type: </label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="ic" id="ic" value="Local" disabled>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="ic" class="col-sm-3 control-label">IC: </label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="ic" id="ic" value="{{$appforms->ic}}" disabled>
+                          </div>
+                        </div>
+
+                        @elseif($appforms->ic_passport_num == 11)
+                        <div class="form-group">
+                          <label for="ic" class="col-sm-3 control-label">Business Type: </label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="ic" id="ic" value="Foreigner" disabled>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="passport" class="col-sm-3 control-label">Passport No: </label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="passport" id="passport" value="{{$appforms->passport}}" disabled>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="nationality" class="col-sm-3 control-label">Nationality: </label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="nationality" id="nationality" value="{{$appforms->nationality}}" disabled>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="date_of_birth" class="col-sm-3 control-label">DOB: </label>
+                          <div class="col-sm-9">
+                            <input type="date" class="form-control" name="date_of_birth" id="date_of_birth" value="{{$appforms->date_of_birth}}" disabled>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="passport_exp_date" class="col-sm-3 control-label">Passport Exp Date: </label>
+                          <div class="col-sm-9">
+                            <input type="date" class="form-control" name="passport_exp_date" id="passport_exp_date" value="{{$appforms->passport_exp_date}}" disabled>
+                          </div>
+                        </div>
+                        @endif
+
                         <div class="form-group">
                           <label for="existing_service" class="col-sm-3 control-label">Existing Service: </label>
                           <div class="col-sm-9">

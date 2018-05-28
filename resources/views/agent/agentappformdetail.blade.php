@@ -37,9 +37,10 @@
               <!-- SECTION 1 --><h2><center><b>TM UNIFI SALES REGISTRATION</b></center></h2><br>
 
               <div class="form-group">
-                <label for="sales_activity" class="col-sm-3 control-label">Sales Activity: </label>
+                <label for="sales_activity" class="col-sm-3 control-label">Sales Activity </label>
                 <div class="col-sm-9">
-                  <select class="form-control" name="sales_activity" id="sales_activity" data-placeholder="Select" onchange="(console.log(this))">
+                  <select class="form-control" name="sales_activity" id="sales_activity" data-placeholder="Select" required="true" onchange="">
+                    <option value="">Select</option>
                     @foreach($activities as $activity)
                     <option value="{{$activity->activity_id}}">{{$activity->activity}}</option>
                     @endforeach
@@ -48,11 +49,11 @@
               </div>
 
               <div class="form-group">
-                <label for="application_type" class="col-sm-3 control-label">Application Type: </label>
+                <label for="application_type" class="col-sm-3 control-label">Application Type </label>
                 <div class="col-sm-9">
                   <ul class="nav nav-pills" role="tablist">
                     @foreach($apptypes as $type)
-                    <li role="presentation" @if($type->apptype_id == 1) class="active" @endif><a href="#apptype_{{$type->apptype_id}}" aria-controls="apptype_{{$type->apptype_id}}" role="tab" data-toggle="tab">{{$type->type}}</a></li>
+                    <li role="presentation" @if($type->apptype_id == 1) class="" @endif><a href="#apptype_{{$type->apptype_id}}" aria-controls="apptype_{{$type->apptype_id}}" role="tab" data-toggle="tab">{{$type->type}}</a></li>
                     @endforeach
                   </ul>
                 </div>
@@ -60,7 +61,7 @@
               <br>
 
               <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="apptype_1">
+                <div role="tabpanel" class="tab-pane" id="apptype_1">
                   <form action="#" method="POST" id="frm-residential-create" enctype ="multipart/form-data" novalidate>
                     {!! csrf_field() !!}
 
@@ -73,14 +74,14 @@
                       <div class="col-sm-9">
                         <ul class="nav nav-pills" role="tablist">
                           @foreach($exservs as $exserv)
-                          <li role="presentation" @if($exserv->exserv_id == 1) class="active" @endif><a href="#exr_{{$exserv->exserv_id}}" aria-controls="exr_{{$exserv->exserv_id}}" role="tab" data-toggle="tab" onclick="document.getElementById('resident_existing_service').value='{{$exserv->exserv_id}}'">{{$exserv->exservice}}</a></li>
+                          <li role="presentation" @if($exserv->exserv_id == 1) class="" @endif><a href="#exr_{{$exserv->exserv_id}}" aria-controls="exr_{{$exserv->exserv_id}}" role="tab" data-toggle="tab" onclick="document.getElementById('resident_existing_service').value='{{$exserv->exserv_id}}'">{{$exserv->exservice}}</a></li>
                           @endforeach
                         </ul>
                       </div>
                     </div>
 
                     <div class="tab-content">
-                      <div role="tabpanel" class="tab-pane active" id="exr_1"></div> <!-- none not change -->
+                      <div role="tabpanel" class="tab-pane" id="exr_1"></div> <!-- none not change -->
                       <div role="tabpanel" class="tab-pane" id="exr_11">
 
                         <div class="form-group">
@@ -113,20 +114,30 @@
                     </div>
 
                     <input type="hidden" name="ic_passport_num" id="resident_ic_passport_num" value="1">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <label for="ic_passport_num" class="col-sm-3 control-label">IC / Passport: </label>
                       <div class="col-sm-9">
                         <ul class="nav nav-pills" role="tablist">
                           @foreach($icpass as $icpass)
-                          <li role="presentation" @if($icpass->icpass_id == 1) class="active" @endif><a href="#ipr_{{$icpass->icpass_id}}" aria-controls="ipr_{{$icpass->icpass_id}}" role="tab" data-toggle="tab" onclick="document.getElementById('resident_ic_passport_num').value='{{$icpass->icpass_id}}'">{{$icpass->icpass}}</a></li>
+                          <li role="presentation" @if($icpass->icpass_id == 1) class="" @endif><a href="#ipr_{{$icpass->icpass_id}}" aria-controls="ipr_{{$icpass->icpass_id}}" role="tab" data-toggle="tab" onclick="document.getElementById('resident_ic_passport_num').value='{{$icpass->icpass_id}}'">{{$icpass->icpass}}</a></li>
                           @endforeach
+                        </ul>
+                      </div>
+                    </div>
+					-->
+                    <div class="form-group">
+                      <label for="ic_passport_num" class="col-sm-3 control-label">IC / Passport </label>
+                      <div class="col-sm-9">
+                        <ul class="nav nav-pills" role="tablist">
+							<li role="presentation"><a href="#ipr_1" aria-controls="ipr_1" role="tab" data-toggle="tab" onclick="document.getElementById('resident_ic_passport_num').value='1'">IC</a></li>
+							<li role="presentation"><a href="#ipr_11" aria-controls="ipr_11" role="tab" data-toggle="tab" onclick="document.getElementById('resident_ic_passport_num').value='11'">Passport</a></li>
                         </ul>
                       </div>
                     </div>
 
                     <div class="tab-content">
 
-                      <div role="tabpanel" class="tab-pane active" id="ipr_1">
+                      <div role="tabpanel" class="tab-pane" id="ipr_1">
                         <div class="form-group">
                           <label for="ic" class="col-sm-3 control-label">IC: </label>
                           <div class="col-sm-9">
@@ -201,7 +212,7 @@
                       <div class="col-sm-9">
                         <ul class="nav nav-pills" role="tablist">
                           @foreach($thumbprints as $thumbprint)
-                          <li role="presentation" @if($thumbprint->thumbstat_id == 1) class="active" @endif><a href="#tsr_{{$thumbprint->thumbstat_id}}" aria-controls="tsr_{{$thumbprint->thumbstat_id}}" role="tab" data-toggle="tab" onclick="document.getElementById('resident_thumbprint_coll').value='{{$thumbprint->thumbstat_id}}'">{{$thumbprint->status}}</a></li>
+                          <li role="presentation" @if($thumbprint->thumbstat_id == 1) class="" @endif><a href="#tsr_{{$thumbprint->thumbstat_id}}" aria-controls="tsr_{{$thumbprint->thumbstat_id}}" role="tab" data-toggle="tab" onclick="document.getElementById('resident_thumbprint_coll').value='{{$thumbprint->thumbstat_id}}'">{{$thumbprint->status}}</a></li>
                           @endforeach
                         </ul>
                       </div>
@@ -209,7 +220,7 @@
                     <br>
 
                     <div class="tab-content">
-                      <div role="tabpanel" class="tab-pane active" id="tsr_1">
+                      <div role="tabpanel" class="tab-pane" id="tsr_1">
                         <!-- SECTION 4 --><h4><u><b>E-FORM</b></u></h4>
 
                         <div class="form-group">
@@ -239,7 +250,7 @@
                     <div>
                       <center>
                         <input type="hidden" name="user_id" value="{{$agents->user_id}}">
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                       </center>
                     </div>
 
@@ -253,14 +264,65 @@
 
                     <!-- SECTION 3 --><h4><u><b>BUSINESS</b></u></h4>
                     <input type="hidden" name="application_type" value="11">
-                    <input type="hidden" name="sales_activity" id="business_sales_activity" value="1">
-                    <input type="hidden" name="existing_service" id="business_existing_service" value="1">
+                    <input type="hidden" name="sales_activity" id="business_sales_activity" value="">
+                    <input type="hidden" name="existing_service" id="business_existing_service" value="">
+                    <input type="hidden" name="business_type" id="business_type" value="">
+
                     <div class="form-group">
-                      <label for="existing_service" class="col-sm-3 control-label">Existing Service: </label>
+                      <label for="existing_service" class="col-sm-3 control-label">Business Type </label>
+                      <div class="col-sm-9">
+                        <ul class="nav nav-pills" role="tablist">
+                          <li role="presentation"><a href="#bus_type_1" aria-controls="bus_type_1" role="tab" data-toggle="tab" onclick="document.getElementById('business_type').value='1'">Local</a></li>
+                          <li role="presentation"><a href="#bus_type_2" aria-controls="bus_type_2" role="tab" data-toggle="tab" onclick="document.getElementById('business_type').value='11'">Foreigner</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane" id="bus_type_1">
+						<div class="form-group">
+						  <label for="ic" class="col-sm-3 control-label">IC </label>
+						  <div class="col-sm-9">
+							<input type="text" class="form-control" name="ic" id="ic" required>
+						  </div>
+						</div>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="bus_type_2">
+						<div class="form-group">
+						  <label for="passport" class="col-sm-3 control-label">Passport No: </label>
+						  <div class="col-sm-9">
+							<input type="text" class="form-control" name="passport" id="passport" required>
+						  </div>
+						</div>
+
+						<div class="form-group">
+						  <label for="nationality" class="col-sm-3 control-label">Nationality: </label>
+						  <div class="col-sm-9">
+							<input type="text" class="form-control" name="nationality" id="nationality" required>
+						  </div>
+						</div>
+
+						<div class="form-group">
+						  <label for="date_of_birth" class="col-sm-3 control-label">DOB: </label>
+						  <div class="col-sm-9">
+							<input type="date" class="form-control" name="date_of_birth" id="date_of_birth" required>
+						  </div>
+						</div>
+
+						<div class="form-group">
+						  <label for="passport_exp_date" class="col-sm-3 control-label">Passport Exp Date: </label>
+						  <div class="col-sm-9">
+							<input type="date" class="form-control" name="passport_exp_date" id="passport_exp_date" required>
+						  </div>
+						</div>
+                      </div>
+                     </div>
+
+                    <div class="form-group">
+                      <label for="existing_service" class="col-sm-3 control-label">Existing Service </label>
                       <div class="col-sm-9">
                         <ul class="nav nav-pills" role="tablist">
                           @foreach($exservs as $exserv)
-                          <li role="presentation" @if($exserv->exserv_id == 1) class="active" @endif><a href="#exb_{{$exserv->exserv_id}}" aria-controls="exb_{{$exserv->exserv_id}}" role="tab" data-toggle="tab" onclick="document.getElementById('business_existing_service').value='{{$exserv->exserv_id}}'">{{$exserv->exservice}}</a></li>
+                          <li role="presentation" @if($exserv->exserv_id == 1) class="" @endif><a href="#exb_{{$exserv->exserv_id}}" aria-controls="exb_{{$exserv->exserv_id}}" role="tab" data-toggle="tab" onclick="document.getElementById('business_existing_service').value='{{$exserv->exserv_id}}'">{{$exserv->exservice}}</a></li>
                           @endforeach
                         </ul>
                       </div>
@@ -313,12 +375,12 @@
                       </div>
                     </div>
 
-                    <div class="form-group">
-                      <label for="ic" class="col-sm-3 control-label">Director NRIC: </label>
+                    <!-- <div class="form-group">
+                      <label for="ic_passport_num" class="col-sm-3 control-label">Director NRIC: </label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="ic" id="ic" required>
+                        <input type="text" class="form-control" name="ic_passport_num" id="ic_passport_num" required>
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                       <label for="inst_address" class="col-sm-3 control-label">Installation Address: </label>
@@ -355,7 +417,7 @@
                       <div class="col-sm-9">
                         <ul class="nav nav-pills" role="tablist">
                           @foreach($thumbprints as $thumbprint)
-                          <li role="presentation" @if($thumbprint->thumbstat_id == 1) class="active" @endif><a href="#tsb_{{$thumbprint->thumbstat_id}}" aria-controls="tsb_{{$thumbprint->thumbstat_id}}" role="tab" data-toggle="tab" onclick="document.getElementById('business_thumbprint_coll').value='{{$thumbprint->thumbstat_id}}'">{{$thumbprint->status}}</a></li>
+                          <li role="presentation" @if($thumbprint->thumbstat_id == 1) class="" @endif><a href="#tsb_{{$thumbprint->thumbstat_id}}" aria-controls="tsb_{{$thumbprint->thumbstat_id}}" role="tab" data-toggle="tab" onclick="document.getElementById('business_thumbprint_coll').value='{{$thumbprint->thumbstat_id}}'">{{$thumbprint->status}}</a></li>
                           @endforeach
                         </ul>
                       </div>
@@ -363,7 +425,7 @@
                     <br>
 
                     <div class="tab-content">
-                      <div role="tabpanel" class="tab-pane active" id="tsb_1">
+                      <div role="tabpanel" class="tab-pane" id="tsb_1">
                         <!-- SECTION 4 --><h4><u><b>E-FORM</b></u></h4>
 
                         <div class="form-group">
@@ -391,7 +453,7 @@
                     <div>
                       <center>
                         <input type="hidden" name="user_id" value="{{$agents->user_id}}">
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                       </center>
                     </div>
 
@@ -466,11 +528,11 @@
     $('#frm-business-create').on('submit',function(e)
     {
       e.preventDefault();
-      console.log('pressed');
+      //console.log('pressed');
       var data = $(this).serialize();
-      console.log(data);
+      //console.log(data);
       var formData = new FormData($(this)[0]);
-      console.log(formData);
+      //console.log(formData);
 
       $.ajax(
       {
@@ -480,7 +542,7 @@
         async: false,
         success: function(response)
         {
-          console.log(response);
+          //console.log(response);
           $("[data-dismiss = modal]").trigger({type: "click"});
           swal('SUCCESS', 'Appform Added', 'success').then(function() {
            window.location.replace("{{route('appforms',['user_id'=> $agents->user_id])}}");
