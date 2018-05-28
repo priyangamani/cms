@@ -41,6 +41,18 @@
                     </div>
                   </div>
 
+                <div class="form-group">
+                <label for="status" class="col-sm-3 control-label"  style="margin-top:10px">Master Status: </label>
+                <div class="col-sm-9"  style="margin-top:10px"> 
+                <select class="form-control">
+                    <option value="" selected disabled hidden>Select</option>
+                    <option value="1">Complete</option>
+                    <option value="2">Incomplete</option>
+                    <option value="3">Cancelled</option>
+               </select>
+                </div>
+              </div>
+
                 </div>
                 <input type="hidden" name="status_id" value="{{$status->status_id}}">
                 <div class="box-footer">

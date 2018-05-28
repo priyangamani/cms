@@ -39,6 +39,18 @@
               </div>
             </div>
 
+             <div class="form-group">
+              <label for="status" class="col-sm-3 control-label"  style="margin-top:10px">Master Status:</label>
+              <div class="col-sm-9"  style="margin-top:10px"> 
+              <select class="form-control">
+                  <option value="" selected disabled hidden>Select</option>
+                  <option value="1">Complete</option>
+                  <option value="2">Incomplete</option>
+                  <option value="3">Cancelled</option>
+             </select>
+              </div>
+            </div>
+
             
           </div>
         </div>
@@ -79,7 +91,9 @@
                       <th></th>
                       <th class="mailbox-subject"><center>Status Id</center></th>
                       <th class="mailbox-subject"><center>Status</center></th>
+                       <th class="mailbox-subject"><center>Master status</center></th>
                       <th class="mailbox-subject"><center>Operation</center></th>
+                      
                     </tr>
                   </thead>
 
@@ -89,6 +103,7 @@
                       <td><input type="checkbox"></td>
                       <td class="mailbox-subject"><center>{{$status->status_id}}</center></td>
                       <td class="mailbox-subject"><center>{{$status->status}}</center></td>
+                       <td class="mailbox-subject"><center>Cancelled</center></td>
                       <td class="mailbox-subject"><center><div class="btn-group">
                         <a class="button btn btn-success btn-sm" href="{{route('editStatus', ['status_id'=> $status->status_id])}}"><i class="fa fa-edit"></i> Edit</a>
                         {{ Form::open(array('url' => 'status/' . $status->status_id, 'class' => 'pull-right')) }}
@@ -97,6 +112,7 @@
                         {{ Form::close() }}
                       </center>
                     </td>
+                   
                   </tr>
                   @endforeach
 
