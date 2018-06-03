@@ -42,9 +42,9 @@ class StatusController extends Controller
 			$array['user_id'] = 0;
 			$admins = (object)$array;
 		}
-		$masterStatus[] = 'Complete';
-		$masterStatus[] = 'Incomplete';
-		$masterStatus[] = 'Cancelled';
+		$masterStatus[1] = 'Complete';
+		$masterStatus[2] = 'Incomplete';
+		$masterStatus[3] = 'Cancelled';
 		return view('status.status',compact('status','role','admins','masterStatus'));
     }
 

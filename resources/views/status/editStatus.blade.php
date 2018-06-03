@@ -45,10 +45,26 @@
                 <label for="status" class="col-sm-3 control-label"  style="margin-top:10px">Master Status: </label>
                 <div class="col-sm-9"  style="margin-top:10px"> 
                 <select class="form-control" id="master_status_id" name="master_status_id">
-                    <option value="" selected>Select</option>
-                    <option value="1">Complete</option>
-                    <option value="2">Incomplete</option>
-                    <option value="3">Cancelled</option>
+                    <option value="">Select</option>
+
+                    @if($status->master_status_id == 1)
+						<option value="1" selected>Complete</option>
+					@else
+						<option value="1">Complete</option>
+					@endif
+
+                    @if($status->master_status_id == 2)
+						<option value="2" selected>Incomplete</option>
+					@else
+						<option value="2">Incomplete</option>
+					@endif
+
+                    @if($status->master_status_id == 3)
+						<option value="3" selected>Cancelled</option>
+					@else
+						<option value="3">Cancelled</option>
+					@endif
+
                </select>
                 </div>
               </div>
