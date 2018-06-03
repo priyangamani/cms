@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 
 class Appform extends Model
@@ -42,6 +42,27 @@ class Appform extends Model
     'admineformstatus',
     'runnereformstatus',
     ];
+
+    public function getAppFormData($search)
+    {
+		if(isset($search['master_status_id']) && $search['master_status_id'] != '') {
+			$appData = DB::table('appforms')
+				->select('*')
+				->join('status', 'status.status_id', '=', 'appforms.process_status')
+				->join('apptypes', 'apptypes.apptype_id', '=', 'appforms.application_type')
+				->join('internetpackages', 'internetpackages.intpackage_id', '=', 'appforms.streamyx_package')
+				->where('status.master_status_id',$search['master_status_id'])
+				->get();
+		} else {
+			$appData = DB::table('appforms')
+				->select('*')
+				->join('status', 'status.status_id', '=', 'appforms.process_status')
+				->join('apptypes', 'apptypes.apptype_id', '=', 'appforms.application_type')
+				->join('internetpackages', 'internetpackages.intpackage_id', '=', 'appforms.streamyx_package')
+				->get();
+		}
+        return $appData;
+    } 
 
     public function users()
     {
