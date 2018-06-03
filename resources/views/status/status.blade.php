@@ -1,4 +1,4 @@
-@extends(($admins->user_id == 0)?'layout.master':'layout.masteradmin');
+@extends(($admins->user_id == 0)?'layout.master':'layout.masteradmin')
 @section('style')
 <!--
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
@@ -42,8 +42,8 @@
              <div class="form-group">
               <label for="status" class="col-sm-3 control-label"  style="margin-top:10px">Master Status:</label>
               <div class="col-sm-9"  style="margin-top:10px"> 
-              <select class="form-control">
-                  <option value="" selected disabled hidden>Select</option>
+              <select class="form-control" id="master_status_id" name="master_status_id">
+                  <option value="" selected>Select</option>
                   <option value="1">Complete</option>
                   <option value="2">Incomplete</option>
                   <option value="3">Cancelled</option>
@@ -96,14 +96,14 @@
                       
                     </tr>
                   </thead>
-
+                  <?php echo $masterStatus[1]; ?>
                   <tbody>
                     @foreach($status as $status)
                     <tr class="info">
                       <td><input type="checkbox"></td>
                       <td class="mailbox-subject"><center>{{$status->status_id}}</center></td>
                       <td class="mailbox-subject"><center>{{$status->status}}</center></td>
-                       <td class="mailbox-subject"><center>Cancelled</center></td>
+                       <td class="mailbox-subject"><center>{{ isset($masterStatus[$status->master_status_id]) ? $masterStatus[$status->master_status_id] : '' }}</center></td>
                       <td class="mailbox-subject"><center><div class="btn-group">
                         <a class="button btn btn-success btn-sm" href="{{route('editStatus', ['status_id'=> $status->status_id])}}"><i class="fa fa-edit"></i> Edit</a>
                         {{ Form::open(array('url' => 'status/' . $status->status_id, 'class' => 'pull-right')) }}

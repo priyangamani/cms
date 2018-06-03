@@ -44,8 +44,8 @@
                 <div class="form-group">
                 <label for="status" class="col-sm-3 control-label"  style="margin-top:10px">Master Status: </label>
                 <div class="col-sm-9"  style="margin-top:10px"> 
-                <select class="form-control">
-                    <option value="" selected disabled hidden>Select</option>
+                <select class="form-control" id="master_status_id" name="master_status_id">
+                    <option value="" selected>Select</option>
                     <option value="1">Complete</option>
                     <option value="2">Incomplete</option>
                     <option value="3">Cancelled</option>

@@ -11,6 +11,7 @@ class Status extends Model
     public $timestamp = 'true';
     protected $fillable = [
     	'status',
+    	'master_status_id',
     ];
 
     public function addforms()
