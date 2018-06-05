@@ -179,30 +179,12 @@
                           <br>
 
                           <!-- SECTION 4 --><h4><u><b>ADMIN REMARKS</b></u></h4><br>
-
-                          @if($appforms->admin_remark)
-                          <dl class="dl-horizontal form-group">
-                            <dt>Admin Remarks :</dt>
-                            <dd>{{$appforms->admin_remark}}</dd>
-                          </dl>
-                          
-
-                          @else
-                          <div class="form-group">
-                            <label for="eform_id" class="col-sm-3 control-label">Admin Remarks: </label>
-                            <div class="col-sm-9">
-                              <textarea class="form-control" name="admin_remark" id="admin_remark">{{$appforms->admin_remark}}</textarea>
-                            </div>
-                          </div>                          
-                          @endif
-
                           @if($appforms->process_status == 21)
                           <dl class="dl-horizontal form-group">
                             <dt>Processing Status :</dt>
                             <dd>{{$appforms->status->status}}</dd>
                           </dl>
                           <br>
-
                           @else
                           <div class="form-group">
                             <label for="process_status" class="col-sm-3 control-label">Processing Status: </label>
@@ -214,6 +196,20 @@
                               </select>
                             </div>
                           </div>
+                          @endif
+
+                          @if($appforms->admin_remark)
+                          <dl class="dl-horizontal form-group">
+                            <dt>Admin Remarks :</dt>
+                            <dd>{{$appforms->admin_remark}}</dd>
+                          </dl>
+                          @else
+                          <div class="form-group">
+                            <label for="eform_id" class="col-sm-3 control-label">Admin Remarks: </label>
+                            <div class="col-sm-9">
+                              <textarea class="form-control" name="admin_remark" id="admin_remark">{{$appforms->admin_remark}}</textarea>
+                            </div>
+                          </div>                          
                           @endif
 
                           <!-- SECTION 4 --><h4><u><b>ADMIN APPROVAL</b></u></h4><br>
