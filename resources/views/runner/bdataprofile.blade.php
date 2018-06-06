@@ -84,6 +84,7 @@
                           <label for="sales_activity" class="col-sm-3 control-label">Sales Activity: </label>
                           <div class="col-sm-9">
                             <select class="form-control" name="sales_activity" id="sales_activity" data-placeholder="Select" disabled>
+                              <option value="">Select</option>
                               @foreach($activities as $activity)
                               <option value="{{$activity->activity_id}}" @if($activity->activity_id == $appforms->sales_activity) selected @endif>{{$activity->activity}}</option>
                               @endforeach
@@ -96,6 +97,7 @@
                           <label for="application_type" class="col-sm-3 control-label">Application Type: </label>
                           <div class="col-sm-9">
                             <select class="form-control" name="application_type" id="application_type" data-placeholder="Select" disabled>
+                              <option value="">Select</option>
                               @foreach($apptypes as $apptype)
                               <option value="{{$apptype->apptype_id}}" @if($apptype->apptype_id == $appforms->application_type) selected @endif>{{$apptype->type}}</option>
                               @endforeach
@@ -108,6 +110,7 @@
                           <label for="existing_service" class="col-sm-3 control-label">Existing Service: </label>
                           <div class="col-sm-9">
                             <select class="form-control" name="existing_service" id="existing_service" data-placeholder="Select" disabled>
+                              <option value="">Select</option>
                               @foreach($exservs as $exserv)
                               <option value="{{$exserv->exserv_id}}" @if($exserv->exserv_id == $appforms->existing_service) selected @endif>{{$exserv->exservice}}</option>
                               @endforeach
@@ -128,6 +131,7 @@
                           <label for="streamyx_package" class="col-sm-3 control-label">Package: </label>
                           <div class="col-sm-9">
                             <select class="form-control" name="streamyx_package" id="streamyx_package" data-placeholder="Select" disabled>
+                              <option value="">Select</option>
                               @foreach($packages as $package)
                               <option value="{{$package->intpackage_id}}" @if($package->intpackage_id == $appforms->streamyx_package) selected @endif>{{$package->internet_package}}</option>
                               @endforeach
@@ -196,6 +200,7 @@
                           <label for="thumbprint_coll" class="col-sm-3 control-label">Thumbprint Collected: </label>
                           <div class="col-sm-9">
                             <select class="form-control" name="thumbprint_coll" id="thumbprint_coll" data-placeholder="Select" readonly>
+                              <option value="">Select</option>
                               @foreach($thumbprints as $thumbprint)
                               <option value="{{$thumbprint->thumbstat_id}}" @if($thumbprint->thumbstat_id == $appforms->thumbprint_coll) selected @endif>{{$thumbprint->status}}</option>
                               @endforeach
@@ -207,6 +212,7 @@
                           <label for="thumbprint_coll" class="col-sm-3 control-label">Thumbprint Collected: </label>
                           <div class="col-sm-9">
                             <select class="form-control" name="thumbprint_coll" id="thumbprint_coll" data-placeholder="Select">
+                              <option value="">Select</option>
                               @foreach($thumbprints as $thumbprint)
                               <option value="{{$thumbprint->thumbstat_id}}" @if($thumbprint->thumbstat_id == $appforms->thumbprint_coll) selected @endif>{{$thumbprint->status}}</option>
                               @endforeach
@@ -237,6 +243,7 @@
                           <label for="docs_uploaded" class="col-sm-3 control-label">Document Uploaded: </label>
                           <div class="col-sm-9">
                             <select class="form-control" name="docs_uploaded" id="docs_uploaded" data-placeholder="Select" readonly>
+                              <option value="">Select</option>
                               @foreach($docsups as $docsup)
                               <option value="{{$docsup->docs_id}}" @if($docsup->docs_id == $appforms->docs_uploaded) selected @endif>{{$docsup->docsup}}</option>
                               @endforeach
@@ -249,6 +256,7 @@
                           <label for="docs_uploaded" class="col-sm-3 control-label">Document Uploaded: </label>
                           <div class="col-sm-9">
                             <select class="form-control" name="docs_uploaded" id="docs_uploaded" data-placeholder="Select">
+                              <option value="">Select</option>
                               @foreach($docsups as $docsup)
                               <option value="{{$docsup->docs_id}}" @if($docsup->docs_id == $appforms->docs_uploaded) selected @endif>{{$docsup->docsup}}</option>
                               @endforeach

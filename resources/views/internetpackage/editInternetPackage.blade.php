@@ -45,6 +45,7 @@
               <label for="package_type" class="col-md-3 col-sm-3 control-label">Product Type</label>
               <div class="col-md-9 col-sm-9">
                 <select class="form-control" name="package_type" id="package_type" data-placeholder="Select">
+                  <option value="">Select</option>
                   @foreach($packtypes as $packtype)
                   <option value="{{$packtype->packtype_id}}" @if($packtype->packtype_id == $packages->package_type) selected @endif>{{$packtype->type}}</option>
                   @endforeach

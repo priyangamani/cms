@@ -194,6 +194,7 @@
                             <label for="process_status" class="col-sm-3 control-label"><a href="#" data-toggle="modal" data-target="#add-status">Processing Status: </a></label>
                             <div class="col-sm-9">
                               <select class="form-control" name="process_status" id="process_status" data-placeholder="Select">
+                                <option value="">Select</option>
                                 @foreach($status as $status)
                                 <option value="{{$status->status_id}}" @if($status->status_id == $appforms->process_status) selected @endif>{{$status->status}}</option>
                                 @endforeach

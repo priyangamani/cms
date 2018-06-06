@@ -208,6 +208,7 @@
                             <label for="process_status" class="col-sm-3 control-label">Processing Status: </label>
                             <div class="col-sm-9">
                               <select class="form-control" name="process_status" id="process_status" data-placeholder="Select">
+                                <option value="">Select</option>
                                 @foreach($status as $status)
                                 <option value="{{$status->status_id}}" @if($status->status_id == $appforms->process_status) selected @endif>{{$status->status}}</option>
                                 @endforeach
@@ -222,6 +223,7 @@
                             <label for="finalstatus" class="col-sm-3 control-label">Approval: </label>
                             <div class="col-sm-9">
                               <select class="form-control" name="finalstatus" id="finalstatus" data-placeholder="Select">
+                                <option value="">Select</option>
                                 @foreach($finalstatus as $finalstatus)
                                 <option value="{{$finalstatus->final_id}}" @if($finalstatus->final_id == $appforms->finalstatus) selected @endif>{{$finalstatus->status}}</option>
                                 @endforeach

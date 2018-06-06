@@ -99,6 +99,7 @@
                       <label for="streamyx_package" class="col-sm-3 control-label">Package: </label>
                       <div class="col-sm-9">
                         <select class="form-control" name="streamyx_package" id="streamyx_package" data-placeholder="Select">
+                          <option value="">Select</option>
                           @foreach($packages as $package)
                           <option value="{{$package->intpackage_id}}">{{$package->internet_package}}</option>
                           @endforeach
@@ -234,6 +235,7 @@
                           <label for="docs_uploaded" class="col-sm-3 control-label">Document Uploaded: </label>
                           <div class="col-sm-9">
                             <select class="form-control" name="docs_uploaded" id="docs_uploaded" data-placeholder="Select">
+                              <option value="">Select</option>
                               @foreach($docsups as $docsup)
                               <option value="{{$docsup->docs_id}}">{{$docsup->docsup}}</option>
                               @endforeach
@@ -347,6 +349,7 @@
                       <label for="streamyx_package" class="col-sm-3 control-label">Package: </label>
                       <div class="col-sm-9">
                         <select class="form-control" name="streamyx_package" id="streamyx_package" data-placeholder="Select">
+                          <option value="">Select</option>
                           @foreach($intpackages as $package)
                           <option value="{{$package->intpackage_id}}">{{$package->internet_package}}</option>
                           @endforeach
@@ -439,6 +442,7 @@
                           <label for="docs_uploaded" class="col-sm-3 control-label">Document Uploaded: </label>
                           <div class="col-sm-9">
                             <select class="form-control" name="docs_uploaded" id="docs_uploaded" data-placeholder="Select">
+                              <option value="">Select</option>
                               @foreach($docsups as $docsup)
                               <option value="{{$docsup->docs_id}}">{{$docsup->docsup}}</option>
                               @endforeach

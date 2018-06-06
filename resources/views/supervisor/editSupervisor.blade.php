@@ -45,6 +45,7 @@
               <label for="state" class="col-sm-3 control-label">State: </label>
               <div class="col-sm-9">
               <select class="form-control" name="state" id="state" data-placeholder="Select">
+                <option value="">Select</option>
                   @foreach($states as $state)
                   <option value="{{$state->state_id}}" @if($state->state_id == $users->state) selected @endif>{{$state->state_name}}</option>
                   @endforeach
@@ -56,6 +57,7 @@
               <label for="branch" class="col-sm-3 control-label">Branch: </label>
               <div class="col-sm-9">
               <select class="form-control" name="branch" id="branch" data-placeholder="Select">
+                <option value="">Select</option>
                   @foreach($branches as $branch)
                   <option value="{{$branch->branch_id}}" @if($branch->branch_id == $users->branch) selected @endif>{{$branch->branch_name}}</option>
                   @endforeach
@@ -116,6 +118,7 @@
               <label for="active" class="col-sm-3 control-label">Active: </label>
               <div class="col-sm-9">
               <select class="form-control" name="active" id="active" data-placeholder="Select">
+                <option value="">Select</option>
                   @foreach($actives as $active)
                   <option value="{{$active->active_id}}" @if($active->active_id == $users->active) selected @endif>{{$active->status}}</option>
                   @endforeach

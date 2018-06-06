@@ -41,6 +41,7 @@
               <label for="package_type" class="col-sm-3 control-label">Product Type: </label>
               <div class="col-sm-9">
               <select class="form-control" name="package_type" id="package_type" data-placeholder="Select">
+                <option value="">Select</option>
                   @foreach($packtypes as $packtype)
                   <option value="{{$packtype->packtype_id}}">{{$packtype->type}}</option>
                   @endforeach

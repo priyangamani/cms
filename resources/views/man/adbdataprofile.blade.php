@@ -168,6 +168,7 @@
                             <label for="runner_name" class="col-sm-3 control-label">Assign to: </label>
                             <div class="col-sm-9">
                               <select class="form-control" name="runner_name" id="runner_name" placeholder="Select...">
+                                <option value="">Select</option>
                                 @foreach($runners as $runner)
                                 <option value="{{$runner->user_id}}"  @if($runner->user_id == $appforms->runner_name) selected @endif>{{$runner->name}}</option>
                                 @endforeach
@@ -197,6 +198,7 @@
                             <label for="docs_uploaded" class="col-sm-3 control-label">Document Uploaded: </label>
                             <div class="col-sm-9">
                               <select class="form-control" name="docs_uploaded" id="docs_uploaded" data-placeholder="Select">
+                                <option value="">Select</option>
                                 @foreach($docsups as $docsup)
                                 <option value="{{$docsup->docs_id}}" @if($docsup->docs_id == $appforms->docs_uploaded) selected @endif>{{$docsup->docsup}}</option>
                                 @endforeach
@@ -218,6 +220,7 @@
                             <label for="process_status" class="col-sm-3 control-label">Processing Status: </label>
                             <div class="col-sm-9">
                               <select class="form-control" name="process_status" id="process_status" data-placeholder="Select">
+                                <option value="">Select</option>
                                 @foreach($status as $status)
                                 <option value="{{$status->status_id}}" @if($status->status_id == $appforms->process_status) selected @endif>{{$status->status}}</option>
                                 @endforeach
