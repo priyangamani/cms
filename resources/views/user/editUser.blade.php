@@ -45,6 +45,7 @@
               <label for="state" class="col-sm-3 cold-md-3 col-lg-3 control-label">State</label>
               <div class="col-sm-9 col-md-9 col-lg-9">
               <select class="form-control" name="state" id="state" data-placeholder="Select">
+				  <option value="">Select</option>
                   @foreach($states as $state)
                   <option value="{{$state->state_id}}" @if($state->state_id == $users->state) selected @endif>{{$state->state_name}}</option>
                   @endforeach
@@ -56,8 +57,9 @@
               <label for="branch" class="col-sm-3 cold-md-3 col-lg-3 control-label">Branch</label>
               <div class="col-sm-9 col-md-9 col-lg-9">
               <select class="form-control" name="branch" id="branch" data-placeholder="Select">
+				  <option value="">Select</option>
                   @foreach($branches as $branch)
-                  <option value="{{$branch->branch_id}}" @if($branch->branch_id == $users->branch) selected @endif>{{$branch->branch_name}}</option>
+					<option value="{{$branch->branch_id}}" @if($branch->branch_id == $users->branch) selected @endif>{{$branch->branch_name}}</option>
                   @endforeach
                 </select>
               </div>
@@ -85,11 +87,37 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="ic_number" class="col-sm-3 cold-md-3 col-lg-3 control-label">Mykad</label>
+                    <label for="ic_number" class="col-sm-3 cold-md-3 col-lg-3 control-label">IC</label>
                     <div class="col-sm-9 col-md-9 col-lg-9">
                       <input type="text" class="form-control" name="ic_number" id="ic_number" value="{{$users->ic_number}}" disabled>
                     </div>
                   </div>
+
+				<div class="form-group">
+				  <label for="ic_number" class="col-sm-3 control-label">Country of issue: </label>
+				  <div class="col-sm-9">
+					<select class="form-control" name="country_of_issue" id="country_of_issue" data-placeholder="Select">
+						<option value="">Select</option>
+						  @foreach($countries as $country)
+						  <option value="{{$country->id}}" @if($country->id == $users->country_of_issue) selected @endif>{{$country->country_name}}</option>
+						  @endforeach
+					</select>
+				  </div>
+				</div>
+
+				<div class="form-group">
+				  <label for="ic_number" class="col-sm-3 control-label">End. Date: </label>
+				  <div class="col-sm-9">
+					<input type="date" class="form-control" name="expiry_date" id="expiry_date" required value="{{date('Y-m-d', strtotime($users->expiry_date))}}">
+				  </div>
+				</div>
+
+				<div class="form-group">
+				  <label for="ic_number" class="col-sm-3 control-label">D.O.B: </label>
+				  <div class="col-sm-9">
+					<input type="date" class="form-control" name="dob" id="dob" required value="{{date('Y-m-d', strtotime($users->dob))}}">
+				  </div>
+				</div>
 
                   <div class="form-group">
                     <label for="email" class="col-sm-3 cold-md-3 col-lg-3 control-label">Email</label>
@@ -151,9 +179,9 @@
 
   $('#frm-user-edit').on('submit',function(e){
     e.preventDefault();
-    console.log('pressed');
+    //console.log('pressed');
     var data = $(this).serialize();
-    console.log(data);
+    //console.log(data);
     var formData = new FormData($(this)[0]);
 
     $.ajax({
@@ -162,7 +190,7 @@
       data: formData,
       async: false,
       success: function(response){
-        console.log(response);
+        //console.log(response);
         $("[data-dismiss = modal]").trigger({type: "click"});
         swal('SUCCESS', 'User Updated', 'success').then(function() {
           window.location.replace("{{route('user')}}");

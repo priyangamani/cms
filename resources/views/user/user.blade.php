@@ -101,45 +101,28 @@
             </div>
 
             <div class="form-group">
-              <label for="ic_number" class="col-sm-3 control-label">Business Reg. No: </label>
+              <label for="ic_number" class="col-sm-3 control-label">Country of issue: </label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" name="ic_number" id="ic_number" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="ic_number" class="col-sm-3 control-label">Passport No: </label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" name="ic_number" id="ic_number" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="ic_number" class="col-sm-3 control-label">Nationality: </label>
-              <div class="col-sm-9">
-                <select class="form-control" name="supervisor" id="supervisor" data-placeholder="Select">
+                <select class="form-control" name="country_of_issue" id="country_of_issue" data-placeholder="Select">
 					<option value="">Select</option>
-					<!--
-						@foreach($supervisors as $supervisor)
-							<option value="{{$supervisor->name}}">{{$supervisor->supervisor}}</option>
-						@endforeach
-					-->
+					  @foreach($countries as $country)
+					  <option value="{{$country->id}}">{{$country->country_name}}</option>
+					  @endforeach
                 </select>
-
               </div>
             </div>
 
             <div class="form-group">
-              <label for="ic_number" class="col-sm-3 control-label">Passport Exp. Date: </label>
+              <label for="ic_number" class="col-sm-3 control-label">End. Date: </label>
               <div class="col-sm-9">
-                <input type="date" class="form-control" name="ic_number" id="ic_number" required>
+                <input type="date" class="form-control" name="expiry_date" id="expiry_date" required>
               </div>
             </div>
 
             <div class="form-group">
               <label for="ic_number" class="col-sm-3 control-label">D.O.B: </label>
               <div class="col-sm-9">
-                <input type="date" class="form-control" name="ic_number" id="ic_number" required>
+                <input type="date" class="form-control" name="dob" id="dob" required>
               </div>
             </div>
 
@@ -220,7 +203,8 @@
                         <th class="mailbox-star"><center>User Type</center></th>
                         <th class="mailbox-star"><center>User ID</center></th>
                         <th class="mailbox-star"><center>Name</center></th>
-                        <th class="mailbox-star"><center>Mykad</center></th>
+                        <th class="mailbox-star"><center>Country Of Issue</center></th>
+                        <th class="mailbox-star"><center>IC</center></th>
                         <th class="mailbox-star"><center>Email</center></th>
                         <th class="mailbox-star"><center>Active</center></th>
                         <th class="mailbox-star"><center>Operation</center></th>
@@ -235,6 +219,7 @@
                       <td class="mailbox-name"><center>{{$user->roles()->pluck('name')->implode(' ') }}</center></td> 
                       <td class="mailbox-name"><center>{{$user->altuser_id}}</center></td>
                       <td class="mailbox-name"><center>{{$user->name}}</center></td>
+                      <td class="mailbox-name"><center>{{isset($user->countries->country_name) ? $user->countries->country_name :''}}</center></td>
                       <td class="mailbox-name"><center>{{$user->ic_number}}</center></td>
                       <td class="mailbox-name"><center>{{$user->email}}</center></td>
                       <td class="mailbox-name"><center>{{$user->actives->status}}</center></td>

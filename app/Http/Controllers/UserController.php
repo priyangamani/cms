@@ -15,6 +15,7 @@ use Session;
 use App\User;
 use App\Group;
 use App\Branch;
+use App\Countries;
 use App\State;
 use App\Active;
 use Alert;
@@ -35,6 +36,9 @@ class UserController extends Controller
             $users = new User;
             $users->altuser_id = $request->altuser_id;
             $users->name = $request->name;
+            $users->country_of_issue = $request->country_of_issue;
+            $users->expiry_date = $request->expiry_date;
+            $users->dob = $request->dob;
             $users->phonenumber = $request->phonenumber;
             $users->address = $request->address;
             $users->email = $request->email;
@@ -56,28 +60,33 @@ class UserController extends Controller
         $supervisors = User::role('Supervisor')->get();
         $groups = Group::all();
         $users = User::all();
+        $countries = Countries::all();
         $roles = Role::all();
         $branches = Branch::all();
         $states = State::all();
         $actives = Active::all();
-    	return view('user.user', compact('users','groups', 'roles','branches','states','actives','supervisors'));
+    	return view('user.user', compact('users','groups','countries','roles','branches','states','actives','supervisors'));
     }
 
     public function editUser($user_id, Request $request)
     {
         $users = User::where('user_id', $user_id)->first();
+        $countries = Countries::all();
         $roles = Role::all();
         $branches = Branch::all();
         $states = State::all();
         $actives = Active::all();
         $supervisors = User::role('Agent')->get();
-        return view('user.editUser', compact('users','roles','branches','states','actives','supervisors'));
+        return view('user.editUser', compact('users','countries','roles','branches','states','actives','supervisors'));
     }
 
     public function updateUser(Request $request)
     {
         if($request->ajax()){
             $users = User::where('user_id', $request->user_id)->first();
+            $users->country_of_issue = $request->country_of_issue;
+            $users->expiry_date = $request->expiry_date;
+            $users->dob = $request->dob;
             $users->state = $request->state;
             $users->branch = $request->branch;
             $users->supervisor = $request->supervisor;

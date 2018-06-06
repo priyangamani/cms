@@ -58,7 +58,7 @@
                   <div class="form-group">
                     <label for="ann_content" class="col-lg-3 col-md-3 col-sm-3 control-label">When To Post  <span style="color:red">*</span></label>
                     <div class="col-lg-9 col-md-9 col-sm-9">
-                      <input type="date" class="form-control" required="true" name="when_to_post" id="when_to_post" value="{{date_format(date_create($announcements->when_to_post),'m/d/Y')}}">
+                      <input type="date" class="form-control" required="true" name="when_to_post" id="when_to_post" value="{{date_format(date_create($announcements->when_to_post),'Y-m-d')}}">
                     </div>
                   </div>
 
