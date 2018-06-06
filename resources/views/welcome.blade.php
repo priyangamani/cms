@@ -8,14 +8,14 @@
 <br><br>
 <section class="content">
       <div class="row">
-		  <div style="">
+		  <div style="" class="col-lg-12">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>{{$totalapplicant}}</h3>
 
-              <p><b>TOTAL APPLICANTS</b></p>
+              <p><a href="{{route('manappform')}}" style="color:#fff"><b>TOTAL APPLICANTS</b></a></p>
             </div>
             <div class="icon">
               <i class="fa fa-check-circle"></i>
@@ -30,7 +30,7 @@
             <div class="inner">
               <h3>{{$completeapplicant}}</h3>
 
-              <p><b>COMPLETE APPLICANT</b></p>
+              <p><a href="{{route('manappform',['status'=>1])}}" style="color:#fff"><b>COMPLETE APPLICANT</b></a></p>
             </div>
             <div class="icon">
               <i class="fa fa-share-square"></i>
@@ -45,7 +45,7 @@
             <div class="inner">
               <h3>{{$incompleteapplicant}}</h3>
 
-              <p><b>INCOMPLETE APPLICANT</b></p>
+              <p><a href="{{route('manappform',['status'=>2])}}" style="color:#fff"><b>INCOMPLETE APPLICANT</b></a></p>
             </div>
             <div class="icon">
               <i class="fa fa-exclamation-circle"></i>
@@ -60,7 +60,7 @@
             <div class="inner">
               <h3>{{$pendingapplicant}}</h3>
 
-              <p><b>CANCELLED APPLICANT</b></p>
+              <p><a href="{{route('manappform',['status'=>3])}}" style="color:#fff"><b>CANCELLED APPLICANT</b></a></p>
             </div>
             <div class="icon">
               <i class="fa fa-ban"></i>
@@ -70,6 +70,7 @@
         </div>
         <!-- ./col -->
         </div>
+<div style="" class="col-lg-12">
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -114,6 +115,7 @@
     <span class="sr-only">Next</span>
   </a>
 
+</div>
 </div>
       </div>
       <!-- /.row -->

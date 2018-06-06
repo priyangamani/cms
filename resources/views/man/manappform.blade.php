@@ -8,7 +8,6 @@
 </style>
 @endsection
 @section('content')
-
     <section class="content-header">
       <h1>
         ADMIN APPLICATION-FORM 
@@ -103,8 +102,8 @@
                          <tr class="info">
                           <td class="mailbox-star"><center>{{date('d-m-Y', strtotime($appform->created_at))}}</center></td>
                           <td class="mailbox-star"><center>{{$appform->applicant_name}}</center></td>
-                          <td class="mailbox-star"><center>{{$appform->apptypes->type}}</center></td>
-                          <td class="col-md-3"><center>{{$appform->packages->internet_package}}</center></td>
+                          <td class="mailbox-star"><center>{{$appform->type}}</center></td>
+                          <td class="col-md-3"><center>{{$appform->internet_package}}</center></td>
 						  <td class="mailbox-star"><center>{{$appform->user_id}}</center></td>
                           @if($appform->application_type == 1)
                           @if($appform->ic_passport_num == 1)
@@ -122,12 +121,12 @@
                           <td class="mailbox-star"><center><a href="#">{{$appform->appform_id}}</a></center></td>
                           @endif
 
-                          <td class="mailbox-star"><center>{{$appform->status->status}}</center></td>
+                          <td class="mailbox-star"><center>{{$appform->status}}</center></td>
                           <td class="mailbox-star">
 							<center>
-							  @if($appform->thumbprints->status == 'No')
+							  @if($appform->thumbprint_coll == '11')
 								<p style="display:none">0</p><i class="glyphicon glyphicon-remove"></i>
-								@elseif($appform->thumbprints->status == 'Yes')
+								@elseif($appform->thumbprint_coll == '1')
 								<p style="display:none">1</p><i class="glyphicon glyphicon-ok"></i>
 								@endif
 							</center>

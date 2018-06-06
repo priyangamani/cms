@@ -25,6 +25,7 @@ class StatusController extends Controller
         if($request->ajax()){
             $status = new Status;
             $status->status = $request->status;
+            $status->master_status_id = $request->master_status_id;
             $status->save();
             return response($status);
         }
@@ -41,7 +42,10 @@ class StatusController extends Controller
 			$array['user_id'] = 0;
 			$admins = (object)$array;
 		}
-		return view('status.status',compact('status','role','admins'));
+		$masterStatus[1] = 'Complete';
+		$masterStatus[2] = 'Incomplete';
+		$masterStatus[3] = 'Cancelled';
+		return view('status.status',compact('status','role','admins','masterStatus'));
     }
 
     public function editStatus($status_id, Request $request)
@@ -55,6 +59,7 @@ class StatusController extends Controller
         if($request->ajax()){
             $status = Status::where('status_id', $request->status_id)->first();
             $status->status = $request->status;
+            $status->master_status_id = $request->master_status_id;
             $status->save();
             return response($status);
         }       

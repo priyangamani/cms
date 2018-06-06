@@ -218,14 +218,6 @@
                           <br>
 
                           <!-- SECTION 4 --><h4><u><b>ADMIN REMARKS</b></u></h4><br>
-
-                          <div class="form-group">
-                            <label for="eform_id" class="col-sm-3 control-label">Admin Remarks: </label>
-                            <div class="col-sm-9">
-                              <textarea class="form-control" name="admin_remark" id="admin_remark">{{$appforms->admin_remark}}</textarea>
-                            </div>
-                          </div>
-
                           <div class="form-group">
                             <label for="process_status" class="col-sm-3 control-label">Processing Status: </label>
                             <div class="col-sm-9">
@@ -237,7 +229,12 @@
                               </select>
                             </div>
                           </div>
-
+                          <div class="form-group">
+                            <label for="eform_id" class="col-sm-3 control-label">Admin Remarks: </label>
+                            <div class="col-sm-9">
+                              <textarea class="form-control" name="admin_remark" id="admin_remark">{{$appforms->admin_remark}}</textarea>
+                            </div>
+                          </div>
                           <input type="hidden" name="appform_id" value="{{$appforms->appform_id}}">
                           <div class="box-footer">
                             <button type="submit" class="btn btn-primary">Save Change</button>

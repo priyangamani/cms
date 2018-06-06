@@ -27,7 +27,7 @@
       <div class="modal-body">
         <!-- Custom Tabs (Pulled to the right) -->
 
-        <form action="#" method="POST" id="frm-user-create" enctype ="multipart/form-data">
+        <form action="#" method="POST" class="form-horizontal" id="frm-user-create" enctype ="multipart/form-data">
           {!! csrf_field() !!}
           <div class="row">
 
@@ -35,6 +35,7 @@
               <label for="role" class="col-sm-3 control-label">User Type: </label>
               <div class="col-sm-9">
                 <select class="form-control" name="role" id="role" data-placeholder="Select">
+					<option value="">Select</option>
                   @foreach($roles as $role)
                   <option value="{{$role->id}}">{{$role->name}}</option>
                   @endforeach
@@ -46,6 +47,7 @@
               <label for="state" class="col-sm-3 control-label">State: </label>
               <div class="col-sm-9">
                 <select class="form-control" name="state" id="state" data-placeholder="Select">
+					<option value="">Select</option>
                   @foreach($states as $state)
                   <option value="{{$state->state_id}}">{{$state->state_name}}</option>
                   @endforeach
@@ -57,6 +59,7 @@
               <label for="branch" class="col-sm-3 control-label">Branch: </label>
               <div class="col-sm-9">
                 <select class="form-control" name="branch" id="branch" data-placeholder="Select">
+					<option value="">Select</option>
                   @foreach($branches as $branch)
                   <option value="{{$branch->branch_id}}">{{$branch->branch_name}}</option>
                   @endforeach
@@ -68,6 +71,7 @@
               <label for="supervisor" class="col-sm-3 control-label">Supervisor: </label>
               <div class="col-sm-9">
                 <select class="form-control" name="supervisor" id="supervisor" data-placeholder="Select">
+					<option value="">Select</option>
                   @foreach($supervisors as $supervisor)
                   <option value="{{$supervisor->name}}">{{$supervisor->supervisor}}</option>
                   @endforeach
@@ -90,9 +94,52 @@
             </div>
 
             <div class="form-group">
-              <label for="ic_number" class="col-sm-3 control-label">Mykad: </label>
+              <label for="ic_number" class="col-sm-3 control-label">IC: </label>
               <div class="col-sm-9">
                 <input type="text" class="form-control" name="ic_number" id="ic_number" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ic_number" class="col-sm-3 control-label">Business Reg. No: </label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="ic_number" id="ic_number" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ic_number" class="col-sm-3 control-label">Passport No: </label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="ic_number" id="ic_number" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ic_number" class="col-sm-3 control-label">Nationality: </label>
+              <div class="col-sm-9">
+                <select class="form-control" name="supervisor" id="supervisor" data-placeholder="Select">
+					<option value="">Select</option>
+					<!--
+						@foreach($supervisors as $supervisor)
+							<option value="{{$supervisor->name}}">{{$supervisor->supervisor}}</option>
+						@endforeach
+					-->
+                </select>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ic_number" class="col-sm-3 control-label">Passport Exp. Date: </label>
+              <div class="col-sm-9">
+                <input type="date" class="form-control" name="ic_number" id="ic_number" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ic_number" class="col-sm-3 control-label">D.O.B: </label>
+              <div class="col-sm-9">
+                <input type="date" class="form-control" name="ic_number" id="ic_number" required>
               </div>
             </div>
 
@@ -111,7 +158,7 @@
             </div>  
 
             <div class="form-group">
-              <label for="address" class="col-sm-3 control-label">Address: </label>
+              <label for="address" class="col-sm-3 control-label">Insta. Address: </label>
               <div class="col-sm-9">
                 <textarea class="form-control" name="address" id="address" required></textarea>
               </div>
@@ -231,9 +278,9 @@
     $('#frm-user-create').on('submit',function(e)
     {
       e.preventDefault();
-      console.log('pressed');
+      //console.log('pressed');
       var data = $(this).serialize();
-      console.log(data);
+      //console.log(data);
       var formData = new FormData($(this)[0]);
 
       $.ajax(
@@ -244,7 +291,7 @@
         async: false,
         success: function(response)
         {
-          console.log(response);
+          //console.log(response);
           $("[data-dismiss = modal]").trigger({type: "click"});;
           swal('SUCCESS', 'User Added', 'success').then(function() {
            window.location.reload();
@@ -252,7 +299,7 @@
         },
         error: function (xhr, status, error){ 
           swal('ERROR',xhr.responseText);
-          console.log(xhr);
+          //console.log(xhr);
           swal('ERROR', xhr.responseText, 'warning');
         },
         cache: false,

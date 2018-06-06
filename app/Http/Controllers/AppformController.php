@@ -628,8 +628,16 @@ class AppformController extends Controller
 
     public function getManAppform(Request $request)
     {
-        // $appformdetails = Appform::where('user_id',$user_id)->get();
-        $appformdetails = Appform::all();
+        //$appformdetails = Appform::where('user_id',$user_id)->get();
+		//$appformdetails = Appform::all();
+		$appform = new Appform;
+		$search = array();
+		if(isset($request->status) && $request->status != '')
+			$search['master_status_id'] = $request->status;
+		$appformdetails = $appform->getAppFormData($search);
+		//$appformdetails = Appform::with(['status'])->all();
+		//$article = \App\Models\Article::with(['user','category'])->first();
+        /*
         $admins = User::all();
         $managers = User::all();
         $agents = User::all();
@@ -641,10 +649,13 @@ class AppformController extends Controller
         $docsups = DocsUpload::all();
         $exservs = ExistService::all();
         $icpass = IcPassport::all();
-        $status = Status::all();
+        if(isset($request->status) && $request->status != '')
+			$status = Status::where('master_status_id',$request->status)->get();
+		else
+			$status = Status::all();
         $jobstatus = JobStatus::all();
-
-        return view('man.manappform', compact('managers','appformdetails','admins','agents','runners','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','status','jobstatus'));  
+        */
+        return view('man.manappform', compact('managers','appformdetails','admins','agents','runners','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','status','jobstatus'));
     } 
 
 
