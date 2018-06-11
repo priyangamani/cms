@@ -35,7 +35,6 @@ class ResetPasswordController extends Controller
                 'email'=>$user->email,
                 'token'=> $token,
                 'user'=>$user->name
-
             ], function($message) use ($user){
                 $message->to($user->email);
                 $message->subject("Hello ".$user->name.", reset your password");
@@ -45,7 +44,7 @@ class ResetPasswordController extends Controller
     public function resetPasswordFromEmail($email, $resetCode){
         
         $user = User::where('email',$email)->first();
-        $reminder = Reminder::where('user_id',$user->user_id)->where('completed', '=', 0)->orderBy('code','desc')->first();
+        $reminder = Reminder::where('user_id',$user->user_id)->where('completed', '=', 0)->orderBy('id','desc')->first();
         if ($reminder) {
             if ($reminder->code == $resetCode){
             return view('authentication.reset-password', compact('email', 'resetCode'));
@@ -85,7 +84,8 @@ class ResetPasswordController extends Controller
             if (!$user){
                 abort(404);
             }
-            $reminder = Reminder::where('user_id',$user->user_id)->where('completed', '=', 0)->first();
+            //$reminder = Reminder::where('user_id',$user->user_id)->where('completed', '=', 0)->first();
+            $reminder = Reminder::where('user_id',$user->user_id)->where('completed', '=', 0)->orderBy('id','desc')->first();
             if ($reminder){
                 if ($reminder->code == $resetCode){
                     $user->password = bcrypt($request->password);
@@ -100,7 +100,7 @@ class ResetPasswordController extends Controller
                     return response()->json(['status'=>'error']);
                 }
             }else{
-                    abort(404);
+                abort(404);
             }
         }
     }

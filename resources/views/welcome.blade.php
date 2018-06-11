@@ -93,11 +93,13 @@
 			<div class="item" style="">
 		@endif
 			  <img src="{{asset($announcement->ann_picture)}}" alt="{{$announcement->ann_title}}">
-				<!-- <div style="min-height:inherit;background-image:url('{{asset($announcement->ann_picture)}}');background-size:cover" > -->
-				<div style="position: absolute;top: 10%;left:45%;text-align:center;color:#fff !important" >
+				<!-- <div style="min-height:inherit;background-image:url('{{asset($announcement->ann_picture)}}');background-size:cover" >
+				<div style="position: absolute;top: 10%;left:45%;text-align:center;color:#fff !important" > -->
+				<div style="" class="annTitle">
 						<h1>{{$announcement->ann_title}}</h1>
 				</div>
-				<div style="position: absolute;top: 40%;left:15%;text-align:center;color:#000 !important" >
+				<!-- <div style="position: absolute;top: 40%;left:15%;text-align:center;color:#000 !important" > -->
+				<div style="" class="annContent">
 						<h2>{{$announcement->ann_content}}</h2>
 				</div>
 			</div>

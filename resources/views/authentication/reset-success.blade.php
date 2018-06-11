@@ -37,11 +37,13 @@
   </div>
   <!-- /.login-logo -->
   
-   <p><center>Password succesfully reset</center></p><center><p>Re-login with the new password</center> </p>
+   <h3><center>Password succesfully reset</center></h3>
    <div>
-      <button class="btn btn-primary btn-block btn-flat"><a href="{{route('login')}}" style="color:white;">Login</a></button>
+      <!-- <button class="btn btn-primary btn-block btn-flat"> -->
+		  <a href="{{route('login')}}" style="color:white;" class="btn btn-primary btn-block btn-flat">Login</a>
+		<!-- </button> -->
     </div>
-  
+     <h4><center>Re-login with the new password</center></h4>
   <!-- /.login-box-body -->
   
 </div>

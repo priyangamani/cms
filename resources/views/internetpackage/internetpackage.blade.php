@@ -79,7 +79,7 @@
 
               </div>
               <div class="table-responsive mailbox-messages">
-                <table class="table table-bordered" id="package-table">
+                <table class="table table-striped" id="package-table">
 
                   <thead>
 

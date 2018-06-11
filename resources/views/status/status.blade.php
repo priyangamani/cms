@@ -82,7 +82,7 @@
 
               </div>
               <div class="table-responsive mailbox-messages">
-                <table class="table table-bordered" id="status-table">
+                <table class="table table-striped" id="status-table">
 
                   <thead>
 

@@ -165,7 +165,7 @@
 
                 </div>
                 <div class="table-responsive mailbox-messages">
-                  <table class="table table-bordered" id="user-table">
+                  <table class="table table-striped" id="user-table">
                     <thead>
                       <tr class="info bg-black">
                         <th class="mailbox-star"><center>State</center></th>

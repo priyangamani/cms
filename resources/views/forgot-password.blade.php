@@ -86,12 +86,12 @@
 
   $('#send-email').on('submit',function(e){
     e.preventDefault();
-    console.log('pressed');
+    //console.log('pressed');
     var data = $(this).serialize();
-    console.log(data);
+    //console.log(data);
     var formData = new FormData($(this)[0]);
 
-    console.log(formData);
+    //console.log(formData);
 
     $.ajax({
       url: "{{route('sendEmail')}}",

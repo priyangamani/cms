@@ -33,6 +33,11 @@ class User extends Authenticatable
         'altuser_id',
     	];
 
+    public function countries()
+    {
+        return $this->belongsTo('App\Countries','country_of_issue');
+    }    
+
     public function groups()
     {
         return $this->belongsTo('App\Group','group_id');

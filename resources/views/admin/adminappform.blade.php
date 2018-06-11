@@ -67,7 +67,7 @@
 
                     </div>
                     <div class="table-responsive mailbox-messages">
-                      <table class="table table-bordered" id="appform-table">
+                      <table class="table table-striped" id="appform-table">
                         <thead>
                           <tr class="info bg-blue">
                             <th class="mailbox-name"><center>Date</center></th>

@@ -102,7 +102,7 @@
 
               </div>
               <div class="table-responsive mailbox-messages">
-                <table class="table table-hover table-striped" id="ann-table">
+                <table class="table table-striped" id="ann-table">
 
                   <thead>
 

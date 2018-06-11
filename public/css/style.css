@@ -1,0 +1,35 @@
+.bg-blue th{
+    background-color: #0073b7 !important;
+}
+
+.annContent {
+	position: absolute;
+	top: 55%;
+	text-align: left;
+	color: #fff !important;
+	width: 100%;
+	background-color: rgb(60, 141, 188, 0.5);
+	padding-left: 5vw;
+	padding-right: 5vw;
+	opacity: 0.8;
+}
+.annContent h1 {
+	text-align: center;
+}
+
+.annTitle {
+    position: absolute;
+    top: 20%;
+    text-align: center;
+    color: #fff !important;
+    width: 100%;
+	background-color: rgb(34, 45, 50,0.5);
+}
+
+.annTitle h1 {
+	text-align: center;
+}
+
+.table > tbody > tr.info > td, .table > tbody > tr.info > th, .table > tbody > tr > td.info, .table > tbody > tr > th.info, .table > tfoot > tr.info > td, .table > tfoot > tr.info > th, .table > tfoot > tr > td.info, .table > tfoot > tr > th.info, .table > thead > tr.info > td, .table > thead > tr.info > th, .table > thead > tr > td.info, .table > thead > tr > th.info {
+	background-color: inherit !important;
+}

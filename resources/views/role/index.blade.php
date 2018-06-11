@@ -69,7 +69,7 @@
 
               </div>
               <div class="table-responsive mailbox-messages">
-                <table class="table table-bordered" id="status-table">
+                <table class="table table-striped" id="status-table">
 
                   <thead>
 
@@ -124,23 +124,22 @@
     $('#frm-status-create').on('submit',function(e)
     {
       e.preventDefault();
-      console.log('pressed');
+      //console.log('pressed');
       var data = $(this).serialize();
-      console.log(data);
+      //console.log(data);
       var formData = new FormData($(this)[0]);
-
       $.ajax({
-        url:"{{route('createStatus')}}", 
+        url:"{{route('createStatus')}}",
         type: "POST",
         data: formData,
         async: false,
         success: function(response)
         {
-          console.log(response);
+          //console.log(response);
           $("[data-dismiss = modal]").trigger({type: "click"});
           swal('SUCCESS', 'Role Added', 'success').then(function() {
            window.location.reload();
-         });       
+         });
 
         },
         cache: false,

@@ -67,7 +67,7 @@
 
               </div>
               <div class="table-responsive mailbox-messages">
-                <table class="table table-hover table-striped" id="branch-table">
+                <table class="table table-striped" id="branch-table">
 
                   <thead>
 
