@@ -100,7 +100,7 @@
 @endsection
 
 @section('script')
-<script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+<!-- <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script> -->
 
 <script>
   $('#frm-ann-edit').on('submit',function(e){
@@ -110,6 +110,10 @@
     var data = $(this).serialize();
     //console.log(data);
     var formData = new FormData($(this)[0]);
+    if($('#ann_picture').prop('files')[0]) {
+		var file_data = $('#ann_picture').prop('files')[0];
+		formData.append('file', file_data);
+	}
     //formData.append('ann_content', CKEDITOR.instances.ann_content.getData());
 
     $.ajax({
