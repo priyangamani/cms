@@ -2,21 +2,21 @@
 
 @section('style')
 @endsection
-
 @section('content')
-    <!-- Small boxes (Stat box) -->
+
+<!-- Small boxes (Stat box) -->
 <center>
 <br><br>
 <section class="content">
       <div class="row">
-
+		  <div style="" class="col-lg-12">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>{{$totalapplicant}}</h3>
 
-              <p><b>TOTAL APPLICANT</b></p>
+              <p><a href="{{route('adminappforms',['user_id'=> $admins->user_id])}}" style="color:#fff"><b>TOTAL APPLICANTS</b></a></p>
             </div>
             <div class="icon">
               <i class="fa fa-check-circle"></i>
@@ -24,7 +24,6 @@
             <a href="#" class="small-box-footer"></a>
           </div>
         </div>
-
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
@@ -32,7 +31,7 @@
             <div class="inner">
               <h3>{{$completeapplicant}}</h3>
 
-              <p><b>COMPLETE APPLICANT</b></p>
+              <p><a href="{{route('adminappforms',['user_id'=> $admins->user_id,'status'=>1])}}" style="color:#fff"><b>COMPLETE APPLICANT</b></a></p>
             </div>
             <div class="icon">
               <i class="fa fa-share-square"></i>
@@ -40,7 +39,6 @@
             <a href="#" class="small-box-footer"></a>
           </div>
         </div>
-
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
@@ -48,7 +46,7 @@
             <div class="inner">
               <h3>{{$incompleteapplicant}}</h3>
 
-              <p><b>INCOMPLETE APPLICANT</b></p>
+              <p><a href="{{route('adminappforms',['user_id'=> $admins->user_id,'status'=>2])}}" style="color:#fff"><b>INCOMPLETE APPLICANT</b></a></p>
             </div>
             <div class="icon">
               <i class="fa fa-exclamation-circle"></i>
@@ -56,9 +54,6 @@
             <a href="#" class="small-box-footer"></a>
           </div>
         </div>
-
-        
-
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
@@ -66,42 +61,54 @@
             <div class="inner">
               <h3>{{$pendingapplicant}}</h3>
 
-              <p><b>CANCELLED APPLICANT</b></p>
+              <p><a href="{{route('adminappforms',['user_id'=> $admins->user_id,'status'=>3])}}" style="color:#fff"><b>CANCELLED APPLICANT</b></a></p>
             </div>
             <div class="icon">
-              <i class="fa fa-times-circle"></i>
+              <i class="fa fa-ban"></i>
             </div>
             <a href="#" class="small-box-footer"></a>
           </div>
         </div>
-
         <!-- ./col -->
-      </div>
-      <!-- /.row -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+        </div>
+<div style="" class="col-lg-12">
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
+	  
+	  @foreach($announcements as $key => $announcement)
+		@if($key === 0)
+		<li data-target="#myCarousel" data-slide-to="{{$key}}" class="active"></li>
+		@else
+		<li data-target="#myCarousel" data-slide-to="{{$key}}" class=""></li>
+		@endif
+		@endforeach
   </ol>
 
   <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="{{asset('images/admin1.jpg')}}" alt="Admin1">
-    </div>
-
-    <div class="item">
-      <img src="{{asset('images/admin2.jpg')}}" alt="Admin2">
-    </div>
-
-    <div class="item">
-      <img src="{{asset('images/admin3.jpg')}}" alt="Admin3">
-    </div>
+  <div class="carousel-inner" style="">
+	  @foreach($announcements as $key => $announcement)
+		@if($key === 0)
+			<div class="item active" style="">
+		@else
+			<div class="item" style="">
+		@endif
+			  <img src="{{asset($announcement->ann_picture)}}" alt="{{$announcement->ann_title}}">
+				<!-- <div style="min-height:inherit;background-image:url('{{asset($announcement->ann_picture)}}');background-size:cover" >
+				<div style="position: absolute;top: 10%;left:45%;text-align:center;color:#fff !important" > -->
+				<div style="" class="annTitle">
+						<h1>{{$announcement->ann_title}}</h1>
+				</div>
+				<!-- <div style="position: absolute;top: 40%;left:15%;text-align:center;color:#000 !important" > -->
+				<div style="" class="annContent">
+						<h2>{{$announcement->ann_content}}</h2>
+				</div>
+			</div>
+		@endforeach
   </div>
 
   <!-- Left and right controls -->
+
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
     <span class="sr-only">Previous</span>
@@ -110,9 +117,13 @@
     <span class="glyphicon glyphicon-chevron-right"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
 
+</div>
+</div>
+      </div>
+      <!-- /.row -->
       </section>
       </center>
       
+
 @endsection

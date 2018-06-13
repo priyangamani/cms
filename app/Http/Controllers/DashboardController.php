@@ -12,6 +12,7 @@ use Redirect;
 use Session;
 use App\User;
 use App\Appform;
+use App\Announcement;
 use Auth;
 use Alert;
 
@@ -64,18 +65,17 @@ class DashboardController extends Controller
 		$pendingapproval = Appform::where('admineformstatus', 21)->count();
 		$incompleteapplicant = $pending + $pendingapproval;
 		$pendingapplicant = Appform::where('admineformstatus', 41)->count();
-
+		$announcements = Announcement::where('post_to_which_group', '41')
+						->whereDate('when_to_post', '<=', date('Y-m-d'))
+						->get();
 		if(Auth::user()->hasAnyRole(['Admin','Manager'])){
 			$admins = User::where('user_id', $user_id)->first();
-			return view('admin.dashboard', compact('admins','totalapplicant','completeapplicant','incompleteapplicant','pendingapplicant'));
-		}else{
+			return view('admin.dashboard', compact('admins','totalapplicant','completeapplicant','incompleteapplicant','pendingapplicant','announcements'));
+		} else {
 			Alert::warning('This User Has No Access', 'WARNING');
 			return redirect()->back();
 		}
-		
 	}
-
-	
 
 	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }

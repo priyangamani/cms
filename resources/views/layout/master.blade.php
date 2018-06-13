@@ -97,6 +97,7 @@ desired effect
 <!-- jQuery 2.2.3 -->
 
 {!!Html::script('js/jquery-2.2.3.min.js')!!}
+{!!Html::script('js/jquery.validate.min.js')!!}
 <!-- Bootstrap 3.3.6 -->
 {!!Html::script('js/bootstrap.min.js')!!}
 <!-- AdminLTE App -->

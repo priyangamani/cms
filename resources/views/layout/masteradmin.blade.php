@@ -12,7 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-
+  {!!Html::style('css/style.css')!!}
   {!!Html::style('css/bootstrap.min.css')!!}
   <!-- Font Awesome -->
   {!!Html::style('css/font-awesome.min.css')!!}
@@ -171,6 +171,8 @@ desired effect
 <!-- jQuery 2.2.3 -->
 
 {!!Html::script('js/jquery-2.2.3.min.js')!!}
+
+{!!Html::script('js/jquery.validate.min.js')!!}
 <!-- Bootstrap 3.3.6 -->
 {!!Html::script('js/bootstrap.min.js')!!}
 <!-- AdminLTE App -->

@@ -32,7 +32,7 @@
             <!-- <form action="#" method="POST" id="frm-appform-create" enctype ="multipart/form-data"> -->
             {!! csrf_field() !!}
             <div class="form-horizontal">
-
+			<!-- <form action="#" method="POST" id="frm-ann-edit" enctype ="multipart/form-data" class="form-horizontal"> -->
 
               <!-- SECTION 1 --><h2><center><b>TM UNIFI SALES REGISTRATION</b></center></h2><br>
 
@@ -262,8 +262,6 @@
                 <div role="tabpanel" class="tab-pane" id="apptype_11">
                   <form action="#" method="POST" id="frm-business-create" enctype ="multipart/form-data" novalidate>
                     {!! csrf_field() !!}
-
-
                     <!-- SECTION 3 --><h4><u><b>BUSINESS</b></u></h4>
                     <input type="hidden" name="application_type" value="11">
                     <input type="hidden" name="sales_activity" id="business_sales_activity" value="">
@@ -348,7 +346,7 @@
                     <div class="form-group">
                       <label for="streamyx_package" class="col-sm-3 control-label">Package: </label>
                       <div class="col-sm-9">
-                        <select class="form-control" name="streamyx_package" id="streamyx_package" data-placeholder="Select">
+                        <select class="form-control" name="streamyx_package" id="streamyx_package" data-placeholder="Select" required>
                           <option value="">Select</option>
                           @foreach($intpackages as $package)
                           <option value="{{$package->intpackage_id}}">{{$package->internet_package}}</option>
@@ -465,14 +463,11 @@
                 </div>
               </div>  
 
-
-
               <div class="box-footer"><center>
               </center>
             </div>
           </div>
           <!-- </form> -->
-
 
         </div>
       </div>
@@ -486,13 +481,13 @@
 @endsection
 
 @section('script')
-<script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+<!-- <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script> -->
 
 <script>
   $(document).ready(function(){
     $('#resident_sales_activity').val($('#sales_activity').val());
     $('#business_sales_activity').val($('#sales_activity').val());
-    
+
     $('#sales_activity').change(function(){
       $('#resident_sales_activity').val($(this).val());
       $('#business_sales_activity').val($(this).val());
@@ -500,63 +495,69 @@
 
     $('#frm-residential-create').on('submit',function(e)
     {
-      e.preventDefault();
-      console.log('pressed');
-      var data = $(this).serialize();
-      console.log(data);
-      var formData = new FormData($(this)[0]);
-      console.log(formData);
+      //e.preventDefault();
+      //console.log('pressed');
+      if($('#frm-residential-create')[0].checkValidity() == true){
+		  var data = $(this).serialize();
+		  //console.log(data);
+		  var formData = new FormData($(this)[0]);
+		  //console.log(formData);
 
-      $.ajax(
-      {
-        url:"{{route('createAdminAppformDetail',['user_id'=> $admins->user_id])}}", 
-        type: "POST",
-        data: formData,
-        async: false,
-        success: function(response)
-        {
-          console.log(response);
-          $("[data-dismiss = modal]").trigger({type: "click"});
-          swal('SUCCESS', 'Appform Added', 'success').then(function() 
-          {
-           window.location.replace("{{route('adminappforms',['user_id'=> $admins->user_id])}}");
-         });
+		  $.ajax(
+		  {
+			url:"{{route('createAdminAppformDetail',['user_id'=> $admins->user_id])}}", 
+			type: "POST",
+			data: formData,
+			async: false,
+			success: function(response)
+			{
+			  console.log(response);
+			  $("[data-dismiss = modal]").trigger({type: "click"});
+			  swal('SUCCESS', 'Appform Added', 'success').then(function() 
+			  {
+			   window.location.replace("{{route('adminappforms',['user_id'=> $admins->user_id])}}");
+			 });
 
-        },
-        cache: false,
-        contentType: false,
-        processData: false,
-      });
+			},
+			cache: false,
+			contentType: false,
+			processData: false,
+		  });
+		}
     });
 
-    $('#frm-business-create').on('submit',function(e)
-    {
-      e.preventDefault();
-      //console.log('pressed');
-      var data = $(this).serialize();
-      //console.log(data);
-      var formData = new FormData($(this)[0]);
-      //console.log(formData);
+    // $('#frm-business-creates').on('submit',function(e){
+	$('#frm-business-create').validate({
+		ignore: "div[class=tab-pane]:not(.active) input",
+		submitHandler: function(form) {
+			//e.preventDefault();
+			//if($('#frm-business-create')[0].checkValidity() == true)
+			  //console.log('pressed');
+			  var data = $(form).serialize();
+			  //console.log(data);
+			  var formData = new FormData($(form)[0]);
+			  //console.log(formData);
 
-      $.ajax(
-      {
-        url:"{{route('createAdminAppformDetail',['user_id'=> $admins->user_id])}}", 
-        type: "POST",
-        data: formData,
-        async: false,
-        success: function(response)
-        {
-          //console.log(response);
-          $("[data-dismiss = modal]").trigger({type: "click"});
-          swal('SUCCESS', 'Appform Added', 'success').then(function() {
-           window.location.replace("{{route('adminappforms',['user_id'=> $admins->user_id])}}");
-         });
+			  $.ajax(
+			  {
+				url:"{{route('createAdminAppformDetail',['user_id'=> $admins->user_id])}}", 
+				type: "POST",
+				data: formData,
+				async: false,
+				success: function(response)
+				{
+				  //console.log(response);
+				  $("[data-dismiss = modal]").trigger({type: "click"});
+				  swal('SUCCESS', 'Appform Added', 'success').then(function() {
+				   window.location.replace("{{route('adminappforms',['user_id'=> $admins->user_id])}}");
+				 });
 
-        },
-        cache: false,
-        contentType: false,
-        processData: false,
-      });
+				},
+				cache: false,
+				contentType: false,
+				processData: false,
+			  });
+		}
     });
   });
 

@@ -49,7 +49,7 @@
     </div>
 
     <section class="content">
-      <div class="col-md-12">
+      <div class="col-lg-12 col-md-12 col-sm-12">
         <!-- Custom Tabs (Pulled to the right) -->
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs ">
@@ -64,9 +64,53 @@
                   <!-- /.box-header -->
                   <div class="box-body no-padding">
                     <div class="mailbox-controls">
-
+					<form class="form-horizontal">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="col-lg-6 col-md-6 col-sm-6">
+						<div class="form-group">
+							<label for="" style="text-align: center;" class="col-sm-6 control-label">Customer Name: </label>
+							<div class="col-lg-6 col-md-6 col-sm-6">
+							  <input type="text" class="form-control" name="customer_name" id="customer_name" value="">
+							</div>
+						</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6">
+						<div class="form-group">
+							<label for="" style="text-align: center;" class="col-sm-6 control-label">Agent Id: </label>
+							<div class="col-lg-6 col-md-6 col-sm-6">
+							  <input type="text" class="form-control" name="agent_id" id="agent_id" value="">
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="col-lg-6 col-md-6 col-sm-6">
+						<div class="form-group">
+							<label for="" style="text-align: center;" class="col-sm-6 control-label">Customer Id: </label>
+							<div class="col-lg-6 col-md-6 col-sm-6">
+							  <input type="text" class="form-control" name="customer_id" id="customer_id" value="">
+							</div>
+						</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6">
+						<div class="form-group">
+							<label for="" style="text-align: center;" class="col-sm-6 control-label">Order No: </label>
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<input type="text" class="form-control" name="order_no" id="order_no" value="">
+							</div>
+						</div>
+						</div>
+                     </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12"> 
+						<div class="form-group">
+							<div class="col-md-offset-9 col-sm-3">
+								<button type="button" style="float:right" class="btn btn-primary" name="search" id="search" value="Search">Search</button>
+							</div>
+						</div>
+                     </div>
                     </div>
-                    <div class="table-responsive mailbox-messages">
+                    </form>
+                    <div class="table-responsive mailbox-messages" style="display: initial;">
                       <table class="table table-striped" id="appform-table">
                         <thead>
                           <tr class="info bg-blue">
@@ -83,15 +127,15 @@
                             <th class="mailbox-name"><center>eForm Status</center></th>
                           </tr>
                         </thead>
-                        <thead id="searchHead">
+                        <thead id="searchHead" style="display:none">
                           <tr class="info">
                             <th class=""></th>
-                            <th>Customer Name</th>
+                            <th id="customerName">Customer Name</th>
                             <th class=""></th>
                             <th class=""></th>
-                            <th class="">Agent ID</th>
-                            <th class="">Customer ID</th>
-                            <th class="">Order No</th>
+                            <th id="agentId" class="">Agent ID</th>
+                            <th id="customerId" class="">Customer ID</th>
+                            <th id="orderNo" class="">Order No</th>
                             <th class=""></th>
                             <th class=""></th>
                             <th class=""></th>
@@ -174,7 +218,8 @@
 
 <script>
 $(document).ready(function(){
-    var table = $('#appform-table').DataTable(
+	var table;
+    table = $('#appform-table').DataTable(
     {
         dom: 'lfrtBp',
         aaSorting: [ [6,'desc'] ],
@@ -191,12 +236,31 @@ $(document).ready(function(){
         }]
     }
     );
+    $('#search').on('click',function(e){
+		$('#orderNo input').val($('#order_no').val());
+		$('#customerId input').val($('#customer_id').val());
+		$('#agentId input').val($('#agent_id').val());
+		$('#customerName input').val($('#customer_name').val());
+		// Apply the search
+		var i=0;
+		table.columns().every( function () {
+			var that = this;
+			var searchHead = jQuery('#searchHead tr th')[i];
+			i++;
+			//$( 'input', searchHead ).on( '', function () {
+				if ( $(searchHead).find('input') && $(searchHead).find('input').val() != undefined && that.search() !== $(searchHead).find('input').val() ) {
+					that.search( $(searchHead).find('input').val() ).draw();
+				}
+			//} );
+		} );
+
+	});
     $('#frm-appform-create').on('submit',function(e)
     {
         e.preventDefault();
-        console.log('pressed');
+        //console.log('pressed');
         var data = $(this).serialize();
-        console.log(data);
+        //console.log(data);
         var formData = new FormData($(this)[0]);
 
         $.ajax(
@@ -207,7 +271,7 @@ $(document).ready(function(){
             async: false,
             success: function(response)
             {
-                console.log(response);
+                //console.log(response);
                  $("[data-dismiss = modal]").trigger({type: "click"});
             },
                cache: false,
@@ -222,6 +286,7 @@ $(document).ready(function(){
 			$(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
     } );
     // Apply the search
+    /*
     var i=0;
     table.columns().every( function () {
         var that = this;
@@ -233,6 +298,7 @@ $(document).ready(function(){
             }
         } );
     } );
+    */
 });
 
 </script>
