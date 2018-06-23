@@ -175,14 +175,11 @@
                               </select>
                             </div>
                           </div>
-                          @endif
-						<!--
                           @elseif(isset($appforms->runners->name))
 							  <dl class="dl-horizontal form-group">
 								<dt>Assign to :</dt>
 								<dd>{{$appforms->runners->name}}</dd>
 							  </dl>
-						-->
                           @endif
                           <br>
                           <!-- SECTION 4 --><h4><u><b>E-FORM INFORMATION</b></u></h4><br>
