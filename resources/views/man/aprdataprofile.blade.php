@@ -158,11 +158,12 @@
                             <dt>Thumbprint Collected :</dt>
                             <dd>{{$appforms->thumbprints->status}}</dd>
                           </dl>
-
+						@if(isset($appforms->runners->name))
                           <dl class="dl-horizontal form-group">
                             <dt>Runner Name :</dt>
                             <dd>{{$appforms->runners->name}}</dd>
                           </dl>
+                         @endif
                           <br>
 
                           <!-- SECTION 3 --><h4><u><b>E-FORM INFORMATION</b></u></h4><br>
