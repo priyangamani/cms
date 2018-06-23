@@ -166,7 +166,7 @@
 
                           @if($appforms->thumbprint_coll == 11)
 
-                          @if($appforms->runners->name)
+                          @if(isset($appforms->runners->name))
 
                           <dl class="dl-horizontal form-group">
                             <dt>Assign to :</dt>
@@ -187,7 +187,7 @@
                           </div>
                           @endif
 
-                          @elseif($appforms->runners->name)
+                          @elseif(isset($appforms->runners->name))
 							  <dl class="dl-horizontal form-group">
 								<dt>Assign to :</dt>
 								<dd>{{$appforms->runners->name}}</dd>
