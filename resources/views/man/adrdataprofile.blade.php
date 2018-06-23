@@ -166,7 +166,7 @@
 
                           @if($appforms->thumbprint_coll == 11)
 
-                          @if($appforms->runner_name)
+                          @if($appforms->runners->name)
 
                           <dl class="dl-horizontal form-group">
                             <dt>Assign to :</dt>
