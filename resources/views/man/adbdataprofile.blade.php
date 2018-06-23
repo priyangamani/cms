@@ -162,7 +162,6 @@
                             <dt>Assign to :</dt>
                             <dd>{{$appforms->runners->name}}</dd>
                           </dl>
-
                           @else
                           <div class="form-group">
                             <label for="runner_name" class="col-sm-3 control-label">Assign to: </label>
@@ -175,6 +174,7 @@
                               </select>
                             </div>
                           </div>
+                          @endif
                           @elseif(isset($appforms->runners->name))
 							  <dl class="dl-horizontal form-group">
 								<dt>Assign to :</dt>
