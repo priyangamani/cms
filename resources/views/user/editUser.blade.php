@@ -122,7 +122,7 @@
                   <div class="form-group">
                     <label for="email" class="col-sm-3 cold-md-3 col-lg-3 control-label">Email</label>
                     <div class="col-sm-9 col-md-9 col-lg-9">
-                      <input type="text" class="form-control" name="email" id="email" value="{{$users->email}}">
+                      <input type="email" class="form-control" name="email" id="email" value="{{$users->email}}">
                     </div>
                   </div>
 

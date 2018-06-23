@@ -9,7 +9,7 @@
     <small>Control Panel</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="{{route('admindashboard',['user_id'=>$admins->user_id])}}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+    <li><a href="{{route('admindashboard',['user_id'=>$managers->user_id])}}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
     <li class="active">Data Profile</li>
   </ol>
 </section>
@@ -230,7 +230,7 @@
                           <input type="hidden" name="appform_id" value="{{$appforms->appform_id}}">
                           <div class="box-footer">
                           @if($appforms->admin_remark && $appforms->process_status == 21)
-                          <a class="button btn btn-primary btn-sm" href="{{route('applicationform',['user_id'=>$admins->user_id])}}">Back</a>
+                          <a class="button btn btn-primary btn-sm" href="{{route('applicationform',['user_id'=>$managers->user_id])}}">Back</a>
                           @else
                             <button type="submit" class="btn btn-primary">Save Change</button>
                             @endif
@@ -256,28 +256,28 @@
       @endsection
 
       @section('script')
-      <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+      <!-- <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script> -->
 
       <script>
 // CKEDITOR.replace('product_desc');
 $('#frm-profile-edit').on('submit',function(e){
   e.preventDefault();
-  console.log('pressed');
+  // console.log('pressed');
   var data = $(this).serialize();
-  console.log(data);
+  // console.log(data);
   var formData = new FormData($(this)[0]);
     // formData.append('product_desc', CKEDITOR.instances.product_desc.getData());
 
     $.ajax({
-      url:"{{route('updateApplicationForm',['user_id'=> $admins->user_id,'appform_id'=> $appforms->appform_id])}}", 
+      url:"{{route('updateApplicationForm',['user_id'=> $managers->user_id,'appform_id'=> $appforms->appform_id])}}", 
       type: "POST",
       data: formData,
       async: false,
       success: function(response){
-        console.log(response);
+        // console.log(response);
         $("[data-dismiss = modal]").trigger({type: "click"});
         swal('SUCCESS', 'Appform Updated', 'success').then(function() {
-         window.location.replace();
+         window.location.replace("{{route('manappform',['user_id'=>$managers->user_id])}}");
        });
 
       },

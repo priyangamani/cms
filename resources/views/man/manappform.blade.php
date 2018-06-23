@@ -158,13 +158,18 @@
                           @else($appform->application_type == 11)
                           <td class="mailbox-star"><center>{{$appform->ic}}</center></td>
                           @endif
-
+<!--
                           @if($appform->job_status == 1 && $appform->process_status == 1)
                           <td class="mailbox-star"><center><a href="#">{{$appform->appform_id}}</a></center></td>
                           @else($appform->thumbprint_coll == 1 && $appform->docs_uploaded == 1 && $appform->job_status == 21 || $appform->process_status == 11)
                           <td class="mailbox-star"><center><a href="#">{{$appform->appform_id}}</a></center></td>
                           @endif
-
+-->
+                          @if($appform->job_status == 1 && $appform->process_status == 1)
+                          <td class="mailbox-star"><center><a href="{{route('manadmindataprofile',['user_id'=> $appform->user_id, 'appform_id'=> $appform->appform_id])}}">{{$appform->appform_id}}</a></center></td>
+                          @else($appform->thumbprint_coll == 1 && $appform->docs_uploaded == 1 && $appform->job_status == 21 || $appform->process_status == 11)
+                          <td class="mailbox-star"><center><a href="{{route('manappdataprofile',['user_id'=> $appform->user_id, 'appform_id'=> $appform->appform_id])}}">{{$appform->appform_id}}</a></center></td>
+                          @endif
                           <td class="mailbox-star"><center>{{$appform->status}}</center></td>
                           <td class="mailbox-star">
 							<center>

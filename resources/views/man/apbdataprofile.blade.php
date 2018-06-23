@@ -9,7 +9,7 @@
     <small>Control Panel</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="{{route('admindashboard',['user_id'=>$admins->user_id])}}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+    <li><a href="{{route('admindashboard',['user_id'=>$managers->user_id])}}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
     <li class="active">Data Profile</li>
   </ol>
 </section>
@@ -262,7 +262,7 @@
       @endsection
 
       @section('script')
-      <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script> 
+      <!-- <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script> -->
 
       <script>
 // CKEDITOR.replace('product_desc');
@@ -275,17 +275,16 @@ $('#frm-profile-edit').on('submit',function(e){
     // formData.append('product_desc', CKEDITOR.instances.product_desc.getData());
 
     $.ajax({
-      url:"{{route('updateApplicationForm',['user_id'=> $admins->user_id,'appform_id'=> $appforms->appform_id])}}", 
+      url:"{{route('updateApplicationForm',['user_id'=> $managers->user_id,'appform_id'=> $appforms->appform_id])}}", 
       type: "POST",
       data: formData,
       async: false,
       success: function(response){
-        //console.log(response);
+        // console.log(response);
         $("[data-dismiss = modal]").trigger({type: "click"});
         swal('SUCCESS', 'Appform Updated', 'success').then(function() {
-         window.location.replace("{{route('adminappforms',['user_id'=>$admins->user_id])}}");
-       });  
-
+         window.location.replace("{{route('manappform',['user_id'=>$managers->user_id])}}");
+       });
       },
       cache: false,
       contentType: false,

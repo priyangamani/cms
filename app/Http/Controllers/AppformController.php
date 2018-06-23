@@ -676,12 +676,11 @@ class AppformController extends Controller
         $icpass = IcPassport::all();
         $status = Status::all();
         $jobstatus = JobStatus::all();
-
+		//print_r($appforms);die;
         if($appforms->application_type == 1)
-        return view('man.adrdataprofile', compact('managers','appforms','agents','admins','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','runners','status','jobstatus'));
-        else{
-            return view('man.adbdataprofile', compact('appforms','agents','admins','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','runners','status','jobstatus'));
-        }
+			return view('man.adrdataprofile', compact('managers','appforms','agents','admins','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','runners','status','jobstatus'));
+        else
+            return view('man.adbdataprofile', compact('managers','appforms','agents','admins','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','runners','status','jobstatus'));
     }
 
 
