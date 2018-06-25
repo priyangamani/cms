@@ -49,7 +49,7 @@
     </div>
 
     <section class="content">
-      <div class="col-md-12">
+      <div class="col-lg-12 col-md-12 col-sm-12">
         <!-- Custom Tabs (Pulled to the right) -->
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs ">
@@ -160,6 +160,7 @@ $(document).ready(function(){
     var table = $('#appform-table').DataTable({
         dom: 'lfrtBp',
         aaSorting: [ [6,'desc'] ],
+        searching: false,
 		aoColumnDefs: [ {
 			bSortable: false,
 			aTargets: [ 0,8 ]
