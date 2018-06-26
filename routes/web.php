@@ -106,9 +106,9 @@ Route::post('/runner/{user_id}/dataprofile/{appform_id}/updateRunnerAppform',['a
 
 
 Route::get('/manager/dataprofile/', ['as'=>'manappform','uses'=>'AppformController@getManAppform']);
-Route::get('manager/{user_id}/dataprofile/{appform_id}',['as'=>'manadmindataprofile','uses'=>'AppformController@getManDataProfile']);
+	Route::get('manager/{user_id}/dataprofile/{appform_id}',['as'=>'manadmindataprofile','uses'=>'AppformController@getManDataProfile']);
 Route::post('manager/{user_id}/dataprofile/{appform_id}/updateAppform',['as'=>'updateManAdminAppform','uses'=>'AppformController@updateManAppform']);
-Route::get('manager/{user_id}/applicationform/{appform_id}',['as'=>'manappdataprofile','uses'=>'AppformController@getManAppDataProfile']);
+	Route::get('manager/{user_id}/applicationform/{appform_id}',['as'=>'manappdataprofile','uses'=>'AppformController@getManAppDataProfile']);
 Route::post('manager/{user_id}/applicationform/{appform_id}/updateAppform',['as'=>'updateManApplicationForm','uses'=>'AppformController@updateManApplicationForm']);
 
 

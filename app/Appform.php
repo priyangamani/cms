@@ -43,6 +43,7 @@ class Appform extends Model
     'runnereformstatus',
     ];
 
+	// Manager
     public function getAppFormData($search)
     {
 		if(isset($search['master_status_id']) && $search['master_status_id'] != '') {
@@ -63,6 +64,35 @@ class Appform extends Model
 		}
         return $appData;
     } 
+
+	// Agent
+    public function getAppFormList($search)
+    {
+		if(isset($search['master_status_id']) && $search['master_status_id'] != '') {
+			$appData = DB::table('appforms')
+				->select('*','status.status as process_status_name', 'agenteformstatus.status as agenteformstatus_status')
+				->join('status', 'status.status_id', '=', 'appforms.process_status')
+				->join('agenteformstatus', 'agenteformstatus.agenteformstatus_id', '=', 'appforms.agenteformstatus')
+				->join('users', 'appforms.user_id', '=', 'users.user_id')
+				->join('apptypes', 'apptypes.apptype_id', '=', 'appforms.application_type')
+				->join('internetpackages', 'internetpackages.intpackage_id', '=', 'appforms.streamyx_package')
+				->where('status.master_status_id',$search['master_status_id'])
+				->where('users.user_id',$search['user_id'])
+				->get();
+		} else {
+			$appData = DB::table('appforms')
+				->select('*','status.status as process_status_name', 'agenteformstatus.status as agenteformstatus_status')
+				->join('status', 'status.status_id', '=', 'appforms.process_status')
+				->join('agenteformstatus', 'agenteformstatus.agenteformstatus_id', '=', 'appforms.agenteformstatus')
+				->join('users', 'appforms.user_id', '=', 'users.user_id')
+				->join('apptypes', 'apptypes.apptype_id', '=', 'appforms.application_type')
+				->join('internetpackages', 'internetpackages.intpackage_id', '=', 'appforms.streamyx_package')
+				->where('users.user_id',$search['user_id'])
+				->get();
+		}
+        return $appData;
+    }
+
 
     public function users()
     {

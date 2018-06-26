@@ -28,11 +28,12 @@ class DashboardController extends Controller
 		$completeapplicant = Appform::where('user_id', $user_id)->where('agenteformstatus', 21)->count();
 		$incompleteapplicant = Appform::where('user_id', $user_id)->where('agenteformstatus', 11)->count();
 		$pendingapplicant = Appform::where('user_id', $user_id)->where('agenteformstatus', 1)->count();
-
-
+		$announcements = Announcement::where('post_to_which_group', '31')
+						->whereDate('when_to_post', '<=', date('Y-m-d'))
+						->get();
 		if(Auth::user()->hasAnyRole(['Agent','Manager'])){
 			$agents = User::where('user_id', $user_id)->first();
-			return view('agent.dashboard', compact('agents','totalapplicant','completeapplicant','incompleteapplicant','pendingapplicant'));
+			return view('agent.dashboard', compact('agents','totalapplicant','completeapplicant','incompleteapplicant','pendingapplicant','announcements'));
 		}else{
 			Alert::warning('This User Has No Access', 'WARNING');
 			return redirect()->back();

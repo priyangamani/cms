@@ -223,7 +223,7 @@ $(document).ready(function(){
     {
         dom: 'lfrtBp',
         aaSorting: [ [6,'desc'] ],
-        searching: false,
+        searching: true,
 		aoColumnDefs: [ {
 			bSortable: false,
 			aTargets: [ 0,8 ]

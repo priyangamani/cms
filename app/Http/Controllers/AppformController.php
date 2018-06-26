@@ -146,6 +146,17 @@ class AppformController extends Controller
 
     public function getAppform($user_id, Request $request)
     {
+		
+		$appform = new Appform;
+		$search = array();
+		$search['user_id'] = $user_id;
+		if(isset($request->status) && $request->status != '')
+			$search['master_status_id'] = $request->status;
+		$appformdetails = $appform->getAppFormList($search);
+		//$agents->user_id = $user_id;
+		$agentsArr['user_id'] = $user_id;
+		$agents = (object)$agentsArr;
+/*
     	$appformdetails = Appform::where('user_id', $user_id)->get();
         $agents = User::where('user_id', $request->user_id)->first();
 
@@ -160,7 +171,7 @@ class AppformController extends Controller
         $agentefs = AgentEformStatus::all();
         $adminefs = AdminEformStatus::all();
         $runnerefs = RunnerEformStatus::all();
-
+*/
         return view('agent.agentappform', compact('appformdetails','agents','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','jobstatus','agentefs','adminefs','runnerefs'));
     }
 

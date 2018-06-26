@@ -10,7 +10,7 @@
 @section('content')
     <section class="content-header">
       <h1>
-        ADMIN APPLICATION-FORM 
+        ADMIN APPLICATION-FORMS
         <small>Control panel</small>
       </h1>
 
@@ -147,7 +147,7 @@
                           <td class="mailbox-star"><center>{{date('d-m-Y', strtotime($appform->created_at))}}</center></td>
                           <td class="mailbox-star"><center>{{$appform->applicant_name}}</center></td>
                           <td class="mailbox-star"><center>{{$appform->type}}</center></td>
-                          <td class="col-md-3"><center>{{$appform->internet_package}}</center></td>
+                          <td class="mailbox-star"><center>{{$appform->internet_package}}</center></td>
 						  <td class="mailbox-star"><center>{{$appform->user_id}}</center></td>
                           @if($appform->application_type == 1)
                           @if($appform->ic_passport_num == 1)
@@ -158,13 +158,6 @@
                           @else($appform->application_type == 11)
                           <td class="mailbox-star"><center>{{$appform->ic}}</center></td>
                           @endif
-<!--
-                          @if($appform->job_status == 1 && $appform->process_status == 1)
-                          <td class="mailbox-star"><center><a href="#">{{$appform->appform_id}}</a></center></td>
-                          @else($appform->thumbprint_coll == 1 && $appform->docs_uploaded == 1 && $appform->job_status == 21 || $appform->process_status == 11)
-                          <td class="mailbox-star"><center><a href="#">{{$appform->appform_id}}</a></center></td>
-                          @endif
--->
                           @if($appform->job_status == 1 && $appform->process_status == 1)
                           <td class="mailbox-star"><center><a href="{{route('manadmindataprofile',['user_id'=> $appform->user_id, 'appform_id'=> $appform->appform_id])}}">{{$appform->appform_id}}</a></center></td>
                           @else($appform->thumbprint_coll == 1 && $appform->docs_uploaded == 1 && $appform->job_status == 21 || $appform->process_status == 11)
@@ -226,7 +219,7 @@ $(document).ready(function(){
     {
         dom: 'lfrtBp',
         aaSorting: [ [6,'desc'] ],
-        searching: false,
+        searching: true,
 		aoColumnDefs: [ {
 			bSortable: false,
 			aTargets: [ 0,8 ]

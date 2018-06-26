@@ -13,12 +13,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
 
+  {!!Html::style('css/style.css')!!}
   {!!Html::style('css/bootstrap.min.css')!!}
   <!-- Font Awesome -->
   {!!Html::style('css/font-awesome.min.css')!!}
   <!-- Ionicons -->
   {!!Html::style('css/ionicons.min.css')!!}
   <!-- datatables -->
+  {!!Html::style('css/jquery.dataTables.css')!!}
   <!-- {!!Html::style('css/dataTables.bootstrap.min.css')!!} -->
 
   {!!Html::style('sweetalert2/dist/sweetalert2.min.css')!!}
@@ -171,12 +173,14 @@ desired effect
 <!-- jQuery 2.2.3 -->
 
 {!!Html::script('js/jquery-2.2.3.min.js')!!}
+{!!Html::script('js/jquery.validate.min.js')!!}
 <!-- Bootstrap 3.3.6 -->
 {!!Html::script('js/bootstrap.min.js')!!}
 <!-- AdminLTE App -->
 {!!Html::script('js/app.min.js')!!}
 <!-- datatable -->
 {!!Html::script('js/jquery.dataTables.min.js')!!}
+{!!Html::script('js/ckeditor.js')!!}
 
 <!-- {!!Html::script('js/dataTables.bootstrap.min.js')!!} -->
 
