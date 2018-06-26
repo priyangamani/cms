@@ -11,7 +11,7 @@
 		  <div style="" class="col-lg-12">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <a href="{{route('manappform')}}">
+          <a href="{{route('appforms',['user_id'=> $agents->user_id])}}">
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>{{$totalapplicant}}</h3>
@@ -29,7 +29,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <a href="{{route('manappform',['status'=>1])}}">
+          <a href="{{route('appforms',['user_id'=> $agents->user_id,'status'=>1])}}">
           <div class="small-box bg-green">
             <div class="inner">
               <h3>{{$completeapplicant}}</h3>
@@ -46,7 +46,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <a href="{{route('manappform',['status'=>2])}}">
+          <a href="{{route('appforms',['user_id'=> $agents->user_id,'status'=>2])}}">
           <div class="small-box bg-yellow">
             <div class="inner">
               <h3>{{$incompleteapplicant}}</h3>
@@ -64,7 +64,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <a href="{{route('manappform',['status'=>3])}}">
+          <a href="{{route('appforms',['user_id'=> $agents->user_id,'status'=>3])}}">
           <div class="small-box bg-red">
             <div class="inner">
               <h3>{{$pendingapplicant}}</h3>
