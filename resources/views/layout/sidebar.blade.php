@@ -47,18 +47,29 @@
         <li> <a href="{{route('manappform')}}"><i class="fa fa-cart-plus"></i>
               <span class="hide-menu">Order Overview</span></a>
         </li>
-
-        <li> <a href="{{route('status')}}"><i class="fa fa-comments"></i>
-          <span class="hide-menu">Processing Status</span></a>
+        <li> <a href="{{route('manappformdetails')}}"><i class="fa fa-wpforms"></i>
+          <span class="hide-menu">App-Form</span></a>
         </li>
-
-        <li> <a href="{{route('salesactivity')}}"><i class="fa fa-credit-card"></i>
-          <span class="hide-menu">Sales Activity</span></a>
-        </li>
-
-        <li> <a href="{{route('intpackage')}}"><i class="fa fa-cube"></i>
-          <!-- <span class="hide-menu">Internet Package</span></a> -->
-          <span class="hide-menu">Product Management</span></a>
+        <li class=" hide-menu treeview">
+          <a href="#">
+            <i class="fa fa-tree"></i>
+            <span class="hide-menu">Sales Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">            
+			<li> <a href="{{route('status')}}"><i class="fa fa-comments"></i>
+			  <span class="hide-menu">Processing Status</span></a>
+			</li>
+			<li> <a href="{{route('salesactivity')}}"><i class="fa fa-credit-card"></i>
+			  <span class="hide-menu">Sales Activity</span></a>
+			</li>
+			<li> <a href="{{route('intpackage')}}"><i class="fa fa-cube"></i>
+			  <!-- <span class="hide-menu">Internet Package</span></a> -->
+			  <span class="hide-menu">Product Management</span></a>
+			</li>
+          </ul>
         </li>
 
         <li> <a href="{{route('user')}}"><i class="fa fa-user-plus"></i>

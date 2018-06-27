@@ -9,7 +9,7 @@
     <small>Control panel</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="{{route('welcome')}}"><i class="fa fa-dashboard"></i> Home</a></li>
     <li class="active">User</li>
   </ol>
 </section>
@@ -20,7 +20,7 @@
     <div class="nav-tabs-custom">
       <ul class="nav nav-tabs ">
         <li class="active"><a href="#tab_1" data-toggle="tab">Active</a></li>
-
+		<li style="float:right"><a href="{{route('user')}}" style="display:inline-block"><b><i class="fa fa-arrow-left"></i>&nbsp;Back</b></a></li>
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab_1">

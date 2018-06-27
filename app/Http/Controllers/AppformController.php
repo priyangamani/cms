@@ -646,6 +646,9 @@ class AppformController extends Controller
 		if(isset($request->status) && $request->status != '')
 			$search['master_status_id'] = $request->status;
 		$appformdetails = $appform->getAppFormData($search);
+		$agents = User::role(['Agent','Admin'])->get();
+		$manArr['user_id'] = $request->session()->get('user_id');
+		$man = (object)$manArr;
 		//$appformdetails = Appform::with(['status'])->all();
 		//$article = \App\Models\Article::with(['user','category'])->first();
         /*
@@ -666,10 +669,34 @@ class AppformController extends Controller
 			$status = Status::all();
         $jobstatus = JobStatus::all();
         */
-        return view('man.manappform', compact('managers','appformdetails','admins','agents','runners','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','status','jobstatus'));
+        return view('man.manappform', compact('managers','appformdetails','man','admins','agents','runners','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','status','jobstatus'));
     } 
 
+    public function getManAppformDetail(Request $request)
+    {
+		if(isset($request->user_id) && $request->user_id != '')
+			$userId = $request->user_id;
+		else
+			$userId = $request->session()->get('user_id');
+        $appformdetails = Appform::where('user_id', $userId)->get();
+        $man = User::where('user_id', $userId)->first();
+        $packages = InternetPackage::where('package_type',1)->get();
+        $intpackages = InternetPackage::where('package_type',11)->get();
+        $agents = User::role('Agent')->get();
+        $runners = User::role('Runner')->get();
+        $activities = SalesActivity::all();
+        $thumbprints = ThumbprintStatus::all();
+        $apptypes = Apptype::all();
+        $docsups = DocsUpload::all();
+        $exservs = ExistService::all();
+        $icpass = IcPassport::all();
+        $jobstatus = JobStatus::all();
+        $agentefs = AgentEformStatus::all();
+        $adminefs = AdminEformStatus::all();
+        $runnerefs = RunnerEformStatus::all();
 
+        return view('man.manappformdetail', compact('appformdetails','man','packages','intpackages','agents','runners','activities','thumbprints','apptypes','docsups','exservs','icpass','jobstatus','agentefs','adminefs','runnerefs'));
+    }
 
     public function getManDataProfile($user_id, $appform_id, Request $request)
     {

@@ -26,6 +26,7 @@ class InternetPackageController extends Controller
             $packages = new InternetPackage;
             $packages->internet_package = $request->internet_package;
             $packages->package_type = $request->package_type;
+            $packages->status = $request->status;
             $packages->save();
             return response($packages);
         }
@@ -51,6 +52,7 @@ class InternetPackageController extends Controller
             $packages = InternetPackage::where('intpackage_id', $request->intpackage_id)->first();            
             $packages->internet_package = $request->internet_package;
             $packages->package_type = $request->package_type;
+            $packages->status = $request->status;
             $packages->save();
             return response($packages);
         }       

@@ -36,8 +36,8 @@ class LoginController extends BaseController
            'password'=>$request->password]);
 
        if($auth){
-
-             if (Auth::user()->hasRole('Manager') || Auth::user()->hasRole('Supervisor')) {
+			$request->session()->put('user_id', Auth::user()->user_id);
+            if (Auth::user()->hasRole('Manager') || Auth::user()->hasRole('Supervisor')) {
                 return redirect()->route('welcome');
             }
             else if (Auth::user()->hasRole('Agent')){

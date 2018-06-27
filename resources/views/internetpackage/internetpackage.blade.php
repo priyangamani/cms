@@ -26,7 +26,7 @@
       </div>
       <div class="modal-body">
         <!-- Custom Tabs (Pulled to the right) -->
-        <form action="#" method="POST" id="frm-package-create">
+        <form action="#" method="POST" class="form-horizontal" id="frm-package-create">
           {!! csrf_field() !!}
           <div class="row">
 
@@ -34,6 +34,7 @@
               <label for="internet_package" class="col-sm-3 control-label">Product Name: </label>
               <div class="col-sm-9">
                 <input type="text" class="form-control" name="internet_package" id="internet_package">
+                <input type="hidden" class="" name="status" id="status" value="Active">
               </div>
             </div>
 
@@ -153,9 +154,9 @@
     $('#frm-package-create').on('submit',function(e)
     {
       e.preventDefault();
-      console.log('pressed');
+      //console.log('pressed');
       var data = $(this).serialize();
-      console.log(data);
+      //console.log(data);
       var formData = new FormData($(this)[0]);
 
       $.ajax({
@@ -165,7 +166,7 @@
         async: false,
         success: function(response)
         {
-          console.log(response);
+          //console.log(response);
           $("[data-dismiss = modal]").trigger({type: "click"});
           swal('SUCCESS', 'Product Added', 'success').then(function() {
            window.location.reload();

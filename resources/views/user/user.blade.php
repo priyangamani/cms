@@ -203,8 +203,10 @@
                         <th class="mailbox-star"><center>User Type</center></th>
                         <th class="mailbox-star"><center>User ID</center></th>
                         <th class="mailbox-star"><center>Name</center></th>
+                        <!--
                         <th class="mailbox-star"><center>Country Of Issue</center></th>
                         <th class="mailbox-star"><center>IC</center></th>
+                        -->
                         <th class="mailbox-star"><center>Email</center></th>
                         <th class="mailbox-star"><center>Active</center></th>
                         <th class="mailbox-star"><center>Operation</center></th>
@@ -219,16 +221,20 @@
                       <td class="mailbox-name"><center>{{$user->roles()->pluck('name')->implode(' ') }}</center></td> 
                       <td class="mailbox-name"><center>{{$user->altuser_id}}</center></td>
                       <td class="mailbox-name"><center>{{$user->name}}</center></td>
+                      <!--
                       <td class="mailbox-name"><center>{{isset($user->countries->country_name) ? $user->countries->country_name :''}}</center></td>
                       <td class="mailbox-name"><center>{{$user->ic_number}}</center></td>
+                      -->
                       <td class="mailbox-name"><center>{{$user->email}}</center></td>
                       <td class="mailbox-name"><center>{{$user->actives->status}}</center></td>
                       <td class="mailbox-name"><center><div class="btn-group">
                         <a class="button btn btn-success btn-sm" href="{{route('editUser', ['user_id'=> $user->user_id])}}"><i class="fa fa-gear"></i>Edit</a>
+                        <!--
                         {{ Form::open(array('url' => 'user/' . $user->user_id, 'class' => 'pull-right')) }}
                         {{ Form::hidden('_method', 'DELETE') }}
                         {{ Form::submit('Delete', array('class' => 'button btn btn-warning btn-sm')) }}
                         {{ Form::close() }}
+                        -->
                       </center>
                     </td>
                   </tr>

@@ -12,6 +12,7 @@ class InternetPackage extends Model
 	protected $fillable = [
 	'internet_package',
 	'package_type',
+	'status'
 	];
 
 	public function appforms()

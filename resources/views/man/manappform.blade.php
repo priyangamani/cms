@@ -77,7 +77,13 @@
 						<div class="form-group">
 							<label for="" style="text-align: center;" class="col-sm-6 control-label">Agent Id: </label>
 							<div class="col-lg-6 col-md-6 col-sm-6">
-							  <input type="text" class="form-control" name="agent_id" id="agent_id" value="">
+							  <input type="hidden" class="form-control" name="agent_id" id="agent_id" value="">
+							  <select class="form-control" name="agent" id="agent" data-placeholder="Select" onchange="setAgentId()">
+								<option value="">Select</option>
+								  @foreach($agents as $agent)
+								  <option value="{{$agent->user_id}}">{{$agent->user_id}}-{{$agent->name}}</option>
+								  @endforeach
+								</select>
 							</div>
 						</div>
 						</div>
@@ -150,13 +156,13 @@
                           <td class="mailbox-star"><center>{{$appform->internet_package}}</center></td>
 						  <td class="mailbox-star"><center>{{$appform->user_id}}</center></td>
                           @if($appform->application_type == 1)
-                          @if($appform->ic_passport_num == 1)
-                          <td class="mailbox-star"><center>{{$appform->ic}}</center></td>
-                          @else
-                          <td class="mailbox-star"><center>{{$appform->passport}}</center></td>
-                          @endif
+							  @if($appform->ic_passport_num == 1)
+							  <td class="mailbox-star"><center>{{$appform->ic}}</center></td>
+							  @else
+							  <td class="mailbox-star"><center>{{$appform->passport}}</center></td>
+							  @endif
                           @else($appform->application_type == 11)
-                          <td class="mailbox-star"><center>{{$appform->ic}}</center></td>
+							<td class="mailbox-star"><center>{{$appform->buss_reg_num}}</center></td>
                           @endif
                           @if($appform->job_status == 1 && $appform->process_status == 1)
                           <td class="mailbox-star"><center><a href="{{route('manadmindataprofile',['user_id'=> $appform->user_id, 'appform_id'=> $appform->appform_id])}}">{{$appform->appform_id}}</a></center></td>
@@ -297,6 +303,8 @@ $(document).ready(function(){
     } );
     */
 });
-
+    function setAgentId(){
+		$('#agent_id').val($('#agent').val());
+	}
 </script>
 @endsection

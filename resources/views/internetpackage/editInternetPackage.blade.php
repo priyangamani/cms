@@ -52,6 +52,16 @@
                 </select>
               </div>
             </div>
+            <div class="form-group">
+              <label for="status" class="col-md-3 col-sm-3 control-label">Status</label>
+              <div class="col-md-9 col-sm-9">
+                <select class="form-control" name="status" id="status" data-placeholder="Select">
+                  <option value="">Select</option>
+                  <option value="Active" @if($packages->status == 'Active') selected="true" @endif>Active</option>
+                  <option value="Inactive" @if($packages->status == 'Inactive') selected="true" @endif>Inactive</option>
+                </select>
+              </div>
+            </div>
 
                 </div>
                 <input type="hidden" name="intpackage_id" value="{{$packages->intpackage_id}}">
@@ -79,9 +89,9 @@
 <script>
   $('#frm-package-edit').on('submit',function(e){
     e.preventDefault();
-    console.log('pressed');
+    //console.log('pressed');
     var data = $(this).serialize();
-    console.log(data);
+    //console.log(data);
     var formData = new FormData($(this)[0]);
 
     $.ajax({
@@ -90,10 +100,10 @@
       data: formData,
       async: false,
       success: function(response){
-        console.log(response);
+        //console.log(response);
         $("[data-dismiss = modal]").trigger({type: "click"});
-          swal('SUCCESS', 'Internet Package Updated', 'success').then(function() {
-        window.location.replace("{{route('intpackage')}}");
+			swal('SUCCESS', 'Internet Package Updated', 'success').then(function() {
+			window.location.replace("{{route('intpackage')}}");
          });
 
       },
