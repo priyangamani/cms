@@ -196,7 +196,7 @@
                     <div class="form-group">
                       <label for="email_address" class="col-sm-3 control-label">Email Address: </label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="email_address" id="email_address" required>
+                        <input type="mail" class="form-control" name="email_address" id="email_address" required>
                       </div>
                     </div>
 
@@ -400,7 +400,7 @@
                     <div class="form-group">
                       <label for="email_address" class="col-sm-3 control-label">Email Address: </label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="email_address" id="email_address" required>
+                        <input type="mail" class="form-control" name="email_address" id="email_address" required>
                       </div>
                     </div>
 
@@ -493,38 +493,9 @@
       $('#business_sales_activity').val($(this).val());
     });
 
-    $('#frm-residential-create').on('submit',function(e)
-    {
       //e.preventDefault();
       //console.log('pressed');
-      if($('#frm-residential-create')[0].checkValidity() == true){
-		  var data = $(this).serialize();
-		  //console.log(data);
-		  var formData = new FormData($(this)[0]);
-		  //console.log(formData);
-
-		  $.ajax(
-		  {
-			url:"{{route('createAdminAppformDetail',['user_id'=> $admins->user_id])}}", 
-			type: "POST",
-			data: formData,
-			async: false,
-			success: function(response)
-			{
-			  console.log(response);
-			  $("[data-dismiss = modal]").trigger({type: "click"});
-			  swal('SUCCESS', 'Appform Added', 'success').then(function() 
-			  {
-			   window.location.replace("{{route('adminappforms',['user_id'=> $admins->user_id])}}");
-			 });
-
-			},
-			cache: false,
-			contentType: false,
-			processData: false,
-		  });
-		}
-    });
+      //if($('#frm-residential-create')[0].checkValidity() == true){
 
     // $('#frm-business-creates').on('submit',function(e){
 	$('#frm-business-create').validate({
@@ -559,6 +530,35 @@
 			  });
 		}
     });
+
+	$('#frm-residential-create').validate({
+		ignore: "div[class=tab-pane]:not(.active) input",
+		submitHandler: function(form) {
+		  var data = $(form).serialize();
+		  var formData = new FormData($(form)[0]);
+
+		  $.ajax(
+		  {
+			url:"{{route('createAdminAppformDetail',['user_id'=> $admins->user_id])}}", 
+			type: "POST",
+			data: formData,
+			async: false,
+			success: function(response)
+			{
+			  $("[data-dismiss = modal]").trigger({type: "click"});
+			  swal('SUCCESS', 'Appform Added', 'success').then(function() 
+			  {
+			   window.location.replace("{{route('adminappforms',['user_id'=> $admins->user_id])}}");
+			 });
+			},
+			cache: false,
+			contentType: false,
+			processData: false,
+		  });
+		}
+    });
+
+
   });
 
 </script>

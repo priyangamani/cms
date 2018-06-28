@@ -196,7 +196,7 @@
                     <div class="form-group">
                       <label for="email_address" class="col-sm-3 control-label">Email Address: </label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="email_address" id="email_address" required>
+                        <input type="mail" class="form-control" name="email_address" id="email_address" required>
                       </div>
                     </div>
 
@@ -402,7 +402,7 @@
                     <div class="form-group">
                       <label for="email_address" class="col-sm-3 control-label">Email Address: </label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="email_address" id="email_address" required>
+                        <input type="mail" class="form-control" name="email_address" id="email_address" required>
                       </div>
                     </div>
 

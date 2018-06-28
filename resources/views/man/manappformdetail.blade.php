@@ -196,7 +196,7 @@
                     <div class="form-group">
                       <label for="email_address" class="col-sm-3 control-label">Email Address: </label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="email_address" id="email_address" required>
+                        <input type="mail" class="form-control" name="email_address" id="email_address" required>
                       </div>
                     </div>
 
@@ -400,7 +400,7 @@
                     <div class="form-group">
                       <label for="email_address" class="col-sm-3 control-label">Email Address: </label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="email_address" id="email_address" required>
+                        <input type="mail" class="form-control" name="email_address" id="email_address" required>
                       </div>
                     </div>
 
@@ -492,35 +492,31 @@
       $('#resident_sales_activity').val($(this).val());
       $('#business_sales_activity').val($(this).val());
     });
-
-    /* $('#frm-residential-create').on('submit',function(e)
-    { */
+    
 	$('#frm-residential-create').validate({
 		ignore: "div[class=tab-pane]:not(.active) input",
-      //e.preventDefault();
-      //console.log('pressed');
-      //if($('#frm-residential-create')[0].checkValidity() == true){
-      submitHandler: function(form) {
-		  var data = $(this).serialize();
-		  //console.log(data);
-		  var formData = new FormData($(this)[0]);
-		  //console.log(formData);
+		  rules: {
+			email_address: {
+			  required: true,
+			  email: true
+			}
+		  },
+		submitHandler: function(form) {
+		  var data = $(form).serialize();
+		  var formData = new FormData($(form)[0]);
 
-		  $.ajax(
-		  {
-			url:"{{route('createManAppformDetail',['user_id'=> $man->user_id])}}", 
+		  $.ajax({
+			url:"{{route('createManAppformDetail',['user_id'=> $man->user_id])}}",
 			type: "POST",
 			data: formData,
 			async: false,
 			success: function(response)
 			{
-			  //console.log(response);
 			  $("[data-dismiss = modal]").trigger({type: "click"});
-			  swal('SUCCESS', 'Appform Added', 'success').then(function() 
+			  swal('SUCCESS', 'Appform Added', 'success').then(function()
 			  {
 			   window.location.replace("{{route('manappform',['user_id'=> $man->user_id])}}");
 			 });
-
 			},
 			cache: false,
 			contentType: false,
@@ -529,18 +525,17 @@
 		}
     });
 
-    // $('#frm-business-creates').on('submit',function(e){
 	$('#frm-business-create').validate({
 		ignore: "div[class=tab-pane]:not(.active) input",
+		  rules: {
+			email_address: {
+			  required: true,
+			  email: true
+			}
+		  },
 		submitHandler: function(form) {
-			//e.preventDefault();
-			//if($('#frm-business-create')[0].checkValidity() == true)
-			  //console.log('pressed');
 			  var data = $(form).serialize();
-			  //console.log(data);
 			  var formData = new FormData($(form)[0]);
-			  //console.log(formData);
-
 			  $.ajax(
 			  {
 				url:"{{route('createManAppformDetail',['user_id'=> $man->user_id])}}", 
@@ -549,7 +544,6 @@
 				async: false,
 				success: function(response)
 				{
-				  //console.log(response);
 				  $("[data-dismiss = modal]").trigger({type: "click"});
 				  swal('SUCCESS', 'Appform Added', 'success').then(function() {
 				   window.location.replace("{{route('manappform')}}");

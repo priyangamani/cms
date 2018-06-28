@@ -275,7 +275,7 @@ $('#frm-profile-edit').on('submit',function(e){
     // formData.append('product_desc', CKEDITOR.instances.product_desc.getData());
 
     $.ajax({
-      url:"{{route('updateApplicationForm',['user_id'=> $managers->user_id,'appform_id'=> $appforms->appform_id])}}", 
+      url:"{{route('updateManApplicationForm',['user_id'=> $managers->user_id,'appform_id'=> $appforms->appform_id])}}", 
       type: "POST",
       data: formData,
       async: false,

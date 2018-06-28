@@ -198,7 +198,7 @@
                         <div class="form-group">
                           <label for="email_address" class="col-sm-3 control-label">Email Address: </label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" name="email_address" id="email_address" value="{{$appforms->email_address}}" disabled>
+                            <input type="mail" class="form-control" name="email_address" id="email_address" value="{{$appforms->email_address}}" disabled>
                           </div>
                         </div>
 

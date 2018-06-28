@@ -21,7 +21,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   {!!Html::style('css/ionicons.min.css')!!}
   <!-- datatables -->
   {!!Html::style('css/jquery.dataTables.css')!!}
-  <!-- {!!Html::style('css/dataTables.bootstrap.min.css')!!} -->
+  <!-- ('css/dataTables.bootstrap.min.css') -->
 
   {!!Html::style('sweetalert2/dist/sweetalert2.min.css')!!}
 
