@@ -78,11 +78,16 @@
 						<div class="form-group">
 							<label for="" style="text-align: center;" class="col-sm-6 control-label">Agent Id: </label>
 							<div class="col-lg-6 col-md-6 col-sm-6">
-							  <input type="text" class="form-control" name="agent_id" id="agent_id" value="">
+							  <input type="hidden" class="form-control" name="agent_id" id="agent_id" value="">
+							  <select class="form-control" name="agent" id="agent" data-placeholder="Select" onchange="setAgentId()">
+								<option value="">Select</option>
+								  @foreach($agents as $agent)
+								  <option value="{{$agent->user_id}}">{{$agent->user_id}}-{{$agent->name}}</option>
+								  @endforeach
+								</select>
 							</div>
 						</div>
-						</div>
-					</div>
+						</div>					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="col-lg-6 col-md-6 col-sm-6">
 						<div class="form-group">

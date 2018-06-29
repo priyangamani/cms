@@ -230,7 +230,7 @@
                             <input type="text" class="form-control" name="eform_id" id="eform_id" required>
                           </div>
                         </div>
-
+<!--
                         <div class="form-group">
                           <label for="docs_uploaded" class="col-sm-3 control-label">Document Uploaded: </label>
                           <div class="col-sm-9">
@@ -242,7 +242,7 @@
                             </select>
                           </div>
                         </div>
-                        
+-->
                       </div>
                       
                       <div role="tabpanel" class="tab-pane" id="tsr_11"></div>
@@ -267,55 +267,6 @@
                     <input type="hidden" name="sales_activity" id="business_sales_activity" value="">
                     <input type="hidden" name="existing_service" id="business_existing_service" value="">
                     <input type="hidden" name="business_type" id="business_type" value="">
-
-                    <div class="form-group">
-                      <label for="existing_service" class="col-sm-3 control-label">Business Type </label>
-                      <div class="col-sm-9">
-                        <ul class="nav nav-pills" role="tablist">
-                          <li role="presentation"><a href="#bus_type_1" aria-controls="bus_type_1" role="tab" data-toggle="tab" onclick="document.getElementById('business_type').value='1'">Local</a></li>
-                          <li role="presentation"><a href="#bus_type_2" aria-controls="bus_type_2" role="tab" data-toggle="tab" onclick="document.getElementById('business_type').value='11'">Foreigner</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="tab-content">
-                      <div role="tabpanel" class="tab-pane" id="bus_type_1">
-						<div class="form-group">
-						  <label for="ic" class="col-sm-3 control-label">IC </label>
-						  <div class="col-sm-9">
-							<input type="text" class="form-control" name="ic" id="ic" required>
-						  </div>
-						</div>
-                      </div>
-                      <div role="tabpanel" class="tab-pane" id="bus_type_2">
-						<div class="form-group">
-						  <label for="passport" class="col-sm-3 control-label">Passport No: </label>
-						  <div class="col-sm-9">
-							<input type="text" class="form-control" name="passport" id="passport" required>
-						  </div>
-						</div>
-
-						<div class="form-group">
-						  <label for="nationality" class="col-sm-3 control-label">Nationality: </label>
-						  <div class="col-sm-9">
-							<input type="text" class="form-control" name="nationality" id="nationality" required>
-						  </div>
-						</div>
-
-						<div class="form-group">
-						  <label for="date_of_birth" class="col-sm-3 control-label">DOB: </label>
-						  <div class="col-sm-9">
-							<input type="date" class="form-control" name="date_of_birth" id="date_of_birth" required>
-						  </div>
-						</div>
-
-						<div class="form-group">
-						  <label for="passport_exp_date" class="col-sm-3 control-label">Passport Exp Date: </label>
-						  <div class="col-sm-9">
-							<input type="date" class="form-control" name="passport_exp_date" id="passport_exp_date" required>
-						  </div>
-						</div>
-                      </div>
-                     </div>
 
                     <div class="form-group">
                       <label for="existing_service" class="col-sm-3 control-label">Existing Service </label>
@@ -368,6 +319,55 @@
                         <input type="text" class="form-control" name="buss_reg_num" id="buss_reg_num" required>
                       </div>
                     </div>
+
+                    <div class="form-group">
+                      <label for="existing_service" class="col-sm-3 control-label">Business Type </label>
+                      <div class="col-sm-9">
+                        <ul class="nav nav-pills" role="tablist">
+                          <li role="presentation"><a href="#bus_type_1" aria-controls="bus_type_1" role="tab" data-toggle="tab" onclick="document.getElementById('business_type').value='1'">Local</a></li>
+                          <li role="presentation"><a href="#bus_type_2" aria-controls="bus_type_2" role="tab" data-toggle="tab" onclick="document.getElementById('business_type').value='11'">Foreigner</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane" id="bus_type_1">
+						<div class="form-group">
+						  <label for="ic" class="col-sm-3 control-label">IC </label>
+						  <div class="col-sm-9">
+							<input type="text" class="form-control" name="ic" id="ic" required>
+						  </div>
+						</div>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="bus_type_2">
+						<div class="form-group">
+						  <label for="passport" class="col-sm-3 control-label">Passport No: </label>
+						  <div class="col-sm-9">
+							<input type="text" class="form-control" name="passport" id="passport" required>
+						  </div>
+						</div>
+
+						<div class="form-group">
+						  <label for="nationality" class="col-sm-3 control-label">Nationality: </label>
+						  <div class="col-sm-9">
+							<input type="text" class="form-control" name="nationality" id="nationality" required>
+						  </div>
+						</div>
+
+						<div class="form-group">
+						  <label for="date_of_birth" class="col-sm-3 control-label">DOB: </label>
+						  <div class="col-sm-9">
+							<input type="date" class="form-control" name="date_of_birth" id="date_of_birth" required>
+						  </div>
+						</div>
+
+						<div class="form-group">
+						  <label for="passport_exp_date" class="col-sm-3 control-label">Passport Exp Date: </label>
+						  <div class="col-sm-9">
+							<input type="date" class="form-control" name="passport_exp_date" id="passport_exp_date" required>
+						  </div>
+						</div>
+                      </div>
+                     </div>
 
                     <div class="form-group">
                       <label for="applicant_name" class="col-sm-3 control-label">Director Name: </label>
