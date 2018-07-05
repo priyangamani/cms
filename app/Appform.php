@@ -178,4 +178,9 @@ class Appform extends Model
     {
         return $this->belongsTo('App\RunnerEformStatus','runnereformstatus');
     }
+    public function countries()
+    {
+        return $this->belongsTo('App\Countries','nationality');
+    }    
+
 }

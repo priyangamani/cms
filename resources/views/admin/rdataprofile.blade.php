@@ -126,7 +126,7 @@
 
                           <dl class="dl-horizontal form-group">
                             <dt>Nationality :</dt>
-                            <dd>{{$appforms->nationality}}</dd>
+                            <dd>{{$appforms->countries->nationality}}</dd>
                           </dl>
 
                           <dl class="dl-horizontal form-group">

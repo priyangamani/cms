@@ -26,6 +26,7 @@ use App\AdminFinal;
 use App\AgentEformStatus;
 use App\AdminEformStatus;
 use App\RunnerEformStatus;
+use App\Countries;
 use PDF;
 
 class AppformController extends Controller
@@ -115,8 +116,8 @@ class AppformController extends Controller
         $agentefs = AgentEformStatus::all();
         $adminefs = AdminEformStatus::all();
         $runnerefs = RunnerEformStatus::all();
-
-        return view('agent.agentappformdetail', compact('appformdetails','agents','packages','intpackages','activities','thumbprints','apptypes','docsups','exservs','icpass','runners','jobstatus','agentefs','adminefs','runnerefs'));
+		$countries = Countries::all();
+        return view('agent.agentappformdetail', compact('appformdetails','agents','packages','intpackages','activities','thumbprints','apptypes','docsups','exservs','icpass','runners','jobstatus','agentefs','adminefs','runnerefs','countries'));
     }
 
     public function getDataProfile($user_id, $appform_id, Request $request)
@@ -390,8 +391,8 @@ class AppformController extends Controller
         $agentefs = AgentEformStatus::all();
         $adminefs = AdminEformStatus::all();
         $runnerefs = RunnerEformStatus::all();
-
-        return view('admin.adminappformdetail', compact('appformdetails','admins','packages','intpackages','agents','runners','activities','thumbprints','apptypes','docsups','exservs','icpass','jobstatus','agentefs','adminefs','runnerefs'));
+		$countries = Countries::all();
+        return view('admin.adminappformdetail', compact('appformdetails','admins','packages','intpackages','agents','runners','activities','thumbprints','apptypes','docsups','exservs','icpass','jobstatus','agentefs','adminefs','runnerefs','countries'));
     }
 
     public function getAdminAppform($user_id, Request $request)
@@ -694,8 +695,8 @@ class AppformController extends Controller
         $agentefs = AgentEformStatus::all();
         $adminefs = AdminEformStatus::all();
         $runnerefs = RunnerEformStatus::all();
-
-        return view('man.manappformdetail', compact('appformdetails','man','packages','intpackages','agents','runners','activities','thumbprints','apptypes','docsups','exservs','icpass','jobstatus','agentefs','adminefs','runnerefs'));
+		$countries = Countries::all();
+        return view('man.manappformdetail', compact('appformdetails','man','packages','intpackages','agents','runners','activities','thumbprints','apptypes','docsups','exservs','icpass','jobstatus','agentefs','adminefs','runnerefs','countries'));
     }
 
     public function getManDataProfile($user_id, $appform_id, Request $request)

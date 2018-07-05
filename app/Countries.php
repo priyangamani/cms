@@ -11,11 +11,18 @@ class Countries extends Model
     //public $timestamp = 'true';
     protected $fillable = [
     	'country_code',
-    	'country_name'
+    	'country_name',
+    	'nationality_code',
+    	'nationality'
     ];
 
     public function users()
     {
         return $this->belongsTo('App\User','country_of_issue');
+    } 
+
+    public function appforms()
+    {
+        return $this->belongsTo('App\AppForm','nationality');
     } 
 }

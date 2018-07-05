@@ -158,7 +158,12 @@
                         <div class="form-group">
                           <label for="nationality" class="col-sm-3 control-label">Nationality: </label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" name="nationality" id="nationality" required>
+							<select class="form-control" name="nationality" id="nationality" data-placeholder="Select" required>
+								<option value="">Select</option>
+								  @foreach($countries as $country)
+								  <option value="{{$country->id}}">{{$country->nationality}}</option>
+								  @endforeach
+							</select>
                           </div>
                         </div>
 
@@ -349,7 +354,12 @@
 						<div class="form-group">
 						  <label for="nationality" class="col-sm-3 control-label">Nationality: </label>
 						  <div class="col-sm-9">
-							<input type="text" class="form-control" name="nationality" id="nationality" required>
+							<select class="form-control" name="nationality" id="nationality" data-placeholder="Select" required>
+								<option value="">Select</option>
+								  @foreach($countries as $country)
+								  <option value="{{$country->id}}">{{$country->nationality}}</option>
+								  @endforeach
+							</select>
 						  </div>
 						</div>
 
