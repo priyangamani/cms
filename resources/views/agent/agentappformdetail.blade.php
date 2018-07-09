@@ -444,7 +444,7 @@
                         <div class="form-group">
                           <label for="eform_id" class="col-sm-3 control-label">E-Form ID: </label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" name="eform_id" id="eform_id" required>
+                            <input type="text" class="form-control" name="eform_id" id="eform_id" required minlength="14" maxlength="14">
                           </div>
                         </div>
 

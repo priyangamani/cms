@@ -136,7 +136,15 @@
             <div class="form-group">
               <label for="phonenumber" class="col-sm-3 control-label">Phone Number: </label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" name="phonenumber" id="phonenumber" required>
+				  <div class="input-group" style="width: 100%">
+					<select class="form-control" name="phonecode" id="phonecode" data-placeholder="Select" style="width: 25%">
+						<option value="" selected="true">Select</option>
+						@for ($i = 0; $i < 10; $i++)
+							<option value="01{{$i}}">01{{$i}}</option>
+						@endfor
+					</select>
+					<input type="text" class="form-control" name="phonenumber" maxlength="8" minlength="8" id="phonenumber" required  style="width: 75%">
+				  </div>
               </div>
             </div>  
 
@@ -266,6 +274,18 @@
 <script>
   $(document).ready(function(){
     $('#user-table').DataTable();
+
+    $('#phonecode').on("change",function(e) {
+		$('#phonenumber').val('');
+		if($('#phonecode').val() == '011') {
+			$('#phonenumber').attr('minlength','8');
+			$('#phonenumber').attr('maxlength','8');
+		} else {
+			$('#phonenumber').attr('minlength','7');
+			$('#phonenumber').attr('maxlength','7');
+		}
+	});
+
     $('#frm-user-create').on('submit',function(e)
     {
       e.preventDefault();

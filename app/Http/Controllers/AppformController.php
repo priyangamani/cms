@@ -41,6 +41,7 @@ class AppformController extends Controller
         if($request->ajax()){
             $appformdetails = new Appform;
             $appformdetails->user_id= $user_id;
+            //$appformdetails->transaction_id= $user_id;
             $appformdetails->sales_activity= $request->sales_activity;
             $appformdetails->application_type= $request->application_type;
             $appformdetails->existing_service= $request->existing_service;
@@ -93,7 +94,25 @@ class AppformController extends Controller
             }
 
 
-            $appformdetails->save();
+            if($appformdetails->save()) {
+				//$appform_id = Response::json(array('success' => true, 'last_insert_id' => $data->appform_id), 200);
+				//$appform_id_obj = response()->json($appformdetails->appform_id,  201);
+				$appform_id = $appformdetails->appform_id;
+				$transaction_id_prefix = "1000";
+				$transaction_id = $transaction_id_prefix.$appform_id;
+/*
+				$appform = new Appform;
+				$appformdetails = $appform->updateTransactionId($appform_id,$transaction_id);
+ 				Appform::where('appform_id', $appform_id)
+						  ->update(['transaction_id' => '1000']);
+				$flight = Appform::find($appform_id);
+				$flight->transaction_id = '1000';
+				$flight->save();
+*/
+				$appformdetailz = Appform::where('appform_id', $appform_id)->first();
+				$appformdetailz->transaction_id = $transaction_id;
+				$appformdetailz->save();
+			}
             return response($appformdetails);
         }
     }
@@ -139,7 +158,7 @@ class AppformController extends Controller
         $runnerefs = RunnerEformStatus::all();
 
         if($appforms->application_type == 1)
-        return view('agent.rdataprofile', compact('appforms','agents','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','runners','jobstatus','agentefs','adminefs','runnerefs'));
+			return view('agent.rdataprofile', compact('appforms','agents','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','runners','jobstatus','agentefs','adminefs','runnerefs'));
         else{
             return view('agent.bdataprofile', compact('appforms','agents','packages','activities','thumbprints','apptypes','docsups','exservs','icpass','runners','jobstatus','agentefs','adminefs','runnerefs'));
         }

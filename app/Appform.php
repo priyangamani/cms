@@ -10,6 +10,7 @@ class Appform extends Model
     protected $primaryKey = 'appform_id';
     public $timestamp = 'true';
     protected $fillable = [
+    'transaction_id',
     'sales_activity',
     'user_id',
     'application_type',

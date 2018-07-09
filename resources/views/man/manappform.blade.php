@@ -107,8 +107,16 @@
 						</div>
                      </div>
                     <div class="col-lg-12 col-md-12 col-sm-12"> 
+						<div class="col-lg-6 col-md-6 col-sm-6">
 						<div class="form-group">
-							<div class="col-md-offset-9 col-sm-3">
+							<label for="" style="text-align: center;" class="col-sm-6 control-label">Transaction No: </label>
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<input type="text" class="form-control" name="transaction_no" id="transaction_no" value="">
+							</div>
+						</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-offset-3 col-sm-3">
 								<button type="button" style="float:right" class="btn btn-primary" name="search" id="search" value="Search">Search</button>
 							</div>
 						</div>
@@ -125,6 +133,7 @@
                             <th class="mailbox-name"><center>Product</center></th>
                             <th class="mailbox-name"><center>Agent ID</center></th>
                             <th class="mailbox-name"><center>Customer ID</center></th>
+                            <th class="mailbox-name"><center>Transaction No</center></th>
                             <th class="mailbox-name"><center>Order No</center></th>
                             <th class="mailbox-name"><center>Processing Status</center></th>
                             <th class="mailbox-name"><center>Thumbprint Status</center></th>
@@ -140,6 +149,7 @@
                             <th class=""></th>
                             <th id="agentId" class="">Agent ID</th>
                             <th id="customerId" class="">Customer ID</th>
+                            <th id="transactionId" class="">Transaction ID</th>
                             <th id="orderNo" class="">Order No</th>
                             <th class=""></th>
                             <th class=""></th>
@@ -164,6 +174,7 @@
                           @else($appform->application_type == 11)
 							<td class="mailbox-star"><center>{{$appform->buss_reg_num}}</center></td>
                           @endif
+                          <td class="mailbox-star"><center>{{$appform->transaction_id}}</center></td>
                           @if($appform->job_status == 1 && $appform->process_status == 1)
                           <td class="mailbox-star"><center><a href="{{route('manadmindataprofile',['user_id'=> $appform->user_id, 'appform_id'=> $appform->appform_id])}}">{{$appform->appform_id}}</a></center></td>
                           @else($appform->thumbprint_coll == 1 && $appform->docs_uploaded == 1 && $appform->job_status == 21 || $appform->process_status == 11)
@@ -244,6 +255,7 @@ $(document).ready(function(){
 		$('#customerId input').val($('#customer_id').val());
 		$('#agentId input').val($('#agent_id').val());
 		$('#customerName input').val($('#customer_name').val());
+		$('#transactionId input').val($('#transaction_no').val());
 		// Apply the search
 		var i=0;
 		table.columns().every( function () {
@@ -255,8 +267,7 @@ $(document).ready(function(){
 					that.search( $(searchHead).find('input').val() ).draw();
 				}
 			//} );
-		} );
-
+		});
 	});
     $('#frm-appform-create').on('submit',function(e)
     {

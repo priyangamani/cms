@@ -129,7 +129,20 @@
                   <div class="form-group">
                     <label for="phonenumber" class="col-sm-3 cold-md-3 col-lg-3 control-label">Phone Number</label>
                     <div class="col-sm-9 col-md-9 col-lg-9">
-                      <input type="text" class="form-control" name="phonenumber" id="phonenumber" value="{{$users->phonenumber}}">
+					  <div class="input-group" style="width: 100%">
+						<select class="form-control" name="phonecode" id="phonecode" data-placeholder="Select" style="width: 25%">
+							<option value="">Select</option>
+							@for ($i = 0; $i < 10; $i++)
+								<option value="01{{$i}}" @if($users->phonecode == "01".$i) selected @endif>01{{$i}}</option>
+							@endfor
+						</select>
+						@if($users->phonecode == '011')
+							<?php $len = 8; ?>
+						@else
+							<?php $len = 7; ?>
+						@endif
+						<input type="text" class="form-control" name="phonenumber" maxlength="{{$len}}" minlength="{{$len}}" id="phonenumber" required  style="width: 75%" value="{{$users->phonenumber}}">
+					  </div>
                     </div>
                   </div>
 
@@ -176,7 +189,18 @@
 
 @section('script')
 <script>
-
+  $(document).ready(function(){
+    $('#phonecode').on("change",function(e) {
+		$('#phonenumber').val('');
+		if($('#phonecode').val() == '011') {
+			$('#phonenumber').attr('minlength','8');
+			$('#phonenumber').attr('maxlength','8');
+		} else {
+			$('#phonenumber').attr('minlength','7');
+			$('#phonenumber').attr('maxlength','7');
+		}
+	})
+  });
   $('#frm-user-edit').on('submit',function(e){
     e.preventDefault();
     //console.log('pressed');

@@ -40,6 +40,7 @@ class UserController extends Controller
             $users->expiry_date = $request->expiry_date;
             $users->dob = $request->dob;
             $users->phonenumber = $request->phonenumber;
+            $users->phonecode = $request->phonecode;
             $users->address = $request->address;
             $users->email = $request->email;
             $users->state = $request->state;
@@ -93,6 +94,7 @@ class UserController extends Controller
             $users->name = $request->name;
             $users->email = $request->email;
             $users->phonenumber = $request->phonenumber;
+            $users->phonecode = $request->phonecode;
             $users->address = $request->address;
             $users->active = $request->active;
             $users->save();

@@ -98,7 +98,7 @@
                     <div class="form-group">
                       <label for="streamyx_package" class="col-sm-3 control-label">Package: </label>
                       <div class="col-sm-9">
-                        <select class="form-control" name="streamyx_package" id="streamyx_package" data-placeholder="Select">
+                        <select class="form-control" name="streamyx_package" id="streamyx_package" data-placeholder="Select" required="true">
                           <option value="">Select</option>
                           @foreach($packages as $package)
                           <option value="{{$package->intpackage_id}}">{{$package->internet_package}}</option>
@@ -504,7 +504,7 @@
     });
     
 	$('#frm-residential-create').validate({
-		ignore: "div[class=tab-pane]:not(.active) input",
+		ignore: "div[class=tab-pane]:not(.active) input, div[class=tab-pane]:not(.active) select",
 		  rules: {
 			email_address: {
 			  required: true,
@@ -536,7 +536,7 @@
     });
 
 	$('#frm-business-create').validate({
-		ignore: "div[class=tab-pane]:not(.active) input",
+		ignore: "div[class=tab-pane]:not(.active) input, div[class=tab-pane]:not(.active)  select",
 		  rules: {
 			email_address: {
 			  required: true,
